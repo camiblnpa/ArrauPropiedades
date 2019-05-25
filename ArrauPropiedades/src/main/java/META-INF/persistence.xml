@@ -10,5 +10,23 @@
 		<class>ubb.gpsw.arrauPropiedades.model.InteresadoPropiedad</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Propiedad</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Tipo</class>
+
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL57Dialect" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="12d3Enero!1997" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost/arrauInmobiliaria" />
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+
+		</properties>
+
 	</persistence-unit>
 </persistence>
