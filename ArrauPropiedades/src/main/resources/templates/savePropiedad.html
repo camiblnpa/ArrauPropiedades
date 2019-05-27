@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Propiedades</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/savePropiedad}" th:object="${propiedad}"
+			method="post">
+			<div class="form=group">
+				<label for="nombre">Precio</label> <input type="text"
+					class="form-control" id="precio" name="precio">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Dimension del terreno</label> <input
+					type="text" class="form-control" id="dimTerreno" name="dimTerreno">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Area construida</label> <input
+					type="text" class="form-control" id="dimConstruccion"
+					name="dimConstruccion">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Calle</label> <input type="text"
+					class="form-control" id="calle" name="calle">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Numero</label> <input type="text"
+					class="form-control" id="numero" name="numero">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Numero departamento</label> <input
+					type="text" class="form-control" id="numDepartamento"
+					name="numDepartamento">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Ciudad</label> <input type="text"
+					class="form-control" id="ciudad" name="ciudad">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Comuna</label> <input type="text"
+					class="form-control" id="comuna" name="comuna">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Region</label> <input type="text"
+					class="form-control" id="region" name="region">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Latitud</label> <input type="text"
+					class="form-control" id="latitud" name="latitud">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Longitud</label> <input type="text"
+					class="form-control" id="longitud" name="longitud">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Inmobiliaria</label> <input type="text"
+					class="form-control" id="inmobiliaria" name="inmobiliaria">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Tipo de propiedad</label> <input type="text"
+					class="form-control" id="tipoPropiedad" name="tipoPropiedad">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Destinacion</label> <input type="text"
+					class="form-control" id="destinacion" name="destinacion">
+			</div>
+			<button type="submit">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>

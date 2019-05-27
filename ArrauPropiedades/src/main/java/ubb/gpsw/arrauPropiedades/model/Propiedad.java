@@ -17,33 +17,35 @@ public class Propiedad implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idPropiedad;
 
+	private int precio;
+
+	private int dimTerreno;
+
+	private int dimConstruccion;
+
 	private String calle;
+
+	private String numero;
+
+	private String numDepartamento;
 
 	private String ciudad;
 
 	private String comuna;
 
-	private int destinacion;
-
-	private int dimConstruccion;
-
-	private int dimTerreno;
-
-	private int inmobiliaria;
+	private String region;
 
 	private String latitud;
 
 	private String longitud;
 
-	private String numDepartamento;
-
-	private String numero;
-
-	private int precio;
-
-	private String region;
+	private int inmobiliaria;
 
 	private int tipoPropiedad;
+
+	private int destinacion;
+
+
 
 	public Propiedad() {
 	}
