@@ -9,12 +9,12 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
-public class Propiedad implements Serializable {
-	private static final long serialVersionUID = 1L;
+//@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
+public class Propiedad {
+	//private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idPropiedad;
 
 	private int precio;

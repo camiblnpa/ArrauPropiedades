@@ -12,7 +12,6 @@ import ubb.gpsw.arrauPropiedades.model.Interesado;
 import ubb.gpsw.arrauPropiedades.service.InteresadoService;
 
 @Controller
-//@RequestMapping(value = "/interesado", name = "/interesado")
 public class InteresadoController {
 	
 	@Autowired
@@ -28,6 +27,8 @@ public class InteresadoController {
 	public String showSave(@PathVariable("id")int id, Model model) {
 		if(id!=0) {
 			model.addAttribute("interesado",intService.get(id));
+		} else {
+			model.addAttribute("interesado",new Interesado());
 		}
 		return "save";
 	}

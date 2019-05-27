@@ -1,6 +1,5 @@
 package ubb.gpsw.arrauPropiedades.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,12 +9,11 @@ import java.util.Date;
  * 
  */
 @Entity
-@NamedQuery(name="InteresadoPropiedad.findAll", query="SELECT i FROM InteresadoPropiedad i")
-public class InteresadoPropiedad implements Serializable {
-	private static final long serialVersionUID = 1L;
+//@NamedQuery(name="InteresadoPropiedad.findAll", query="SELECT i FROM InteresadoPropiedad i")
+public class InteresadoPropiedad {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idInteresadoPropiedad;
 
 	@Temporal(TemporalType.DATE)

@@ -1,20 +1,13 @@
 package ubb.gpsw.arrauPropiedades.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
 
-
-/**
- * The persistent class for the Interesado database table.
- * 
- */
 @Entity
-@NamedQuery(name="Interesado.findAll", query="SELECT i FROM Interesado i")
-public class Interesado implements Serializable {
-	private static final long serialVersionUID = 1L;
+//@NamedQuery(name="Interesado.findAll", query="SELECT i FROM Interesado i")
+public class Interesado {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idInteresado;
 
 	private String correo;
