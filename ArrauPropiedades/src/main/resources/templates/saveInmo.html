@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar Inmobiliaria</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/inmobiliaria/save}" th:object="${inmobiliaria}"
+			method="post">
+			<input type="hidden" th:field="*{idInmobiliaria}" name="idInmobiliaria" id="idInmobiliaria">
+			<div class="form-group">
+				<label for="fechaVenta">Fecha de Venta</label> <input type="date"
+					class="form-control" id="fechaVenta" th:field="*{fechaVenta}" name="fechaVenta">
+			</div>
+			<div class="form-group">
+				<label for="fechaRegistro">Fecha de Registro</label> <input type="date"
+					class="form-control" id="fechaRegistro" th:field="*{fechaRegistro}" name="fechaRegistro">
+			</div>
+			<div class="form-group">
+				<label for="tipoDestinacion">Tipo de Destinación</label> <input type="text"
+					class="form-control" id="tipoDestinacion" th:field="*{tipoDestinacion}" name="tipoDestinacion">
+			</div>
+			<button type="submit">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>
