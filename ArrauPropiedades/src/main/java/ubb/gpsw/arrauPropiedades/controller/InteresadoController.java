@@ -17,32 +17,32 @@ public class InteresadoController {
 	@Autowired
 	private InteresadoService intService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/interesado")
 	public String index(Model model) {
 		model.addAttribute("list",intService.getAll());
-		return "index";
+		return "indexInteresado";
 	}
 	
-	@GetMapping("/save/{id}")
+	@GetMapping("/interesado/save/{id}")
 	public String showSave(@PathVariable("id")int id, Model model) {
 		if(id!=0) {
 			model.addAttribute("interesado",intService.get(id));
 		} else {
 			model.addAttribute("interesado",new Interesado());
 		}
-		return "save";
+		return "saveInteresado";
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/interesado/save")
 	public String save(Interesado interesado, Model model) {
 		intService.save(interesado);
-		return "redirect:/";
+		return "redirect:/interesado";
 	}
 	
-	@GetMapping("/delete/{id}")
+	@GetMapping("/interesado/delete/{id}")
 	public String delete(@PathVariable Integer id, Model model) {
 		intService.delete(id);
-		return "redirect:/";
+		return "redirect:/interesado";
 	}
 	
 }
