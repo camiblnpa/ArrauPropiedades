@@ -39,7 +39,7 @@ public class InmobiliariaController {
 		return "redirect:/inmobiliaria";
 	}
 
-	@GetMapping("/inmobiliaria/deleteInmobiliaria/{id}")
+	@GetMapping("/inmobiliaria/delete/{id}")
 	public String delete(@PathVariable Integer id, Model model) {
 		inmoService.delete(id);
 		return"redirect:/inmobiliaria";
