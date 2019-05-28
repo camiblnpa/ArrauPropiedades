@@ -1,7 +1,9 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import javax.persistence.*;
-import java.util.Date;
+
+import java.sql.Date;
+
 
 
 /**
@@ -16,7 +18,6 @@ public class InteresadoPropiedad {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idInteresadoPropiedad;
 
-	@Temporal(TemporalType.DATE)
 	private Date fechaContacto;
 
 	private int interesado;

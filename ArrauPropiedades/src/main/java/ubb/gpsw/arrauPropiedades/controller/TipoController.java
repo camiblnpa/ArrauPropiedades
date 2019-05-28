@@ -26,11 +26,28 @@ public class TipoController {
 	@GetMapping("/tipo/save/{id}")
 	public String showSave(@PathVariable("id")int id, Model model) {
 		if(id!=0) {
-			model.addAttribute("Tipo",tipoService.get(id));
+			model.addAttribute("tipo",tipoService.get(id));
 		} else {
-			model.addAttribute("Tipo",new Tipo());
+			model.addAttribute("tipo",new Tipo());
 		}
 		return "saveTipo";
+	}
+	
+	@PostMapping("/tipo/save")
+	public String save(Tipo tipo, Model model) {
+		tipoService.save(tipo);
+		return "redirect:/tipo";
+	}
+	
+	@GetMapping("/tipo/delete/{id}")
+	public String delete(@PathVariable Integer id, Model model) {
+		try{
+			tipoService.delete(id);
+			return "redirect:/tipo";
+		}
+		catch(Exception ExceptionMapperStandardImpl) {
+			return "mensajeError";
+		}
 	}
 	
 	

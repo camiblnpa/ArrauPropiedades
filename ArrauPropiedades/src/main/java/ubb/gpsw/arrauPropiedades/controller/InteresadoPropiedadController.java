@@ -36,13 +36,13 @@ public class InteresadoPropiedadController {
 	@PostMapping("/saveIP")
 	public String save(InteresadoPropiedad interesadoPropiedad, Model model) {
 		intPropService.save(interesadoPropiedad);
-		return "redirect:/";
+		return "redirect:/indexIP";
 	}
 	
 	@GetMapping("/deleteIP/{id}")
 	public String delete(@PathVariable Integer id, Model model) {
 		intPropService.delete(id);
-		return "redirect:/";
+		return "redirect:/indexIP";
 	}
 
 }

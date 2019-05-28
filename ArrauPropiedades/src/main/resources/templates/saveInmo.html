@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar Interesado</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/inmobiliaria/save}" th:object="${inmobiliaria}"
+			method="post">
+			
+			<input type="hidden" th:field="*{idInmobiliaria}" name="idInmobiliaria" id="idInmobiliaria">
+			
+			<div class="form-group">
+				<label for="nombre">Nombre</label> <input type="text"
+					class="form-control" id="nombre" th:field="*{nombre}" name="nombre">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Calle</label> <input type="text"
+					class="form-control" id="calle" th:field="*{calle}" name="calle">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Ciudad</label> <input type="text"
+					class="form-control" id="ciudad" th:field="*{ciudad}" name="ciudad">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Comuna</label> <input type="text"
+					class="form-control" id="comuna" th:field="*{comuna}" name="comuna">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Correo</label> <input type="text"
+					class="form-control" id="correo" th:field="*{correo}" name="correo">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Latitud</label> <input type="text"
+					class="form-control" id="latitud" th:field="*{latitud}" name="latitud">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Longitud</label> <input type="text"
+					class="form-control" id="longitud" th:field="*{longitud}" name="longitud">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Numero departamento</label> <input type="number"
+					class="form-control" id="numDepartamento" th:field="*{numDepartamento}" name="numDepartamento">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Número</label> <input type="text"
+					class="form-control" id="numero" th:field="*{numero}" name="numero">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Región</label> <input type="text"
+					class="form-control" id="region" th:field="*{region}" name="region">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Teléfono</label> <input type="text"
+					class="form-control" id="telefono" th:field="*{telefono}" name="telefono">
+			</div>
+			
+			<button type="submit">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>

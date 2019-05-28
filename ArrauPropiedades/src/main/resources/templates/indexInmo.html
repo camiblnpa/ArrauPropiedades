@@ -23,9 +23,18 @@
 					</thead>
 					<tbody>
 						<tr th:each="inmobiliaria : ${list}">
-							<td th:text="${inmobiliaria.nombre}"></td>
 							<td th:text="${inmobiliaria.calle}"></td>
 							<td th:text="${inmobiliaria.ciudad}"></td>
+							<td th:text="${inmobiliaria.comuna}"></td>
+							<td th:text="${inmobiliaria.correo}"></td>
+							<td th:text="${inmobiliaria.latitud}"></td>
+							<td th:text="${inmobiliaria.longitud}"></td>
+							<td th:text="${inmobiliaria.nombre}"></td>
+							<td th:text="${inmobiliaria.numDepartamento}"></td>
+							<td th:text="${inmobiliaria.numero}"></td>
+							<td th:text="${inmobiliaria.region}"></td>
+							<td th:text="${inmobiliaria.correo}"></td>
+							<td th:text="${inmobiliaria.telefono}"></td>
 							<td> <a th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}"> Editar </a> </td> 
 							<td> <a th:href="@{/inmobiliaria/delete/{id}(id=${inmobiliaria.idInmobiliaria})}"> Eliminar </a> </td>
 						</tr>

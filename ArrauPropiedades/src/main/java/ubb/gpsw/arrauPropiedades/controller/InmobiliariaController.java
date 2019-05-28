@@ -26,11 +26,23 @@ public class InmobiliariaController {
 	@GetMapping("/inmobiliaria/save/{id}")
 	public String showSave(@PathVariable("id")int id, Model model) {
 		if(id!=0) {
-			model.addAttribute("Inmobiliaria",inmoService.get(id));
+			model.addAttribute("inmobiliaria",inmoService.get(id));
 		} else {
-			model.addAttribute("Inmobiliaria",new Inmobiliaria());
+			model.addAttribute("inmobiliaria",new Inmobiliaria());
 		}
 		return "saveInmo";
+	}
+	
+	@PostMapping("/inmobiliaria/save")
+	public String save(Inmobiliaria inmobiliaria, Model model) {
+		inmoService.save(inmobiliaria);
+		return "redirect:/inmobiliaria";
+	}
+
+	@GetMapping("/inmobiliaria/deleteInmobiliaria/{id}")
+	public String delete(@PathVariable Integer id, Model model) {
+		inmoService.delete(id);
+		return"redirect:/inmobiliaria";
 	}
 	
 	

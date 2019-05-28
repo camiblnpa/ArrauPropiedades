@@ -6,10 +6,9 @@
 </head>
 <body>
 	<div>
-		<form action="#" th:action="@{/savePropiedad}" th:object="${propiedad}"
+		<form action="#" th:action="@{/propiedad/savePropiedad}" th:object="${propiedad}"
 			method="post">
 			
-			<input type="hidden" th:field="*{idPropiedad}" name="idPropiedad" id="idPropiedad">
 			
 			<div class="form=group">
 				<label for="nombre">Precio</label> <input type="text"

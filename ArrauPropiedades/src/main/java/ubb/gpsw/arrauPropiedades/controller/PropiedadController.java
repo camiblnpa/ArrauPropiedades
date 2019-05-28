@@ -23,7 +23,7 @@ public class PropiedadController {
 		return "propiedad";
 	}
 	
-	@GetMapping("/savePropiedad/{id}")
+	@GetMapping("/propiedad/savePropiedad/{id}")
 	public String showSave(@PathVariable("id") Integer id,Model model) {
 		if(id!=null && id!=0) {
 			model.addAttribute("propiedad", propiedadService.get(id));
@@ -31,13 +31,13 @@ public class PropiedadController {
 		return "savePropiedad";
 	}
 	
-	@PostMapping("/savePropiedad")
+	@PostMapping("/propiedad/savePropiedad")
 	public String save(Propiedad propiedad, Model model) {
 		propiedadService.save(propiedad);
 		return "redirect:/propiedad";
 	}
 	
-	@GetMapping("/deletePropiedad/{id}")
+	@GetMapping("/propiedad/deletePropiedad/{id}")
 	public String delete(@PathVariable Integer id, Model model) {
 		propiedadService.delete(id);
 		return"redirect:/propiedad";

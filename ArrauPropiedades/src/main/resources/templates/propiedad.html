@@ -8,9 +8,8 @@
 	<div>
 		<br>
 		<div>
-			<a href="/savePropiedad/0" class="btn btn-primary">Agregar</a>
+			<a href="/propiedad/savePropiedad/0" class="btn btn-primary">Agregar</a>
 		</div>
-		<div th:switch="${list}">
 			<h2 th:if="${list.isEmpty()}">No hay propiedades</h2>
 			<div th:if="${!list.isEmpty()}">
 				<h2>Propiedades</h2>
@@ -49,11 +48,12 @@
 							<td th:text="${propiedad.inmobiliaria}"></td>
 							<td th:text="${propiedad.tipoPropiedad}"></td>
 							<td th:text="${propiedad.destinacion}"></td>
+							<td> <a th:href="@{/propiedad/savePropiedad/{id}(id=${propiedad.idPropiedad})}">Editar</a> </td>
+							<td> <a th:href="@{/propiedad/deletePropiedad/{id}(id=${propiedad.idPropiedad})}">Eliminar</a> </td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-		</div>
 	</div>
 </body>
 </html>

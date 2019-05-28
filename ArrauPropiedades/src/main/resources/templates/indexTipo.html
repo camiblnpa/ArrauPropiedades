@@ -16,16 +16,20 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Tipos</th>
-							<!--  <th>Calle</th>
-							<th>Ciudad</th>-->
+							<th>Condición</th>
+							<th>Nombre Tipo</th>
+							<th>Numero de baños</th>
+							<th>Numero de dormitorios </th>
+							<th>Numero de estacionamientos </th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="tipo : ${list}">
 							<td th:text="${tipo.condicion}"></td>
-							<!--  <td th:text="${inmobiliaria.calle}"></td>
-							<td th:text="${inmobiliaria.ciudad}"></td>-->
+							<td th:text="${tipo.nombreTipo}"></td>
+							<td th:text="${tipo.numBanio}"></td>
+							<td th:text="${tipo.numDormitorio}"></td>
+							<td th:text="${tipo.numEstacionamiento}"></td>
 							<td> <a th:href="@{/tipo/save/{id}(id=${tipo.idTipo})}"> Editar </a> </td> 
 							<td> <a th:href="@{/tipo/delete/{id}(id=${tipo.idTipo})}"> Eliminar </a> </td>
 						</tr>
