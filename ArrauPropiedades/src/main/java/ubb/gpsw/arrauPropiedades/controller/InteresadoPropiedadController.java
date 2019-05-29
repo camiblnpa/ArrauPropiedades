@@ -17,7 +17,7 @@ public class InteresadoPropiedadController {
 	@Autowired
 	private InteresadoPropiedadService intPropService;
 	
-	@RequestMapping("/indexIP")
+	@RequestMapping("/interesadoPropiedad")
 	public String index(Model model) {
 		model.addAttribute("list",intPropService.getAll());
 		return "indexIP";
