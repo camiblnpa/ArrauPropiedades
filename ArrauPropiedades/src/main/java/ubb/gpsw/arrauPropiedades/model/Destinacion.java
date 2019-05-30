@@ -1,10 +1,13 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import java.sql.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
-@Entity
+
 //@NamedQuery(name="Destinacion.findAll", query="SELECT d FROM Destinacion d")
+@Entity
 public class Destinacion {
 	//private static final long serialVersionUID = 1L;
 
@@ -22,8 +25,17 @@ public class Destinacion {
 	
 	@Column
 	private String tipoDestinacion;
+	
+	@OneToMany(mappedBy="destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Propiedad> propiedades;
 
 	public Destinacion() {
+	}
+	
+	//Constructor utilizado por PropiedadPojo
+	public Destinacion(String tipo) {
+		super();
+		this.tipoDestinacion = tipo;
 	}
 
 	public int getIdDestinacion() {
@@ -57,6 +69,14 @@ public class Destinacion {
 
 	public void setTipoDestinacion(String tipoDestinacion) {
 		this.tipoDestinacion = tipoDestinacion;
+	}
+
+	public List<Propiedad> getPropiedades() {
+		return propiedades;
+	}
+
+	public void setPropiedades(List<Propiedad> propiedades) {
+		this.propiedades = propiedades;
 	}
 
 }

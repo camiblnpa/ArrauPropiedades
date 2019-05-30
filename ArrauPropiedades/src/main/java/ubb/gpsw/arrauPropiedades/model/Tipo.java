@@ -1,5 +1,7 @@
 package ubb.gpsw.arrauPropiedades.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -7,8 +9,9 @@ import javax.persistence.*;
  * The persistent class for the Tipo database table.
  * 
  */
-@Entity
+
 //@NamedQuery(name="Tipo.findAll", query="SELECT t FROM Tipo t")
+@Entity
 public class Tipo {
 	//private static final long serialVersionUID = 1L;
 
@@ -25,8 +28,21 @@ public class Tipo {
 	private String numDormitorio;
 
 	private String numEstacionamiento;
+	
+	@OneToMany(mappedBy="destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Propiedad> propiedades;
 
 	public Tipo() {
+	}
+	
+	//Constructor que es utilizado por PropiedadPojo
+	public Tipo(String nombre, String cond, String nBanio, String nDorm, String nEstac) {
+		super();
+		this.nombreTipo = nombre;
+		this.condicion = cond;
+		this.numBanio = nBanio;
+		this.numDormitorio = nDorm;
+		this.numEstacionamiento = nEstac;
 	}
 
 	public int getIdTipo() {
@@ -75,6 +91,14 @@ public class Tipo {
 
 	public void setNumEstacionamiento(String numEstacionamiento) {
 		this.numEstacionamiento = numEstacionamiento;
+	}
+
+	public List<Propiedad> getPropiedades() {
+		return propiedades;
+	}
+
+	public void setPropiedades(List<Propiedad> propiedades) {
+		this.propiedades = propiedades;
 	}
 
 }
