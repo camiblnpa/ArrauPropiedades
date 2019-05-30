@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Elva Lazo
+Build-Jdk: 11.0.1
+Implementation-Title: ArrauPropiedades
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: arrau-propiedades
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/ArrauPropiedades
+Created-By: Maven Integration for Eclipse
+

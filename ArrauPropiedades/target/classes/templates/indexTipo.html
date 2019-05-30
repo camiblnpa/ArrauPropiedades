@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tipos</title>
+</head>
+<body>
+	<div>
+		<br>
+		<div>
+			<a href="/tipo/save/0" class="btn btn-primary">Agregar</a>
+		</div>
+		<h2 th:if="${list.isEmpty()}"> No hay tipos </h2>
+			<div th:if="${!list.isEmpty()}">
+				<h2>Tipos</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Condición</th>
+							<th>Nombre Tipo</th>
+							<th>Numero de baños</th>
+							<th>Numero de dormitorios </th>
+							<th>Numero de estacionamientos </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="tipo : ${list}">
+							<td th:text="${tipo.condicion}"></td>
+							<td th:text="${tipo.nombreTipo}"></td>
+							<td th:text="${tipo.numBanio}"></td>
+							<td th:text="${tipo.numDormitorio}"></td>
+							<td th:text="${tipo.numEstacionamiento}"></td>
+							<td> <a th:href="@{/tipo/save/{id}(id=${tipo.idTipo})}"> Editar </a> </td> 
+							<td> <a th:href="@{/tipo/delete/{id}(id=${tipo.idTipo})}"> Eliminar </a> </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</body>
+</html>

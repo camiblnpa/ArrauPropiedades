@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Propiedades</title>
+</head>
+<body>
+	<div>
+		<br>
+		<div>
+			<a href="/propiedad/savePropiedad/0" class="btn btn-primary">Agregar</a>
+		</div>
+			<h2 th:if="${list.isEmpty()}">No hay propiedades</h2>
+			<div th:if="${!list.isEmpty()}">
+				<h2>Propiedades</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Precio</th>
+							<th>Dimension terreno</th>
+							<th>Dimension Área Construida</th>
+							<th>Calle</th>
+							<th>Numero</th>
+							<th>Numero Departamento</th>
+							<th>Ciudad</th>
+							<th>Comuna</th>
+							<th>Region</th>
+							<th>Latitud</th>
+							<th>Longitud</th>
+							<th>Inmobiliaria</th>
+							<th>Tipo de propiedad</th>
+							<th>Destinacion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="propiedad: ${list}">
+							<td th:text="${propiedad.precio}"></td>
+							<td th:text="${propiedad.dimTerreno}"></td>
+							<td th:text="${propiedad.dimConstruccion}"></td>
+							<td th:text="${propiedad.calle}"></td>
+							<td th:text="${propiedad.numero}"></td>
+							<td th:text="${propiedad.numDepartamento}"></td>
+							<td th:text="${propiedad.ciudad}"></td>
+							<td th:text="${propiedad.comuna}"></td>
+							<td th:text="${propiedad.region}"></td>
+							<td th:text="${propiedad.latitud}"></td>
+							<td th:text="${propiedad.longitud}"></td>
+							<td th:text="${propiedad.inmobiliaria}"></td>
+							<td th:text="${propiedad.tipoPropiedad}"></td>
+							<td th:text="${propiedad.destinacion}"></td>
+							<td> <a th:href="@{/propiedad/savePropiedad/{id}(id=${propiedad.idPropiedad})}">Editar</a> </td>
+							<td> <a th:href="@{/propiedad/deletePropiedad/{id}(id=${propiedad.idPropiedad})}">Eliminar</a> </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</body>
+</html>

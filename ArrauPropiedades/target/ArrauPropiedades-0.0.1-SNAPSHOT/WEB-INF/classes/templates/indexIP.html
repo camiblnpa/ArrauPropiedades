@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Listado de Interesados</title>
+</head>
+<body>
+	<div>
+		<br>
+		<div>
+			<a href="/saveIP/0" class="btn btn-primary">Agregar</a>
+		</div>
+		<h2 th:if="${list.isEmpty()}"> No hay interesados en propiedades </h2>
+			<div th:if="${!list.isEmpty()}">
+				<h2>Interesados en propiedades</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id:</th>
+							<th>Fecha contacto:</th>
+							<th>Propiedad:</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="interesadoPropiedad : ${list}">
+							<td th:text="${interesadoPropiedad.idInteresadoPropiedad}"></td>
+							<td th:text="${interesadoPropiedad.fechaContacto}"></td>
+							<td th:text="${interesadoPropiedad.propiedad}"></td>
+							<td> <a th:href="@{/saveIP/{id}(id=${interesadoPropiedad.idInteresadoPropiedad})}"> Editar </a> </td> 
+							<td> <a th:href="@{/deleteIP/{id}(id=${interesadoPropiedad.idInteresadoPropiedad})}"> Eliminar </a> </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</body>
+</html>

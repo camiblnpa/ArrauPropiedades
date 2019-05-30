@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar Interesado Propiedad</title>
+</head>
+<body>
+	<div>
+		<form action="#" th:action="@{/saveIP}" th:object="${interesadoPropiedad}"
+			method="post">
+			<input type="hidden" th:field="*{idInteresadoPropiedad}" name="idInteresadoPropiedad" id="idInteresadoPropiedad">
+			<div class="form-group">
+				<label for="nombre">Fecha de contacto: </label> <input type="date"
+					class="form-control" id="fechaContacto" th:field="*{fechaContacto}" name="fechaContacto">
+			</div>
+			
+			<button type="submit">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>
