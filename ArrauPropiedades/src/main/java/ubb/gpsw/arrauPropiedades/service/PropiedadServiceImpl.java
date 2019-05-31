@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import ubb.gpsw.arrauPropiedades.controller.pojo.PropiedadPojo;
 import ubb.gpsw.arrauPropiedades.model.Propiedad;
 import ubb.gpsw.arrauPropiedades.service.PropiedadService;
 import ubb.gpsw.arrauPropiedades.utilidades.RespuestaService;
@@ -24,7 +25,7 @@ public class PropiedadServiceImpl extends RespuestaService<Propiedad, Integer> i
 	private EntityManager em;
 		
 	@Override
-	public List<Propiedad> findAll() {
+	public List<PropiedadPojo> findAll() {
 		//TODO Auto-generated method stub
 		return null;
 	}

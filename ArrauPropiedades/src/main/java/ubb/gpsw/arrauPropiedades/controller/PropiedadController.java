@@ -1,6 +1,9 @@
 package ubb.gpsw.arrauPropiedades.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,17 +13,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ubb.gpsw.arrauPropiedades.model.Propiedad;
 import ubb.gpsw.arrauPropiedades.service.PropiedadService;
+import ubb.gpsw.arrauPropiedades.utilidades.*;
+import ubb.gpsw.arrauPropiedades.controller.*;
+import ubb.gpsw.arrauPropiedades.controller.pojo.PropiedadPojo;
 
 @Controller
 public class PropiedadController {
 	
 	@Autowired
 	private PropiedadService propiedadService;
-
+	
+/*
 	@RequestMapping("/propiedad")
 	public String propiedad(Model model) {
 		model.addAttribute("list", propiedadService.getAll());
 		return "propiedad";
+	}
+*/
+	
+	@GetMapping("/propiedad")
+	public RespuestaLista<List<PropiedadPojo>> listar(){
+		RespuestaLista<List<PropiedadPojo>> respuesta = new RespuestaLista<List<PropiedadPojo>>
+		((List<PropiedadPojo>)propiedadService.findAll(), 0);
+		return respuesta;
 	}
 	
 	@GetMapping("/propiedad/savePropiedad/{id}")
