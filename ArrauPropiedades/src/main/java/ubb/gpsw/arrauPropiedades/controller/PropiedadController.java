@@ -31,7 +31,7 @@ public class PropiedadController {
 	}
 */
 	
-	@GetMapping("/propiedad")
+	@GetMapping("/propiedadPojo")
 	public RespuestaLista<List<PropiedadPojo>> listar(){
 		RespuestaLista<List<PropiedadPojo>> respuesta = new RespuestaLista<List<PropiedadPojo>>
 		((List<PropiedadPojo>)propiedadService.findAll(), 0);

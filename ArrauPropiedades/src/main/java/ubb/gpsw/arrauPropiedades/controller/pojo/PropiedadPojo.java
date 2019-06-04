@@ -5,8 +5,8 @@ import java.util.Objects;
 import ubb.gpsw.arrauPropiedades.model.*;
 
 public class PropiedadPojo {
-	//Atributos con el mismo nombre que tiene el formulario html que crea Propiedad
-	//Todos los atributos que estaran en la "vista"
+	// Atributos con el mismo nombre que tiene el formulario html que crea Propiedad
+	// Todos los atributos que estaran en la "vista"
 	private int idPropiedad;
 	private int precio;
 	private int dimTerreno;
@@ -19,18 +19,18 @@ public class PropiedadPojo {
 	private String region;
 	private String latitud;
 	private String longitud;
-	
-	//Solo se mostrará el nombre de inmobiliaria asociada a propiedad
+
+	// Solo se mostrará el nombre de inmobiliaria asociada a propiedad
 	private String nombreInmobiliaria;
-	
-	//Atributos de Tipo de propiedad
+
+	// Atributos de Tipo de propiedad
 	private String nombreTipo;
 	private String condicion;
 	private String numBanio;
 	private String numDormitorio;
 	private String numEstacionamiento;
-	
-	//Atributo el cual muestra tipo de destinación (arriendo, venta, etc)
+
+	// Atributo el cual muestra tipo de destinación (arriendo, venta, etc)
 	private String destinacion;
 
 	public PropiedadPojo() {
@@ -51,24 +51,24 @@ public class PropiedadPojo {
 		this.region = propiedad.getRegion();
 		this.latitud = propiedad.getLatitud();
 		this.longitud = propiedad.getLongitud();
-		
-		//Clase objectUtil proyecto SGP, utilize util.Objects, al parecer es lo mismo
-		if(!Objects.isNull(propiedad.getInmobiliaria())) {
+
+		// Clase objectUtil proyecto SGP, utilize util.Objects, al parecer es lo mismo
+		if (!Objects.isNull(propiedad.getInmobiliaria())) {
 			this.nombreInmobiliaria = propiedad.getInmobiliaria().getNombre();
 		}
-		if(!Objects.isNull(propiedad.getTipoPropiedad())) {
+		if (!Objects.isNull(propiedad.getTipoPropiedad())) {
 			this.nombreTipo = propiedad.getTipoPropiedad().getNombreTipo();
 			this.condicion = propiedad.getTipoPropiedad().getCondicion();
 			this.numBanio = propiedad.getTipoPropiedad().getNumBanio();
 			this.numDormitorio = propiedad.getTipoPropiedad().getNumDormitorio();
 			this.numEstacionamiento = propiedad.getTipoPropiedad().getNumEstacionamiento();
 		}
-		if(!Objects.isNull(propiedad.getDestinacion())) {
+		if (!Objects.isNull(propiedad.getDestinacion())) {
 			this.destinacion = propiedad.getDestinacion().getTipoDestinacion();
-		}	
+		}
 	}
-	
-	//Función para obtener datos de propiedad
+
+	// Funcion para obtener datos de propiedad
 	public Propiedad obtenerPropiedad() {
 		final Propiedad p = new Propiedad();
 		p.setIdPropiedad(this.idPropiedad);
@@ -83,18 +83,18 @@ public class PropiedadPojo {
 		p.setRegion(this.region);
 		p.setLatitud(this.latitud);
 		p.setLongitud(this.longitud);
-		
-		//Verificar si está es la manera correcta de validar (objects)
-		if(!Objects.isNull(this.nombreInmobiliaria)) {
+
+		if (!Objects.isNull(this.nombreInmobiliaria)) {
 			p.setInmobiliaria(new Inmobiliaria(this.nombreInmobiliaria));
 		}
-		if(!Objects.isNull(this.nombreTipo)) {
-			p.setTipoPropiedad(new Tipo(this.nombreTipo, this.condicion, this.numBanio, this.numDormitorio, this.numEstacionamiento));
+		if (!Objects.isNull(this.nombreTipo)) {
+			p.setTipoPropiedad(new Tipo(this.nombreTipo, this.condicion, this.numBanio, this.numDormitorio,
+					this.numEstacionamiento));
 		}
-		if(!Objects.isNull(this.destinacion)) {
+		if (!Objects.isNull(this.destinacion)) {
 			p.setDestinacion(new Destinacion(this.destinacion));
 		}
-	
+
 		return p;
 	}
 
@@ -249,7 +249,5 @@ public class PropiedadPojo {
 	public void setDestinacion(String destinacion) {
 		this.destinacion = destinacion;
 	}
-	
-	
 
 }
