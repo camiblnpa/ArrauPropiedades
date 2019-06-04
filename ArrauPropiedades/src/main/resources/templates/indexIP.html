@@ -10,10 +10,11 @@
 		<div>
 			<a href="/saveIP/0" class="btn btn-primary">Agregar</a>
 		</div>
-		<h2 th:if="${list.isEmpty()}"> No hay interesados en propiedades </h2>
-			<div th:if="${!list.isEmpty()}">
-				<h2>Interesados en propiedades</h2>
-				<table class="table">
+		<h2 th:if="${list.isEmpty()}">No hay interesados en propiedades</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Interesados en propiedades</h2>
+			<table class="table">
+				<table border="2px">
 					<thead>
 						<tr>
 							<th>Id:</th>
@@ -26,12 +27,16 @@
 							<td th:text="${interesadoPropiedad.idInteresadoPropiedad}"></td>
 							<td th:text="${interesadoPropiedad.fechaContacto}"></td>
 							<td th:text="${interesadoPropiedad.propiedad}"></td>
-							<td> <a th:href="@{/saveIP/{id}(id=${interesadoPropiedad.idInteresadoPropiedad})}"> Editar </a> </td> 
-							<td> <a th:href="@{/deleteIP/{id}(id=${interesadoPropiedad.idInteresadoPropiedad})}"> Eliminar </a> </td>
+							<td><a
+								th:href="@{/saveIP/{id}(id=${interesadoPropiedad.idInteresadoPropiedad})}">
+									Editar </a></td>
+							<td><a
+								th:href="@{/deleteIP/{id}(id=${interesadoPropiedad.idInteresadoPropiedad})}">
+									Eliminar </a></td>
 						</tr>
 					</tbody>
 				</table>
-			</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -10,10 +10,11 @@
 		<div>
 			<a href="/destinacion/save/0" class="btn btn-primary">Agregar</a>
 		</div>
-		<h2 th:if="${list.isEmpty()}"> No hay destinaciones </h2>
-			<div th:if="${!list.isEmpty()}">
-				<h2>Destinaciones</h2>
-				<table class="table">
+		<h2 th:if="${list.isEmpty()}">No hay destinaciones</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Destinaciones</h2>
+			<table class="table">
+				<table border="2px">
 					<thead>
 						<tr>
 							<th>Fecha de Venta</th>
@@ -26,12 +27,16 @@
 							<td th:text="${destinacion.fechaVenta}"></td>
 							<td th:text="${destinacion.fechaRegistro}"></td>
 							<td th:text="${destinacion.tipoDestinacion}"></td>
-							<td> <a th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}"> Editar </a> </td> 
-							<td> <a th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}"> Eliminar </a> </td>
+							<td><a
+								th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}">
+									Editar </a></td>
+							<td><a
+								th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}">
+									Eliminar </a></td>
 						</tr>
 					</tbody>
 				</table>
-			</div>
+		</div>
 	</div>
 </body>
 </html>

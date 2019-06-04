@@ -10,17 +10,18 @@
 		<div>
 			<a href="/tipo/save/0" class="btn btn-primary">Agregar</a>
 		</div>
-		<h2 th:if="${list.isEmpty()}"> No hay tipos </h2>
-			<div th:if="${!list.isEmpty()}">
-				<h2>Tipos</h2>
-				<table class="table">
+		<h2 th:if="${list.isEmpty()}">No hay tipos</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Tipos</h2>
+			<table class="table">
+				<table border="2px">
 					<thead>
 						<tr>
 							<th>Condición</th>
 							<th>Nombre Tipo</th>
 							<th>Numero de baños</th>
-							<th>Numero de dormitorios </th>
-							<th>Numero de estacionamientos </th>
+							<th>Numero de dormitorios</th>
+							<th>Numero de estacionamientos</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,12 +31,14 @@
 							<td th:text="${tipo.numBanio}"></td>
 							<td th:text="${tipo.numDormitorio}"></td>
 							<td th:text="${tipo.numEstacionamiento}"></td>
-							<td> <a th:href="@{/tipo/save/{id}(id=${tipo.idTipo})}"> Editar </a> </td> 
-							<td> <a th:href="@{/tipo/delete/{id}(id=${tipo.idTipo})}"> Eliminar </a> </td>
+							<td><a th:href="@{/tipo/save/{id}(id=${tipo.idTipo})}">
+									Editar </a></td>
+							<td><a th:href="@{/tipo/delete/{id}(id=${tipo.idTipo})}">
+									Eliminar </a></td>
 						</tr>
 					</tbody>
 				</table>
-			</div>
+		</div>
 	</div>
 </body>
 </html>
