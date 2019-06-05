@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
@@ -16,22 +17,33 @@ import ubb.gpsw.arrauPropiedades.utilidades.RespuestaService;
 import ubb.gpsw.arrauPropiedades.repository.PropiedadRepository;
 
 @Service
-public class PropiedadServiceImpl extends RespuestaService<Propiedad, Integer> implements  PropiedadService{
+public class PropiedadServiceImpl implements  PropiedadService{
 
 	@Autowired
 	private PropiedadRepository propService;
 	
 	@PersistenceContext
 	private EntityManager em;
-		
+	
 	@Override
 	public List<PropiedadPojo> findAll() {
-		//TODO Auto-generated method stub
-		return null;
+		StringBuilder sql = new StringBuilder("Select new ubb.gpsw.arrauPropiedades.controller.pojo.PropiedadPojo(dp) ");
+		sql.append("from Propiedad dp");
+		Query q = em.createQuery(sql.toString());
+		List<PropiedadPojo> listaProp = (List<PropiedadPojo>)q.getResultList();
+		return listaProp;
+		
+	}
+	
+	@Override
+	public void save(Propiedad p) {
+		propService.save(p);
 	}
 
 	@Override
-	public CrudRepository<Propiedad, Integer> getDao() {
-		return propService;
+	public Propiedad findById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 }

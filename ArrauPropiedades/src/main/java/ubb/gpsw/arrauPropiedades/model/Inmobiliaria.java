@@ -8,10 +8,11 @@ import javax.persistence.*;
  * The persistent class for the Inmobiliaria database table.
  * 
  */
-//@NamedQuery(name="Inmobiliaria.findAll", query="SELECT i FROM Inmobiliaria i")
+@NamedQuery(name="Inmobiliaria.findAll", query="SELECT i FROM Inmobiliaria i")
 @Entity
 public class Inmobiliaria {
-
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idInmobiliaria;

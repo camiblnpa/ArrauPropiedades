@@ -1,6 +1,6 @@
 package ubb.gpsw.arrauPropiedades.controller.pojo;
 
-import java.sql.Date;
+import java.util.Date;
 
 import ubb.gpsw.arrauPropiedades.model.Destinacion;
 

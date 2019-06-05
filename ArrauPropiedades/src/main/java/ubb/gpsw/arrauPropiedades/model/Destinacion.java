@@ -1,25 +1,25 @@
 package ubb.gpsw.arrauPropiedades.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
 
-//@NamedQuery(name="Destinacion.findAll", query="SELECT d FROM Destinacion d")
+@NamedQuery(name="Destinacion.findAll", query="SELECT d FROM Destinacion d")
 @Entity
 public class Destinacion {
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idDestinacion;
 	
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	@Column
 	private Date fechaVenta;
 
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	@Column
 	private Date fechaRegistro;
 	

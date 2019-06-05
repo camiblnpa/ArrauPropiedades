@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import ubb.gpsw.arrauPropiedades.model.Propiedad;
 import ubb.gpsw.arrauPropiedades.service.PropiedadService;
@@ -23,21 +24,15 @@ public class PropiedadController {
 	@Autowired
 	private PropiedadService propiedadService;
 	
-/*
-	@RequestMapping("/propiedad")
-	public String propiedad(Model model) {
-		model.addAttribute("list", propiedadService.getAll());
-		return "propiedad";
+
+	@RequestMapping("/propiedadPojo")
+	public String indexPropiedad(Model model) {
+		model.addAttribute("list", propiedadService.findAll());
+		return "propiedadPojo";
 	}
-*/
-	
-	@GetMapping("/propiedadPojo")
-	public RespuestaLista<List<PropiedadPojo>> listar(){
-		RespuestaLista<List<PropiedadPojo>> respuesta = new RespuestaLista<List<PropiedadPojo>>
-		((List<PropiedadPojo>)propiedadService.findAll(), 0);
-		return respuesta;
-	}
-	
+
+
+	/*
 	@GetMapping("/propiedad/savePropiedad/{id}")
 	public String showSave(@PathVariable("id") Integer id,Model model) {
 		if(id!=null && id!=0) {
@@ -57,4 +52,5 @@ public class PropiedadController {
 		propiedadService.delete(id);
 		return"redirect:/propiedad";
 	}
+	******/
 }

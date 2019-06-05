@@ -6,10 +6,10 @@ import javax.persistence.*;
  * The persistent class for the Propiedad database table.
  * 
  */
-//@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
+@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
 @Entity
 public class Propiedad {
-	// private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

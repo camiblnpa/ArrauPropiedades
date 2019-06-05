@@ -10,10 +10,10 @@ import javax.persistence.*;
  * 
  */
 
-//@NamedQuery(name="Tipo.findAll", query="SELECT t FROM Tipo t")
+@NamedQuery(name="Tipo.findAll", query="SELECT t FROM Tipo t")
 @Entity
 public class Tipo {
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
