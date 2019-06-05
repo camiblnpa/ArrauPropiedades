@@ -3,72 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <title>Lista de Propiedades</title>
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+<link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/Map-Clean.css">
+<link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+<head th:replace="layout/header :: head">
 </head>
 <body>
+	<header th:replace="layout/header :: header"></header>
 	<div>
 		<br>
 		<div>
-			<a href="/propiedad/savePropiedad/0" class="btn btn-primary">Agregar</a>
+			<br> <br> <br> <br>
+			 <!--<a
+				href="/propiedad/savePropiedad/0" class="btn btn-primary">Agregar</a>-->
 		</div>
 		<!-- 
 			<h2 th:if="${list.isEmpty()}">No hay propiedades</h2> 
 			<div th:if="${!list.isEmpty()}">  -->
 		<h2>Propiedades</h2>
 		<table class="table">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Precio</th>
-					<th>Dimension terreno</th>
-					<th>Dimension Área Construida</th>
-					<th>Calle</th>
-					<th>Numero</th>
-					<th>Numero Departamento</th>
-					<th>Ciudad</th>
-					<th>Comuna</th>
-					<th>Region</th>
-					<th>Latitud</th>
-					<th>Longitud</th>
-					<th>Inmobiliaria</th>
-					<th>Tipo de propiedad</th>
-					<th>Condicion</th>
-					<th>Numero de banios</th>
-					<th>Numero de dormitorios</th>
-					<th>Numero de estacionamiento</th>
-					<th>Destinacion</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="propiedadPojo: ${list}">
-					<td th:text="${propiedadPojo.idPropiedad}"></td>
-					<td th:text="${propiedadPojo.precio}"></td>
-					<td th:text="${propiedadPojo.dimTerreno}"></td>
-					<td th:text="${propiedadPojo.dimConstruccion}"></td>
-					<td th:text="${propiedadPojo.calle}"></td>
-					<td th:text="${propiedadPojo.numero}"></td>
-					<td th:text="${propiedadPojo.numDepartamento}"></td>
-					<td th:text="${propiedadPojo.ciudad}"></td>
-					<td th:text="${propiedadPojo.comuna}"></td>
-					<td th:text="${propiedadPojo.region}"></td>
-					<td th:text="${propiedadPojo.latitud}"></td>
-					<td th:text="${propiedadPojo.longitud}"></td>
-					<td th:text="${propiedadPojo.nombreInmobiliaria}"></td>
-					<td th:text="${propiedadPojo.nombreTipo}"></td>
-					<td th:text="${propiedadPojo.condicion}"></td>
-					<td th:text="${propiedadPojo.numBanio}"></td>
-					<td th:text="${propiedadPojo.numDormitorio}"></td>
-					<td th:text="${propiedadPojo.numEstacionamiento}"></td>
-					<td th:text="${propiedadPojo.destinacion}"></td>
-					<td><a
-						th:href="@{/propiedad/savePropiedad/{id}(id=${propiedad.idPropiedad})}">Editar</a>
-					</td>
-					<td><a
-						th:href="@{/propiedad/deletePropiedad/{id}(id=${propiedad.idPropiedad})}">Eliminar</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	</div>
+			<table border="2px">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Precio</th>
+						<th>Dimension terreno</th>
+						<th>Dimension Área Construida</th>
+						<th>Calle</th>
+						<th>Numero</th>
+						<th>Numero Departamento</th>
+						<th>Ciudad</th>
+						<th>Comuna</th>
+						<th>Region</th>
+						<th>Latitud</th>
+						<th>Longitud</th>
+						<th>Inmobiliaria</th>
+						<th>Tipo de propiedad</th>
+						<th>Condicion</th>
+						<th>Numero de banios</th>
+						<th>Numero de dormitorios</th>
+						<th>Numero de estacionamiento</th>
+						<th>Destinacion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="propiedadPojo: ${list}">
+						<td th:text="${propiedadPojo.idPropiedad}"></td>
+						<td th:text="${propiedadPojo.precio}"></td>
+						<td th:text="${propiedadPojo.dimTerreno}"></td>
+						<td th:text="${propiedadPojo.dimConstruccion}"></td>
+						<td th:text="${propiedadPojo.calle}"></td>
+						<td th:text="${propiedadPojo.numero}"></td>
+						<td th:text="${propiedadPojo.numDepartamento}"></td>
+						<td th:text="${propiedadPojo.ciudad}"></td>
+						<td th:text="${propiedadPojo.comuna}"></td>
+						<td th:text="${propiedadPojo.region}"></td>
+						<td th:text="${propiedadPojo.latitud}"></td>
+						<td th:text="${propiedadPojo.longitud}"></td>
+						<td th:text="${propiedadPojo.nombreInmobiliaria}"></td>
+						<td th:text="${propiedadPojo.nombreTipo}"></td>
+						<td th:text="${propiedadPojo.condicion}"></td>
+						<td th:text="${propiedadPojo.numBanio}"></td>
+						<td th:text="${propiedadPojo.numDormitorio}"></td>
+						<td th:text="${propiedadPojo.numEstacionamiento}"></td>
+						<td th:text="${propiedadPojo.destinacion}"></td>
+						<td><a
+							th:href="@{/propiedad/savePropiedad/{id}(id=${propiedad.idPropiedad})}">Editar</a>
+						</td>
+						<td><a
+							th:href="@{/propiedad/deletePropiedad/{id}(id=${propiedad.idPropiedad})}">Eliminar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</div>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+			<script src="assets/js/untitled.js"></script>
 </body>
 </html>
