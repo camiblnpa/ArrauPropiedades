@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="footer">
+<meta charset="UTF-8">
+<title>Arrau Propiedades</title>
+</head>
+<body>
+
+<header th:fragment="header">
+
+<nav class="navbar navbar-light navbar-expand fixed-top bg-white navigation-clean">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+        <img
+		src="https://trello-attachments.s3.amazonaws.com/5cc730691f57f32daa57deda/238x82/ded2f8a4537d8f5cb4dfd0a5f63591b4/Logo_horizontal.png">
+		</a>
+		<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"></li>
+                        <li class="nav-item" role="presentation"></li>
+                        <li class="nav-item dropdown">
+                        	<a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Propiedades&nbsp;</a>
+                            <div class="dropdown-menu" role="menu">
+                           	 <a class="dropdown-item" role="presentation" onclick="location.href='/propiedadPojo'">Ver propiedades</a>
+                           	 <a class="dropdown-item" role="presentation" >Agregar propiedad</a></div>
+                        </li>
+                        <li class="nav-item dropdown">
+                        	<a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Inmobiliarias&nbsp;</a>
+                            <div class="dropdown-menu" role="menu">
+                            	<a class="dropdown-item" role="presentation" onclick="location.href='/inmobiliaria'">Ver inmobiliaria</a>
+                            	<a class="dropdown-item" role="presentation" href="/inmobiliaria/save/0">Agregar inmobiliaria</a></div>
+                        </li>
+                        <li class="nav-item dropdown">
+                        	<a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Juanito</a>
+                            <div class="dropdown-menu" role="menu">
+                            	<a class="dropdown-item" role="presentation" onclick="location.href='/index'">Cerrar sesión</a></div>
+                        </li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </header>
+
+</body>
+</html>
