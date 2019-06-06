@@ -40,13 +40,12 @@ public class Propiedad implements Serializable {
 	private int precio;
 
 	private String region;
-
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Inmobiliaria inmobiliaria;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Tipo tipoPropiedad;
+	private Tipo tipo;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Destinacion destinacion;

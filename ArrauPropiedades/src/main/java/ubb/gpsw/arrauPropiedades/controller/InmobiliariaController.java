@@ -23,6 +23,16 @@ public class InmobiliariaController {
 		return "indexInmo";
 	}
 	
+	@GetMapping("/inmobiliariaDetalle/{id}")
+	public String getInmobiliariaById(Model model, @PathVariable("id") Integer id) {
+		if(id!=0) {
+			model.addAttribute("listDetalle", inmoService.get(id));
+		} else {
+			System.out.println("error");
+		}
+		return "inmobiliariaDetalle";
+	}
+
 	@GetMapping("/inmobiliaria/save/{id}")
 	public String showSave(@PathVariable("id")int id, Model model) {
 		if(id!=0) {
@@ -38,7 +48,7 @@ public class InmobiliariaController {
 		inmoService.save(inmobiliaria);
 		return "redirect:/inmobiliaria";
 	}
-
+	
 	@GetMapping("/inmobiliaria/delete/{id}")
 	public String delete(@PathVariable Integer id, Model model) {
 		inmoService.delete(id);

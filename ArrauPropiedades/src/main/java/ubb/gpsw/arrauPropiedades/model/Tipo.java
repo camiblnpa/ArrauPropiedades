@@ -29,7 +29,7 @@ public class Tipo implements Serializable {
 
 	private int numEstacionamiento;
 	
-	@OneToMany(mappedBy="destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="tipo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
 	public Tipo() {

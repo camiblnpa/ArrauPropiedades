@@ -18,6 +18,5 @@ public class IndexController {
 	public String index(Model model, HttpSession session) {
 		return "index";
 	}
-
-
+	
 }

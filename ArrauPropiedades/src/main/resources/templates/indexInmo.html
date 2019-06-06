@@ -47,8 +47,8 @@
                 		<td th:text="${inmobiliaria.ciudad}"></td>
                 		<td th:text="${inmobiliaria.correo}"></td>
                 		<td th:text="${inmobiliaria.telefono}"></td>
-                		<td> <button type="button" class="btn btn-link" th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</button> </td>
-                		<td> <button type="button" class="btn btn-link" th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Ver detalles</button>
+                		<td> <a type="button" class="btn btn-link" th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</a> </td>
+                		<td> <a type="button" class="btn btn-link" th:href="@{/inmobiliariaDetalle/{id}(id=${inmobiliaria.idInmobiliaria})}">Ver detalles</a>               									
                 	</tbody>
 		 		</table>
 		 	</div>
