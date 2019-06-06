@@ -1,102 +1,77 @@
 package ubb.gpsw.arrauPropiedades.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
+
 
 /**
  * The persistent class for the Propiedad database table.
  * 
  */
-@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
 @Entity
-public class Propiedad {
+@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
+public class Propiedad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idPropiedad;
-	private int precio;
-	private int dimTerreno;
-	private int dimConstruccion;
+
 	private String calle;
-	private String numero;
-	private String numDepartamento;
+
 	private String ciudad;
+
 	private String comuna;
-	private String region;
+
+	private String descripcion;
+
+	private int dimConstruccion;
+
+	private int dimTerreno;
+
 	private String latitud;
+
 	private String longitud;
 
-	//RELACIONES
+	private String numDepartamento;
+
+	private String numero;
+
+	private int precio;
+
+	private String region;
+
 	
-	// Modificado de un int a objeto Inmobiliaria, tipoPropiedad y destinacion
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Inmobiliaria inmobiliaria;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Tipo tipoPropiedad;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Destinacion destinacion;
-	
+
 	public Propiedad() {
 	}
 
 	public int getIdPropiedad() {
-		return idPropiedad;
+		return this.idPropiedad;
 	}
 
 	public void setIdPropiedad(int idPropiedad) {
 		this.idPropiedad = idPropiedad;
 	}
 
-	public int getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(int precio) {
-		this.precio = precio;
-	}
-
-	public int getDimTerreno() {
-		return dimTerreno;
-	}
-
-	public void setDimTerreno(int dimTerreno) {
-		this.dimTerreno = dimTerreno;
-	}
-
-	public int getDimConstruccion() {
-		return dimConstruccion;
-	}
-
-	public void setDimConstruccion(int dimConstruccion) {
-		this.dimConstruccion = dimConstruccion;
-	}
-
 	public String getCalle() {
-		return calle;
+		return this.calle;
 	}
 
 	public void setCalle(String calle) {
 		this.calle = calle;
 	}
 
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	public String getNumDepartamento() {
-		return numDepartamento;
-	}
-
-	public void setNumDepartamento(String numDepartamento) {
-		this.numDepartamento = numDepartamento;
-	}
-
 	public String getCiudad() {
-		return ciudad;
+		return this.ciudad;
 	}
 
 	public void setCiudad(String ciudad) {
@@ -104,23 +79,39 @@ public class Propiedad {
 	}
 
 	public String getComuna() {
-		return comuna;
+		return this.comuna;
 	}
 
 	public void setComuna(String comuna) {
 		this.comuna = comuna;
 	}
 
-	public String getRegion() {
-		return region;
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public int getDimConstruccion() {
+		return this.dimConstruccion;
+	}
+
+	public void setDimConstruccion(int dimConstruccion) {
+		this.dimConstruccion = dimConstruccion;
+	}
+
+	public int getDimTerreno() {
+		return this.dimTerreno;
+	}
+
+	public void setDimTerreno(int dimTerreno) {
+		this.dimTerreno = dimTerreno;
 	}
 
 	public String getLatitud() {
-		return latitud;
+		return this.latitud;
 	}
 
 	public void setLatitud(String latitud) {
@@ -128,35 +119,43 @@ public class Propiedad {
 	}
 
 	public String getLongitud() {
-		return longitud;
+		return this.longitud;
 	}
 
 	public void setLongitud(String longitud) {
 		this.longitud = longitud;
 	}
 
-	public Inmobiliaria getInmobiliaria() {
-		return inmobiliaria;
+	public String getNumDepartamento() {
+		return this.numDepartamento;
 	}
 
-	public void setInmobiliaria(Inmobiliaria inmobiliaria) {
-		this.inmobiliaria = inmobiliaria;
+	public void setNumDepartamento(String numDepartamento) {
+		this.numDepartamento = numDepartamento;
 	}
 
-	public Tipo getTipoPropiedad() {
-		return tipoPropiedad;
+	public String getNumero() {
+		return this.numero;
 	}
 
-	public void setTipoPropiedad(Tipo tipoPropiedad) {
-		this.tipoPropiedad = tipoPropiedad;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
-	public Destinacion getDestinacion() {
-		return destinacion;
+	public int getPrecio() {
+		return this.precio;
 	}
 
-	public void setDestinacion(Destinacion destinacion) {
-		this.destinacion = destinacion;
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public String getRegion() {
+		return this.region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
 }

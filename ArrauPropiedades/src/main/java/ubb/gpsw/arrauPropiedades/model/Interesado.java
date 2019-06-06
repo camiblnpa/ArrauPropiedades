@@ -1,10 +1,17 @@
 package ubb.gpsw.arrauPropiedades.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
+
+/**
+ * The persistent class for the Interesado database table.
+ * 
+ */
 @Entity
-//@NamedQuery(name="Interesado.findAll", query="SELECT i FROM Interesado i")
-public class Interesado {
+@NamedQuery(name="Interesado.findAll", query="SELECT i FROM Interesado i")
+public class Interesado implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -14,7 +21,7 @@ public class Interesado {
 
 	private String nombre;
 
-	private String telefono;
+	private int telefono;
 
 	public Interesado() {
 	}
@@ -43,11 +50,11 @@ public class Interesado {
 		this.nombre = nombre;
 	}
 
-	public String getTelefono() {
+	public int getTelefono() {
 		return this.telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 

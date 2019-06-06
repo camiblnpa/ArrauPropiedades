@@ -1,5 +1,6 @@
 package ubb.gpsw.arrauPropiedades.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -9,10 +10,9 @@ import javax.persistence.*;
  * The persistent class for the Tipo database table.
  * 
  */
-
-@NamedQuery(name="Tipo.findAll", query="SELECT t FROM Tipo t")
 @Entity
-public class Tipo {
+@NamedQuery(name="Tipo.findAll", query="SELECT t FROM Tipo t")
+public class Tipo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,26 +23,16 @@ public class Tipo {
 
 	private String nombreTipo;
 
-	private String numBanio;
+	private int numBanio;
 
-	private String numDormitorio;
+	private int numDormitorio;
 
-	private String numEstacionamiento;
+	private int numEstacionamiento;
 	
 	@OneToMany(mappedBy="destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
 	public Tipo() {
-	}
-	
-	//Constructor que es utilizado por PropiedadPojo
-	public Tipo(String nombre, String cond, String nBanio, String nDorm, String nEstac) {
-		super();
-		this.nombreTipo = nombre;
-		this.condicion = cond;
-		this.numBanio = nBanio;
-		this.numDormitorio = nDorm;
-		this.numEstacionamiento = nEstac;
 	}
 
 	public int getIdTipo() {
@@ -69,36 +59,28 @@ public class Tipo {
 		this.nombreTipo = nombreTipo;
 	}
 
-	public String getNumBanio() {
+	public int getNumBanio() {
 		return this.numBanio;
 	}
 
-	public void setNumBanio(String numBanio) {
+	public void setNumBanio(int numBanio) {
 		this.numBanio = numBanio;
 	}
 
-	public String getNumDormitorio() {
+	public int getNumDormitorio() {
 		return this.numDormitorio;
 	}
 
-	public void setNumDormitorio(String numDormitorio) {
+	public void setNumDormitorio(int numDormitorio) {
 		this.numDormitorio = numDormitorio;
 	}
 
-	public String getNumEstacionamiento() {
+	public int getNumEstacionamiento() {
 		return this.numEstacionamiento;
 	}
 
-	public void setNumEstacionamiento(String numEstacionamiento) {
+	public void setNumEstacionamiento(int numEstacionamiento) {
 		this.numEstacionamiento = numEstacionamiento;
-	}
-
-	public List<Propiedad> getPropiedades() {
-		return propiedades;
-	}
-
-	public void setPropiedades(List<Propiedad> propiedades) {
-		this.propiedades = propiedades;
 	}
 
 }

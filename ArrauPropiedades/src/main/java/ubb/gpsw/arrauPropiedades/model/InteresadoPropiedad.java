@@ -1,9 +1,8 @@
 package ubb.gpsw.arrauPropiedades.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
-
-import java.sql.Date;
-
+import java.util.Date;
 
 
 /**
@@ -11,18 +10,20 @@ import java.sql.Date;
  * 
  */
 @Entity
-//@NamedQuery(name="InteresadoPropiedad.findAll", query="SELECT i FROM InteresadoPropiedad i")
-public class InteresadoPropiedad {
+@NamedQuery(name="InteresadoPropiedad.findAll", query="SELECT i FROM InteresadoPropiedad i")
+public class InteresadoPropiedad implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idInteresadoPropiedad;
 
+	@Temporal(TemporalType.DATE)
 	private Date fechaContacto;
 
-	private int interesado;
+	private int interesado_idInteresado;
 
-	private int propiedad;
+	private int propiedad_idPropiedad;
 
 	public InteresadoPropiedad() {
 	}
@@ -43,20 +44,20 @@ public class InteresadoPropiedad {
 		this.fechaContacto = fechaContacto;
 	}
 
-	public int getInteresado() {
-		return this.interesado;
+	public int getInteresado_idInteresado() {
+		return this.interesado_idInteresado;
 	}
 
-	public void setInteresado(int interesado) {
-		this.interesado = interesado;
+	public void setInteresado_idInteresado(int interesado_idInteresado) {
+		this.interesado_idInteresado = interesado_idInteresado;
 	}
 
-	public int getPropiedad() {
-		return this.propiedad;
+	public int getPropiedad_idPropiedad() {
+		return this.propiedad_idPropiedad;
 	}
 
-	public void setPropiedad(int propiedad) {
-		this.propiedad = propiedad;
+	public void setPropiedad_idPropiedad(int propiedad_idPropiedad) {
+		this.propiedad_idPropiedad = propiedad_idPropiedad;
 	}
 
 }
