@@ -6,7 +6,7 @@ public class InmobiliariaPojo {
 	private int idInmobiliaria;
 	private String nombre;
 	private String correo;
-	private String telefono;
+	private int telefono;
 	private String calle;
 	private String numero;
 	private String numDepa;
@@ -77,11 +77,11 @@ public class InmobiliariaPojo {
 		this.correo = correo;
 	}
 
-	public String getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 

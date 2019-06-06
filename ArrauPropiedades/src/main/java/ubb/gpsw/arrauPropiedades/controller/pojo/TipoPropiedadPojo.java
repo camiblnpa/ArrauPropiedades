@@ -6,9 +6,9 @@ public class TipoPropiedadPojo {
 	private int idTipo;
 	private String nombreTipo;
 	private String condicion;
-	private String numBanio;
-	private String numEstac;
-	private String numDorm;
+	private int numBanio;
+	private int numEstac;
+	private int numDorm;
 	
 	public TipoPropiedadPojo() {
 	super();
@@ -59,27 +59,27 @@ public class TipoPropiedadPojo {
 		this.condicion = condicion;
 	}
 
-	public String getNumBanio() {
+	public int getNumBanio() {
 		return numBanio;
 	}
 
-	public void setNumBanio(String numBanio) {
+	public void setNumBanio(int numBanio) {
 		this.numBanio = numBanio;
 	}
 
-	public String getNumEstac() {
+	public int getNumEstac() {
 		return numEstac;
 	}
 
-	public void setNumEstac(String numEstac) {
+	public void setNumEstac(int numEstac) {
 		this.numEstac = numEstac;
 	}
 
-	public String getNumDorm() {
+	public int getNumDorm() {
 		return numDorm;
 	}
 
-	public void setNumDorm(String numDorm) {
+	public void setNumDorm(int numDorm) {
 		this.numDorm = numDorm;
 	}
 	

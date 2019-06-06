@@ -5,18 +5,17 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * The persistent class for the Destinacion database table.
  * 
  */
 @Entity
-@NamedQuery(name="Destinacion.findAll", query="SELECT d FROM Destinacion d")
+@NamedQuery(name = "Destinacion.findAll", query = "SELECT d FROM Destinacion d")
 public class Destinacion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDestinacion;
 
 	@Temporal(TemporalType.DATE)
@@ -26,11 +25,17 @@ public class Destinacion implements Serializable {
 	private Date fechaVenta;
 
 	private String tipoDestinacion;
-	
-	@OneToMany(mappedBy="destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+	@OneToMany(mappedBy = "destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
 	public Destinacion() {
+	}
+
+	// Constructor utilizado por PropiedadPojo
+	public Destinacion(String tipo) {
+		super();
+		this.tipoDestinacion = tipo;
 	}
 
 	public int getIdDestinacion() {

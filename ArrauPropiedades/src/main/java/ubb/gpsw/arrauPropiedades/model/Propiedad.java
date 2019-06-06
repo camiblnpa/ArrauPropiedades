@@ -157,4 +157,29 @@ public class Propiedad implements Serializable {
 		this.region = region;
 	}
 
+	public Inmobiliaria getInmobiliaria() {
+		return inmobiliaria;
+	}
+
+	public void setInmobiliaria(Inmobiliaria inmobiliaria) {
+		this.inmobiliaria = inmobiliaria;
+	}
+
+	public Tipo getTipoPropiedad() {
+		return tipo;
+	}
+
+	public void setTipoPropiedad(Tipo tipoPropiedad) {
+		this.tipo = tipoPropiedad;
+	}
+
+	public Destinacion getDestinacion() {
+		return destinacion;
+	}
+
+	public void setDestinacion(Destinacion destinacion) {
+		this.destinacion = destinacion;
+	}
+
+
 }

@@ -26,17 +26,19 @@ public class PropiedadPojo {
 	// Atributos de Tipo de propiedad
 	private String nombreTipo;
 	private String condicion;
-	private String numBanio;
-	private String numDormitorio;
-	private String numEstacionamiento;
+	private int numBanio;
+	private int numDormitorio;
+	private int numEstacionamiento;
 
 	// Atributo el cual muestra tipo de destinación (arriendo, venta, etc)
 	private String destinacion;
 
+	//Costructor vacio
 	public PropiedadPojo() {
 		super();
 	}
-
+	
+	//Constructor de Propiedad
 	public PropiedadPojo(Propiedad propiedad) {
 		super();
 		this.idPropiedad = propiedad.getIdPropiedad();
@@ -98,6 +100,7 @@ public class PropiedadPojo {
 		return p;
 	}
 
+	//Getter & Setters
 	public int getIdPropiedad() {
 		return idPropiedad;
 	}
@@ -218,27 +221,27 @@ public class PropiedadPojo {
 		this.condicion = condicion;
 	}
 
-	public String getNumBanio() {
+	public int getNumBanio() {
 		return numBanio;
 	}
 
-	public void setNumBanio(String numBanio) {
+	public void setNumBanio(int numBanio) {
 		this.numBanio = numBanio;
 	}
 
-	public String getNumDormitorio() {
+	public int getNumDormitorio() {
 		return numDormitorio;
 	}
 
-	public void setNumDormitorio(String numDormitorio) {
+	public void setNumDormitorio(int numDormitorio) {
 		this.numDormitorio = numDormitorio;
 	}
 
-	public String getNumEstacionamiento() {
+	public int getNumEstacionamiento() {
 		return numEstacionamiento;
 	}
 
-	public void setNumEstacionamiento(String numEstacionamiento) {
+	public void setNumEstacionamiento(int numEstacionamiento) {
 		this.numEstacionamiento = numEstacionamiento;
 	}
 

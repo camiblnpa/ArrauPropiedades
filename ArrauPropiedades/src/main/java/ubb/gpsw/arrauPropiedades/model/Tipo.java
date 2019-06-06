@@ -5,18 +5,17 @@ import java.util.List;
 
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the Tipo database table.
  * 
  */
 @Entity
-@NamedQuery(name="Tipo.findAll", query="SELECT t FROM Tipo t")
+@NamedQuery(name = "Tipo.findAll", query = "SELECT t FROM Tipo t")
 public class Tipo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTipo;
 
 	private String condicion;
@@ -28,11 +27,21 @@ public class Tipo implements Serializable {
 	private int numDormitorio;
 
 	private int numEstacionamiento;
-	
-	@OneToMany(mappedBy="tipo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+	@OneToMany(mappedBy = "tipo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
 	public Tipo() {
+	}
+
+	// Constructor utilizado por PropiedadPojo
+	public Tipo(String nombre, String cond, int nBanio, int nDorm, int nEstac) {
+		super();
+		this.nombreTipo = nombre;
+		this.condicion = cond;
+		this.numBanio = nBanio;
+		this.numDormitorio = nDorm;
+		this.numEstacionamiento = nEstac;
 	}
 
 	public int getIdTipo() {

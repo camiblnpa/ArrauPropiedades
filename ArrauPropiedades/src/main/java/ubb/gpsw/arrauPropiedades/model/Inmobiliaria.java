@@ -5,18 +5,17 @@ import java.util.List;
 
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the Inmobiliaria database table.
  * 
  */
 @Entity
-@NamedQuery(name="Inmobiliaria.findAll", query="SELECT i FROM Inmobiliaria i")
+@NamedQuery(name = "Inmobiliaria.findAll", query = "SELECT i FROM Inmobiliaria i")
 public class Inmobiliaria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idInmobiliaria;
 
 	private String calle;
@@ -40,11 +39,17 @@ public class Inmobiliaria implements Serializable {
 	private String region;
 
 	private int telefono;
-	
-	@OneToMany(mappedBy="inmobiliaria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+	@OneToMany(mappedBy = "inmobiliaria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
 	public Inmobiliaria() {
+	}
+
+	// Constructor utilizado por PropiedadPojo
+	public Inmobiliaria(String nombre) {
+		super();
+		this.nombre = nombre;
 	}
 
 	public int getIdInmobiliaria() {
