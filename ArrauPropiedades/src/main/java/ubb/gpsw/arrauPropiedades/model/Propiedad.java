@@ -35,7 +35,6 @@ public class Propiedad {
 	private Tipo tipoPropiedad;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Destinacion destinacion;
-
 	
 	public Propiedad() {
 	}

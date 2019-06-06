@@ -12,18 +12,74 @@
 <head th:replace="layout/header :: head">
 </head>
 <body>
+
 	<header th:replace="layout/header :: header"></header>
 	<div>
 		<br>
 		<div>
 			<br> <br> <br> <br>
-			 <!--<a
+			<!--<a
 				href="/propiedad/savePropiedad/0" class="btn btn-primary">Agregar</a>-->
 		</div>
 		<!-- 
 			<h2 th:if="${list.isEmpty()}">No hay propiedades</h2> 
 			<div th:if="${!list.isEmpty()}">  -->
-		<h2>Propiedades</h2>
+		<div>
+			<h2>Propiedades new: </h2>
+			<hr>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id propiedad</th>
+						<th>Precio</th>
+						<th>Dimensión del terreno</th>
+						<th>Dimensión de la construcción</th>
+						<th>Calle</th>
+						<th>Número</th>
+						<th>Número depto</th>
+						<th>Ciudad</th>
+						<th>Comuna</th>
+						<th>Region</th>
+						<th>Latitud</th>
+						<th>Longitud</th>
+						<th>Nombre inmobiliaria</th>
+						<th>Nombre tipo</th>
+						<th>Condicion</th>
+						<th>Número de baños</th>
+						<th>Número de dormitorios</th>
+						<th>Número de estacionamientos</th>
+						<th>Tipo de destinación</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="propiedadPojo: ${list}">
+						<td th:text="${propiedadPojo.idPropiedad}"></td>
+						<td th:text="${propiedadPojo.precio}"></td>
+						<td th:text="${propiedadPojo.dimTerreno}"></td>
+						<td th:text="${propiedadPojo.dimConstruccion}"></td>
+						<td th:text="${propiedadPojo.calle}"></td>
+						<td th:text="${propiedadPojo.numero}"></td>
+						<td th:text="${propiedadPojo.numDepartamento}"></td>
+						<td th:text="${propiedadPojo.ciudad}"></td>
+						<td th:text="${propiedadPojo.comuna}"></td>
+						<td th:text="${propiedadPojo.region}"></td>
+						<td th:text="${propiedadPojo.latitud}"></td>
+						<td th:text="${propiedadPojo.longitud}"></td>
+						<td th:text="${propiedadPojo.nombreInmobiliaria}"></td>
+						<td th:text="${propiedadPojo.nombreTipo}"></td>
+						<td th:text="${propiedadPojo.condicion}"></td>
+						<td th:text="${propiedadPojo.numBanio}"></td>
+						<td th:text="${propiedadPojo.numDormitorio}"></td>
+						<td th:text="${propiedadPojo.numEstacionamiento}"></td>
+						<td th:text="${propiedadPojo.destinacion}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		
+		<h2>Propiedades versión old</h2>
 		<table class="table">
 			<table border="2px">
 				<thead>
@@ -70,8 +126,8 @@
 						<td th:text="${propiedadPojo.numDormitorio}"></td>
 						<td th:text="${propiedadPojo.numEstacionamiento}"></td>
 						<td th:text="${propiedadPojo.destinacion}"></td>
-						
-						
+
+
 						<!-- Error en estas dos lineas, por eso el comentario
 						<td><a
 							th:href="@{/propiedad/savePropiedad/{id}(id=${propiedad.idPropiedad})}">Editar</a>
@@ -80,8 +136,8 @@
 							th:href="@{/propiedad/deletePropiedad/{id}(id=${propiedad.idPropiedad})}">Eliminar</a>
 						</td>
 						 -->
-						 
-						 
+
+
 					</tr>
 				</tbody>
 			</table>
