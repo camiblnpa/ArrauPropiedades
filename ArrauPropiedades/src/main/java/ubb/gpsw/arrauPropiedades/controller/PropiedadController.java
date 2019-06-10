@@ -59,9 +59,9 @@ public class PropiedadController {
 	@GetMapping("/propiedadPojo/save/{id}")
 	public String showSave(@PathVariable("id")int id, Model model) {
 		if(id!=0) {
-			model.addAttribute("propiedadPojo",propService.findById(id));
+			model.addAttribute("propiedad",propService.findById(id));
 		} else {
-			model.addAttribute("propiedadPojo",new PropiedadPojo());
+			model.addAttribute("propiedad",new Propiedad());
 		}
 		return "savePropiedad";
 	}
