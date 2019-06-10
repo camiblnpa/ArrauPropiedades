@@ -58,6 +58,9 @@ public class PropiedadPojo {
 		this.region = propiedad.getRegion();
 		this.latitud = propiedad.getLatitud();
 		this.longitud = propiedad.getLongitud();
+		this.numBanio = propiedad.getNumBanio();
+		this.numDormitorio = propiedad.getNumDormitorio();
+		this.numEstacionamiento = propiedad.getNumEstacionamiento();
 
 		// Clase objectUtil proyecto SGP, utilize util.Objects, al parecer es lo mismo
 		if (!Objects.isNull(propiedad.getInmobiliaria())) {
@@ -68,9 +71,7 @@ public class PropiedadPojo {
 			this.idTipo = propiedad.getTipoPropiedad().getIdTipo();
 			this.nombreTipo = propiedad.getTipoPropiedad().getNombreTipo();
 			this.condicion = propiedad.getTipoPropiedad().getCondicion();
-			this.numBanio = propiedad.getTipoPropiedad().getNumBanio();
-			this.numDormitorio = propiedad.getTipoPropiedad().getNumDormitorio();
-			this.numEstacionamiento = propiedad.getTipoPropiedad().getNumEstacionamiento();
+
 		}
 		if (!Objects.isNull(propiedad.getDestinacion())) {
 			this.idDestinacion = propiedad.getDestinacion().getIdDestinacion();
@@ -99,8 +100,7 @@ public class PropiedadPojo {
 			p.setInmobiliaria(new Inmobiliaria(this.idInmobiliaria, this.nombreInmobiliaria));
 		}
 		if (!Objects.isNull(this.nombreTipo)) {
-			p.setTipoPropiedad(new Tipo( this.idTipo, this.nombreTipo, this.condicion, this.numBanio, this.numDormitorio,
-					this.numEstacionamiento));
+			p.setTipoPropiedad(new Tipo( this.idTipo, this.nombreTipo, this.condicion));
 		}
 		if (!Objects.isNull(this.destinacion)) {
 			p.setDestinacion(new Destinacion(this.idDestinacion, this.destinacion));

@@ -6,9 +6,7 @@ public class TipoPropiedadPojo {
 	private int idTipo;
 	private String nombreTipo;
 	private String condicion;
-	private int numBanio;
-	private int numEstac;
-	private int numDorm;
+
 	
 	public TipoPropiedadPojo() {
 	super();
@@ -19,9 +17,7 @@ public class TipoPropiedadPojo {
 		this.idTipo = tipo.getIdTipo();
 		this.nombreTipo = tipo.getNombreTipo();
 		this.condicion = tipo.getCondicion();
-		this.numBanio = tipo.getNumBanio();
-		this.numEstac = tipo.getNumEstacionamiento();
-		this.numDorm = tipo.getNumDormitorio();
+
 	}
 	
 	public Tipo obtenerTipo() {
@@ -29,9 +25,7 @@ public class TipoPropiedadPojo {
 		t.setIdTipo(this.idTipo);
 		t.setNombreTipo(this.nombreTipo);
 		t.setCondicion(this.condicion);
-		t.setNumBanio(this.numBanio);
-		t.setNumEstacionamiento(this.numEstac);
-		t.setNumDormitorio(this.numDorm);
+
 		return t;
 	}
 
@@ -59,29 +53,7 @@ public class TipoPropiedadPojo {
 		this.condicion = condicion;
 	}
 
-	public int getNumBanio() {
-		return numBanio;
-	}
 
-	public void setNumBanio(int numBanio) {
-		this.numBanio = numBanio;
-	}
-
-	public int getNumEstac() {
-		return numEstac;
-	}
-
-	public void setNumEstac(int numEstac) {
-		this.numEstac = numEstac;
-	}
-
-	public int getNumDorm() {
-		return numDorm;
-	}
-
-	public void setNumDorm(int numDorm) {
-		this.numDorm = numDorm;
-	}
 	
 	
 }
