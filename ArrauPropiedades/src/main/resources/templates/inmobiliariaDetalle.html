@@ -4,66 +4,76 @@
 <meta charset="UTF-8">
 <title>Detalle inmobiliaria</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Map-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <head th:replace="layout/header :: head">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+<link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/Map-Clean.css">
+<link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+<head th:replace="layout/header :: head">
 </head>
 <body>
 
 	<div class="container">
-	<header th:replace="layout/header :: header"></header>
-	<br><br><br><br><br><br>
-	
-	<nav aria-label="breadcrumb">
-  		<ol class="breadcrumb">
-    		<li class="breadcrumb-item"><a onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
-    		<li class="breadcrumb-item"><a onclick="location.href='/inmobiliaria'"><span>Ver inmobiliarias</span></a></li>
-			<li class="breadcrumb-item active"><span>Detalle inmobiliaria</span></li>
-  		</ol>
-	</nav>
-	
+		<header th:replace="layout/header :: header"></header>
+		<br> <br> <br> <br> <br> <br>
+
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a
+					onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+				<li class="breadcrumb-item"><a
+					onclick="location.href='/inmobiliaria'"><span>Ver
+							inmobiliarias</span></a></li>
+				<li class="breadcrumb-item active"><span>Detalle
+						inmobiliaria</span></li>
+			</ol>
+		</nav>
+
 		<div>
 			<h1>Detalle inmobiliaria</h1>
 			<hr>
-			 <div class="table-responsive table-bordered text-left">
-		 		<table class="table table-striped table-bordered table-hover">
-		 			<thead>
-		 				<tr>
-		 					<th>Nombre</th>
-		 					<th>Correo</th>
-		 					<th>Teléfono</th>
-		 					<th>Región</th>
-		 					<th>Ciudad</th>
-		 					<th>Comuna</th>
-		 					<th>Calle</th>
-		 					<th>Número departamento</th>
-		 					<th>Número</th>
-		 				</tr>
-		 			</thead>
-		 			<tbody>
-		 				<tr th:each="inmobiliaria : ${listDetalle}">
-		 					<td th:text="${inmobiliaria.nombre}"></td>
-		 					<td th:text="${inmobiliaria.correo}"></td>
-		 					<td th:text="${inmobiliaria.telefono}"></td>
-		 					<td th:text="${inmobiliaria.region}"></td>
-                       		<td th:text="${inmobiliaria.ciudad}"></td>
-                       		<td th:text="${inmobiliaria.comuna}"></td>
-                       		<td th:text="${inmobiliaria.calle}"></td>
-                       		<td th:text="${inmobiliaria.numDepartamento}"></td>
-                       		<td th:text="${inmobiliaria.numero}"></td>
-                       		<td> <button type="button" class="btn btn-link" th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</button> </td>
-		 				</tr>
-		 			</tbody>
-		 		</table>
-		 	</div>
-		 </div>
+			<div class="table-responsive table-bordered text-left">
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Correo</th>
+							<th>Teléfono</th>
+							<th>Región</th>
+							<th>Ciudad</th>
+							<th>Comuna</th>
+							<th>Calle</th>
+							<th>Número departamento</th>
+							<th>Número</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="inmobiliaria : ${listDetalle}">
+							<td th:text="${inmobiliaria.nombre}"></td>
+							<td th:text="${inmobiliaria.correo}"></td>
+							<td th:text="${inmobiliaria.telefono}"></td>
+							<td th:text="${inmobiliaria.region}"></td>
+							<td th:text="${inmobiliaria.ciudad}"></td>
+							<td th:text="${inmobiliaria.comuna}"></td>
+							<td th:text="${inmobiliaria.calle}"></td>
+							<td th:text="${inmobiliaria.numDepartamento}"></td>
+							<td th:text="${inmobiliaria.numero}"></td>
+							<td>
+								<button type="button" class="btn btn-link"
+									th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-	<br><br><br>
+	<br>
+	<br>
+	<br>
 	<footer th:replace="layout/footer :: footer"></footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/untitled.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/untitled.js"></script>
 </body>
 </html>

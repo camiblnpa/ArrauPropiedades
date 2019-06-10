@@ -51,6 +51,10 @@ public class Inmobiliaria implements Serializable {
 		super();
 		this.idInmobiliaria = id;
 		this.nombre = nombre;
+		this.ciudad = "a";
+		this.comuna ="b";
+		this.nombre ="c";
+		this.region ="d";
 	}
 
 	public int getIdInmobiliaria() {

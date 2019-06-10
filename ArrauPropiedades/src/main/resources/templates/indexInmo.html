@@ -14,48 +14,54 @@
 <body>
 
 	<div class="container">
-	<header th:replace="layout/header :: header"></header>
-	<br><br><br><br><br><br>
-	
-	<nav aria-label="breadcrumb">
-  		<ol class="breadcrumb">
-    		<li class="breadcrumb-item"><a onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
-			<li class="breadcrumb-item active"><span>Ver inmobiliarias</span></li>
-  		</ol>
-	</nav>
-	
+		<header th:replace="layout/header :: header"></header>
+		<br> <br> <br> <br> <br> <br>
+
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a
+					onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+				<li class="breadcrumb-item active"><span>Ver
+						inmobiliarias</span></li>
+			</ol>
+		</nav>
+
 		<h2 th:if="${list.isEmpty()}">No hay inmobiliarias registradas</h2>
-		
+
 		<div th:if="${!list.isEmpty()}">
 			<h1>Inmobiliarias</h1>
-			<a href="/inmobiliaria/saveInmobiliaria/0" class="btn btn-primary"> Agregar</a>
+			<a href="/inmobiliaria/save/0" class="btn btn-primary"> Agregar</a>
 			<hr>
-			 <div class="table-responsive table-bordered text-left">
-		 		<table class="table table-striped table-bordered table-hover">
-		 			<thead>
-                 	   <tr>
-                    	    <th>Nombre inmobiliaria</th>
-                        	<th>Ciudad</th>
-                        	<th>Correo</th>
-                        	<th>Teléfono</th>
-                        	<th></th>
-                        	<th></th>
-                    	</tr>
-                	</thead>
-                	<tbody>
-                		<tr th:each="inmobiliaria : ${list}">
-                		<td th:text="${inmobiliaria.nombre}"></td>
-                		<td th:text="${inmobiliaria.ciudad}"></td>
-                		<td th:text="${inmobiliaria.correo}"></td>
-                		<td th:text="${inmobiliaria.telefono}"></td>
-                		<td> <a type="button" class="btn btn-link" th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</a> </td>
-                		<td> <a type="button" class="btn btn-link" th:href="@{/inmobiliariaDetalle/{id}(id=${inmobiliaria.idInmobiliaria})}">Ver detalles</a>               									
-                	</tbody>
-		 		</table>
-		 	</div>
-		 </div>
+			<div class="table-responsive table-bordered text-left">
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Nombre inmobiliaria</th>
+							<th>Ciudad</th>
+							<th>Correo</th>
+							<th>Teléfono</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="inmobiliaria : ${list}">
+							<td th:text="${inmobiliaria.nombre}"></td>
+							<td th:text="${inmobiliaria.ciudad}"></td>
+							<td th:text="${inmobiliaria.correo}"></td>
+							<td th:text="${inmobiliaria.telefono}"></td>
+							<td><a type="button" class="btn btn-link"
+								th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</a>
+							</td>
+							<td><a type="button" class="btn btn-link"
+								th:href="@{/inmobiliariaDetalle/{id}(id=${inmobiliaria.idInmobiliaria})}">Ver
+									detalles</a>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-<!--  
+	<!--  
 						<tr th:each="inmobiliaria : ${list}">
 							<td th:text="${inmobiliaria.calle}"></td>
 							<td th:text="${inmobiliaria.ciudad}"></td>

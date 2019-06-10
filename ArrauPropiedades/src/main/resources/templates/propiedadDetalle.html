@@ -38,7 +38,7 @@ h2 {
 	text-align: center;
 }
 </style>
-<title>Listado de Propiedades</title>
+<title>Detalle de Propiedad</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
@@ -62,47 +62,63 @@ h2 {
 			</nav>
 		</div>
 
-		<h2 th:if="${list.isEmpty()}">
-			No hay propiedades <a href="/propiedadPojo/save/0"
-				class="btn btn-primary"><i class="fa fa-user-plus"></i> Agregar</a>
-		</h2>
-		<div th:if="${!list.isEmpty()}">
 
-			<h2>
-				Propiedad <a href="/propiedadPojo/save/0" class="btn btn-primary"><i
-					class="fa fa-user-plus"></i> Agregar</a>
-			</h2>
-
-			<table id="customers">
-
+		<table class="table">
+			<thead>
 				<tr>
 					<th>Precio</th>
-					<th>Dimension del terreno</th>
-					<th>Dimension de la Propiedad</th>
+					<th>Descripcion</th>
+					<th>Dimensión del terreno</th>
+					<th>Dimensión de la construcción</th>
+					<th>Calle</th>
+					<th>Número</th>
+					<th>Número depto</th>
 					<th>Ciudad</th>
-					<th>Tipo destinacion</th>
+					<th>Comuna</th>
+					<th>Region</th>
+					<th>Latitud</th>
+					<th>Longitud</th>
+					<th>Número de baños</th>
+					<th>Número de dormitorios</th>
+					<th>Número de estacionamientos</th>
+					<th>Nombre inmobiliaria</th>
+					<th>Nombre tipo</th>
+					<th>Condicion</th>
+					<th>Tipo de destinación</th>
 				</tr>
-
-				<tr th:each="propiedadPojo : ${list}">
+			</thead>
+			<tbody>
+				<tr th:each="propiedadPojo: ${listDetalle}">
+					<td th:text="${propiedadPojo.idPropiedad}"></td>
 					<td th:text="${propiedadPojo.precio}"></td>
+					<td th:text="${propiedadPojo.descripcion}"></td>
 					<td th:text="${propiedadPojo.dimTerreno}"></td>
 					<td th:text="${propiedadPojo.dimConstruccion}"></td>
+					<td th:text="${propiedadPojo.calle}"></td>
+					<td th:text="${propiedadPojo.numero}"></td>
+					<td th:text="${propiedadPojo.numDepartamento}"></td>
 					<td th:text="${propiedadPojo.ciudad}"></td>
-					<td th:text="${propiedadPojo.destinacion}"></td>
-					<td><a
-						th:href="@{/propiedad/save/{id}(id=${propiedadPojo.idPropiedad})}">
-							Editar <i class="fa fa-edit"></i>
-					</a></td>
+					<td th:text="${propiedadPojo.comuna}"></td>
+					<td th:text="${propiedadPojo.region}"></td>
+					<td th:text="${propiedadPojo.latitud}"></td>
+					<td th:text="${propiedadPojo.longitud}"></td>
+					<td th:text="${propiedadPojo.numBanio}"></td>
+					<td th:text="${propiedadPojo.numDormitorio}"></td>
+					<td th:text="${propiedadPojo.numEstacionamiento}"></td>
+<!-- 					<td th:text="${propiedadPojo.nombreInmobiliaria}"></td> -->
+<!-- 					<td th:text="${propiedadPojo.nombreTipo}"></td> -->
+<!-- 					<td th:text="${propiedadPojo.condicion}"></td> -->
+<!-- 					<td th:text="${propiedadPojo.destinacion}"></td> -->
 
-					<!--     <td><a th:href="@{/propiedad/delete/{id}(id=${propiedadPojo.idPropiedad})}"> -->
-					<!--             Eliminar <i class="fa fa-trash"></i> </a></td> -->
-
-					<td><a type="button" class="btn btn-link"
-						th:href="@{/propiedadDetalle/{id}(id=${propiedadPojo.idPropiedad})}">Ver
-							detalles</a>
+<!-- 					<td> -->
+<!-- 						<button type="button" class="btn btn-link" -->
+<!-- 							th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</button> -->
+<!-- 					</td> -->
 				</tr>
-			</table>
-		</div>
+			</tbody>
+		</table>
+	</div>
+	</div>
 	</div>
 	<br>
 	<br>

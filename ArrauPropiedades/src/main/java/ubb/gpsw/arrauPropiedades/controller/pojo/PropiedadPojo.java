@@ -20,6 +20,9 @@ public class PropiedadPojo {
 	private String region;
 	private String latitud;
 	private String longitud;
+	private int numBanio;
+	private int numDormitorio;
+	private int numEstacionamiento;
 
 	// Solo se mostrará el nombre de inmobiliaria asociada a propiedad
 	private int idInmobiliaria;
@@ -29,9 +32,7 @@ public class PropiedadPojo {
 	private int idTipo;
 	private String nombreTipo;
 	private String condicion;
-	private int numBanio;
-	private int numDormitorio;
-	private int numEstacionamiento;
+
 
 	// Atributo el cual muestra tipo de destinación (arriendo, venta, etc)
 	private int idDestinacion;

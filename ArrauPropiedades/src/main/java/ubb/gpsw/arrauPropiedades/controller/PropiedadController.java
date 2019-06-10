@@ -23,7 +23,6 @@ public class PropiedadController {
 	
 	@Autowired
 	private PropiedadService propService;
-	private InteresadoService intService;
 
 	@RequestMapping("/propiedadPojo")
 	public String indexPropiedad(Model model) {
@@ -31,7 +30,15 @@ public class PropiedadController {
 		return "propiedadPojo";
 	}
 
-
+	@GetMapping("/propiedadDetalle/{id}")
+	public String getPropiedadById(Model model, @PathVariable("id") Integer id) {
+		if(id!=0) {
+			model.addAttribute("listDetalle", propService.findById(id));
+		} else {
+			System.out.println("error");
+		}
+		return "propiedadDetalle";
+	}
 	/*
 	@GetMapping("/propiedadPojo/save/{id}")
 	public String getPropiedadById (Model model, @PathVariable("id") Integer id) {

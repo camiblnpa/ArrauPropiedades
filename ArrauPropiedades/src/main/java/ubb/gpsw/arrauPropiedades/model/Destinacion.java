@@ -37,6 +37,7 @@ public class Destinacion implements Serializable {
 		super();
 		this.idDestinacion = id;
 		this.tipoDestinacion = tipo;
+		this.fechaRegistro = new Date(System.currentTimeMillis());
 	}
 
 	public int getIdDestinacion() {

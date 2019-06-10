@@ -4,33 +4,38 @@
 <meta charset="UTF-8">
 <style>
 #customers {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 #customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
+	border: 1px solid #ddd;
+	padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {
+	background-color: #ddd;
+}
 
 #customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #0C3256;
-  color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #0C3256;
+	color: white;
 }
-#customers a{
- color: black;
- 
+
+#customers a {
+	color: black;
 }
-h2{
-text-align: center;
+
+h2 {
+	text-align: center;
 }
 </style>
 <title>Lista de Destinaciones</title>
@@ -47,47 +52,50 @@ text-align: center;
 	<div>
 		<br>
 		<div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<nav aria-label="breadcrumb">
-  		<ol class="breadcrumb">
-  		<li class="breadcrumb-item"><a onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
-			<li class="breadcrumb-item active"><span>Destinación</span></li>
-  	</ol>
-	</nav>
+			<br> <br> <br> <br>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a
+						onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+					<li class="breadcrumb-item active"><span>Destinación</span></li>
+				</ol>
+			</nav>
 		</div>
-		<h2 th:if="${list.isEmpty()}">No hay destinaciones <a href="/destinacion/save/0" 
-		class="btn btn-primary"><i class="fa fa-plus-circle"></i> Agregar</a></h2>
+		<h2 th:if="${list.isEmpty()}">
+			No hay destinaciones <a href="/destinacion/save/0"
+				class="btn btn-primary"><i class="fa fa-plus-circle"></i>
+				Agregar</a>
+		</h2>
 		<div th:if="${!list.isEmpty()}">
-			<h2>Destinaciones<a href="/destinacion/save/0" 
-			class="btn btn-primary"><i class="fa fa-plus-circle"></i> Agregar</a></h2>
-			  <table class="table">
-				<table border="2px">
-					<thead>
+			<h2>
+				Destinaciones<a href="/destinacion/save/0" class="btn btn-primary"><i
+					class="fa fa-plus-circle"></i> Agregar</a>
+			</h2>
+<!-- 			<table class="table"> -->
+<!-- 				<table border="2px"> -->
+<!-- 					<thead> -->
 
-						<tr>
-							<th>Fecha de Venta</th>
-							<th>Fecha de Registro</th>
-							<th>Tipo de Destinacion</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="destinacion : ${list}">
-							<td th:text="${destinacion.fechaVenta}"></td>
-							<td th:text="${destinacion.fechaRegistro}"></td>
-							<td th:text="${destinacion.tipoDestinacion}"></td>
-							<td><a
-								th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}">
-									Editar </a></td>
-							<td><a
-								th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}">
-									Eliminar </a></td>
-						</tr>
-					</tbody>
-				</table>
-				<!--<table id="customers">
+<!-- 						<tr> -->
+<!-- 							<th>Fecha de Venta</th> -->
+<!-- 							<th>Fecha de Registro</th> -->
+<!-- 							<th>Tipo de Destinacion</th> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody> -->
+<!-- 						<tr th:each="destinacion : ${list}"> -->
+<!-- 							<td th:text="${destinacion.fechaVenta}"></td> -->
+<!-- 							<td th:text="${destinacion.fechaRegistro}"></td> -->
+<!-- 							<td th:text="${destinacion.tipoDestinacion}"></td> -->
+<!-- 							<td><a -->
+<!-- 								th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}"> -->
+<!-- 									Editar </a></td> -->
+<!-- 							<td><a -->
+<!-- 								th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}"> -->
+<!-- 									Eliminar </a></td> -->
+<!-- 						</tr> -->
+<!-- 					</tbody> -->
+<!-- 				</table> -->
+				<table id="customers">
 
  							<tr>
 							<th>Fecha de Venta</th>
@@ -107,10 +115,10 @@ text-align: center;
 							<td><a
 								th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}">
 									Eliminar <i class="fa fa-trash"></i></a></td>
-						</tr> </table>-->
+						</tr> </table>
 				</div>
 				</div>
-				
+
 				<footer th:replace="layout/footer :: footer"></footer>
 				<script src="assets/js/jquery.min.js"></script>
 				<script src="assets/bootstrap/js/bootstrap.min.js"></script>
