@@ -2,10 +2,40 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C3256;
+  color: white;
+}
+#customers a{
+ color: black;
+ 
+}
+h2{
+text-align: center;
+}
+</style>
 <title>Tipos</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
 <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/Map-Clean.css">
 <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
@@ -17,24 +47,36 @@
 		<br>
 		<div>
 			<br> <br> <br> <br>
-			 <a href="/tipo/save/0"
-				class="btn btn-primary">Agregar</a>
-		</div>
-		<h2 th:if="${list.isEmpty()}">No hay tipos</h2>
+			<nav aria-label="breadcrumb">
+  		<ol class="breadcrumb">
+  		<li class="breadcrumb-item"><a onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+			<li class="breadcrumb-item active"><span>Tipo</span></li>
+  	</ol>
+	</nav>
+	</div>
+			 
+		
+		<h2 th:if="${list.isEmpty()}">No hay tipos <a href="/tipo/save/0"
+				class="btn btn-primary"><i class="fa fa-user-plus"></i> Agregar</a></h2>
+		
 		<div th:if="${!list.isEmpty()}">
-			<h2>Tipos</h2>
-			<table class="table">
+			<h2>Tipos <a href="/tipo/save/0"
+				class="btn btn-primary"><i class="fa fa-user-plus"></i>  Agregar</a></h2>
+			<!--  <table class="table">
 				<table border="2px">
-					<thead>
+					<thead>-->
+					<table id="customers">
 						<tr>
 							<th>Condición</th>
 							<th>Nombre Tipo</th>
 							<th>Numero de baños</th>
 							<th>Numero de dormitorios</th>
 							<th>Numero de estacionamientos</th>
+							<th></th>
+   						    <th></th>
 						</tr>
-					</thead>
-					<tbody>
+					<!--  </thead>
+					<tbody>-->
 						<tr th:each="tipo : ${list}">
 							<td th:text="${tipo.condicion}"></td>
 							<td th:text="${tipo.nombreTipo}"></td>
@@ -42,14 +84,17 @@
 							<td th:text="${tipo.numDormitorio}"></td>
 							<td th:text="${tipo.numEstacionamiento}"></td>
 							<td><a th:href="@{/tipo/save/{id}(id=${tipo.idTipo})}">
-									Editar </a></td>
+									Editar <i class="fa fa-edit"></i></a></td>
 							<td><a th:href="@{/tipo/delete/{id}(id=${tipo.idTipo})}">
-									Eliminar </a></td>
+									Eliminar <i class="fa fa-trash"></a></td>
 						</tr>
-					</tbody>
+					<!-- </tbody> -->
 				</table>
 				</div>
 				</div>
+				
+				<br><br><br><br>
+				<footer th:replace="layout/footer :: footer"></footer>
 				<script src="assets/js/jquery.min.js"></script>
 				<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 				<script src="assets/js/untitled.js"></script>

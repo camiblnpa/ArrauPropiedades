@@ -2,6 +2,37 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0C3256;
+  color: white;
+}
+#customers a{
+ color: black;
+ 
+}
+h2{
+text-align: center;
+}
+</style>
 <title>Listado de Interesados</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -17,13 +48,21 @@
 		<br>
 		<div>
 			<br> <br> <br> <br>
-			 <a href="/interesado/save/0"
-				class="btn btn-primary">Agregar</a>
-		</div>
-		<h2 th:if="${list.isEmpty()}">No hay interesados</h2>
+			<nav aria-label="breadcrumb">
+  		<ol class="breadcrumb">
+  		<li class="breadcrumb-item"><a onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+			<li class="breadcrumb-item active"><span>Interesados</span></li>
+  	</ol>
+	</nav>
+	</div>
+	
+		<h2 th:if="${list.isEmpty()}">No hay interesados <a href="/interesado/save/0"
+				class="btn btn-primary"><i class="fa fa-user-plus"></i>  Agregar</a></h2>
 		<div th:if="${!list.isEmpty()}">
-			<h2>Interesados</h2>
-			<table class="table">
+		
+			<h2>Interesados <a href="/interesado/save/0"
+				class="btn btn-primary"><i class="fa fa-user-plus"></i>  Agregar</a></h2>
+			<!--  <table class="table">
 				<table border="2px">
 					<thead>
 						<tr>
@@ -45,9 +84,31 @@
 									Eliminar </a></td>
 						</tr>
 					</tbody>
-				</table>
+				</table>-->
+<table id="customers">
+
+  <tr>
+    <th>Nombre</th>
+    <th>Teléfono</th>
+    <th>Correo</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+  <tr th:each="interesado : ${list}">
+    <td th:text="${interesado.nombre}"></td>
+    <td th:text="${interesado.telefono}"></td>
+    <td th:text="${interesado.correo}"></td>
+    <td ><a  th:href="@{/interesado/save/{id}(id=${interesado.idInteresado})}">
+            Editar  <i class="fa fa-edit"></i> </a></td>
+            
+    <td><a th:href="@{/interesado/delete/{id}(id=${interesado.idInteresado})}">
+            Eliminar <i class="fa fa-trash"></i> </a></td>
+  </tr> </table>
 				</div>
 				</div>
+				<br><br><br><br>
+				<footer th:replace="layout/footer :: footer"></footer>
 				<script src="assets/js/jquery.min.js"></script>
 				<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 				<script src="assets/js/untitled.js"></script>
