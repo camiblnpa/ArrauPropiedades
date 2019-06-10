@@ -7,10 +7,11 @@ import ubb.gpsw.arrauPropiedades.model.Propiedad;
 
 public interface PropiedadService {
 
-	List<PropiedadPojo> findAll();
+	List<Propiedad> findAll();
 
 	void save(Propiedad p);
 
 	Propiedad findById(Integer id);
-
+	
+	
 }

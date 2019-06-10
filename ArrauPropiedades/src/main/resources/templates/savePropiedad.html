@@ -2,7 +2,7 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Lista de Propiedades</title>
+<title>Agregar Propiedad</title>
 </head>
 <body>
 	<div>
@@ -15,6 +15,11 @@
 			<div class="form=group">
 				<label for="nombre">Precio</label> <input type="text"
 					class="form-control" id="precio" th:field="*{precio}" name="precio">
+			</div>
+			<div class="form=group">
+				<label for="nombre">Descripcion</label> <input type="text"
+					class="form-control" id="descripcion" th:field="*{descripcion}"
+					name="descripcion">
 			</div>
 			<div class="form=group">
 				<label for="nombre">Dimension del terreno</label> <input type="text"
@@ -61,33 +66,43 @@
 					class="form-control" id="longitud" th:field="*{longitud}"
 					name="longitud">
 			</div>
+			<input type="hidden" th:field="*{idInmobiliaria}"
+				name="idInmobiliaria" id="idInmobiliaria">
 			<div class="form=group">
 				<label for="nombre">Inmobiliaria</label> <input type="text"
-					class="form-control" id="nombreInmobiliaria" th:field="*{nombreInmobiliaria}"
-					name="nombreInmobiliaria">
+					class="form-control" id="nombreInmobiliaria"
+					th:field="*{nombreInmobiliaria}" name="nombreInmobiliaria">
 			</div>
-			<div class="form-group">
-				<label for="fechaRegistro">Nombre tipo</label> <input type="text"
-					class="form-control" id="nombreTipo" th:field="*{nombreTipo}" name="nombreTipo">
+			<input type="hidden" th:field="*{idTipo}" name="idTipo" id="idTipo">
+			<div class="form=group">
+				<label for="nombre">Nombre tipo</label> <input type="text"
+					class="form-control" id="nombreTipo" th:field="*{nombreTipo}"
+					name="nombreTipo">
 			</div>
-			<div class="form-group">
-				<label for="fechaVenta">Condicion</label> <input type="text"
-					class="form-control" id="condicion" th:field="*{condicion}" name="condicion">
+			<div class="form=group">
+				<label for="nombre">Condicion</label> <input type="text"
+					class="form-control" id="condicion" th:field="*{condicion}"
+					name="condicion">
 			</div>
-			<div class="form-group">
-				<label for="tipoDestinacion">Número de baños</label> <input type="text"
-					class="form-control" id="numBanio" th:field="*{numBanio}" name="numBanio">
+			<div class="form=group">
+				<label for="nombre">Número de baños</label> <input type="text"
+					class="form-control" id="numBanio" th:field="*{numBanio}"
+					name="numBanio">
 			</div>
-			
-			<div class="form-group">
-				<label for="tipoDestinacion">Número de dormitorios</label> <input type="text"
-					class="form-control" id="numDormitorio" th:field="*{numDormitorio}" name="numDormitorio">
+
+			<div class="form=group">
+				<label for="nombre">Número de dormitorios</label> <input type="text"
+					class="form-control" id="numDormitorio" th:field="*{numDormitorio}"
+					name="numDormitorio">
 			</div>
-			
-			<div class="form-group">
-				<label for="tipoDestinacion">Número de estacionamientos</label> <input type="text"
-					class="form-control" id="numEstacionamiento" th:field="*{numEstacionamiento}" name="numEstacionamiento">
-			</div>								
+
+			<div class="form=group">
+				<label for="nombre">Número de estacionamientos</label> <input
+					type="text" class="form-control" id="numEstacionamiento"
+					th:field="*{numEstacionamiento}" name="numEstacionamiento">
+			</div>
+			<input type="hidden" th:field="*{idDestinacion}" name="idDestinacion"
+				id="idDestinacion">
 			<div class="form=group">
 				<label for="nombre">Destinacion</label> <input type="text"
 					class="form-control" id="destinacion" th:field="*{destinacion}"

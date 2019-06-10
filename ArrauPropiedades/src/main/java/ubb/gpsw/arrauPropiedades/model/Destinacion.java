@@ -33,8 +33,9 @@ public class Destinacion implements Serializable {
 	}
 
 	// Constructor utilizado por PropiedadPojo
-	public Destinacion(String tipo) {
+	public Destinacion(int id, String tipo) {
 		super();
+		this.idDestinacion = id;
 		this.tipoDestinacion = tipo;
 	}
 

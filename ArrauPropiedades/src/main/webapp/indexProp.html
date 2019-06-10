@@ -56,11 +56,11 @@ text-align: center;
 	</nav>
 	</div>
 	
-		<h2 th:if="${list.isEmpty()}">No hay propiedades <a href="/propiedadPojo/save/0"
+		<h2 th:if="${list.isEmpty()}">No hay propiedades <a href="/propiedad/save/0"
 				class="btn btn-primary"><i class="fa fa-user-plus"></i>  Agregar</a></h2>
 		<div th:if="${!list.isEmpty()}">
 		
-			<h2>Propiedad <a href="/propiedadPojo/save/0"
+			<h2>Propiedad <a href="/propiedad/save/0"
 				class="btn btn-primary"><i class="fa fa-user-plus"></i>  Agregar</a></h2>
 
 <table id="customers">
@@ -79,12 +79,13 @@ text-align: center;
     <td th:text="${propiedadPojo.dimConstruccion}"></td>
     <td th:text="${propiedadPojo.ciudad}"></td>
     <td th:text="${propiedadPojo.destinacion}"></td>
-    <td ><a  th:href="@{/propiedad/save/{id}(id=${propiedadPojo.idPropiedad})}">
+    <!-- 
+    <td ><a  th:href="@{/propiedad/save/{id}(id=${PropiedadPojo.idPropiedad})}">
             Editar  <i class="fa fa-edit"></i> </a></td>
             
-    <td><a th:href="@{/propiedad/delete/{id}(id=${propiedadPojo.idPropiedad})}">
+    <td><a th:href="@{/propiedad/delete/{id}(id=${PropiedadPojo.idPropiedad})}">
             Eliminar <i class="fa fa-trash"></i> </a></td>
-  </tr> </table>
+  </tr> </table>  -->
 				</div>
 				</div>
 				<br><br><br><br>

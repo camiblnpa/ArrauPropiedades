@@ -35,8 +35,9 @@ public class Tipo implements Serializable {
 	}
 
 	// Constructor utilizado por PropiedadPojo
-	public Tipo(String nombre, String cond, int nBanio, int nDorm, int nEstac) {
+	public Tipo(int id, String nombre, String cond, int nBanio, int nDorm, int nEstac) {
 		super();
+		this.idTipo = id;
 		this.nombreTipo = nombre;
 		this.condicion = cond;
 		this.numBanio = nBanio;

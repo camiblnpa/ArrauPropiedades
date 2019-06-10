@@ -47,8 +47,9 @@ public class Inmobiliaria implements Serializable {
 	}
 
 	// Constructor utilizado por PropiedadPojo
-	public Inmobiliaria(String nombre) {
+	public Inmobiliaria(int id, String nombre) {
 		super();
+		this.idInmobiliaria = id;
 		this.nombre = nombre;
 	}
 

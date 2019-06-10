@@ -9,6 +9,7 @@ public class PropiedadPojo {
 	// Todos los atributos que estaran en la "vista"
 	private int idPropiedad;
 	private int precio;
+	private String descripcion;
 	private int dimTerreno;
 	private int dimConstruccion;
 	private String calle;
@@ -21,9 +22,11 @@ public class PropiedadPojo {
 	private String longitud;
 
 	// Solo se mostrará el nombre de inmobiliaria asociada a propiedad
+	private int idInmobiliaria;
 	private String nombreInmobiliaria;
 
 	// Atributos de Tipo de propiedad
+	private int idTipo;
 	private String nombreTipo;
 	private String condicion;
 	private int numBanio;
@@ -31,18 +34,20 @@ public class PropiedadPojo {
 	private int numEstacionamiento;
 
 	// Atributo el cual muestra tipo de destinación (arriendo, venta, etc)
+	private int idDestinacion;
 	private String destinacion;
 
-	//Costructor vacio
+	// Costructor vacio
 	public PropiedadPojo() {
 		super();
 	}
-	
-	//Constructor de Propiedad
+
+	// Constructor de Propiedad
 	public PropiedadPojo(Propiedad propiedad) {
 		super();
 		this.idPropiedad = propiedad.getIdPropiedad();
 		this.precio = propiedad.getPrecio();
+		this.descripcion = propiedad.getDescripcion();
 		this.dimTerreno = propiedad.getDimTerreno();
 		this.dimConstruccion = propiedad.getDimConstruccion();
 		this.calle = propiedad.getCalle();
@@ -56,9 +61,11 @@ public class PropiedadPojo {
 
 		// Clase objectUtil proyecto SGP, utilize util.Objects, al parecer es lo mismo
 		if (!Objects.isNull(propiedad.getInmobiliaria())) {
+			this.idInmobiliaria = propiedad.getInmobiliaria().getIdInmobiliaria();
 			this.nombreInmobiliaria = propiedad.getInmobiliaria().getNombre();
 		}
 		if (!Objects.isNull(propiedad.getTipoPropiedad())) {
+			this.idTipo = propiedad.getTipoPropiedad().getIdTipo();
 			this.nombreTipo = propiedad.getTipoPropiedad().getNombreTipo();
 			this.condicion = propiedad.getTipoPropiedad().getCondicion();
 			this.numBanio = propiedad.getTipoPropiedad().getNumBanio();
@@ -66,6 +73,7 @@ public class PropiedadPojo {
 			this.numEstacionamiento = propiedad.getTipoPropiedad().getNumEstacionamiento();
 		}
 		if (!Objects.isNull(propiedad.getDestinacion())) {
+			this.idDestinacion = propiedad.getDestinacion().getIdDestinacion();
 			this.destinacion = propiedad.getDestinacion().getTipoDestinacion();
 		}
 	}
@@ -75,6 +83,7 @@ public class PropiedadPojo {
 		final Propiedad p = new Propiedad();
 		p.setIdPropiedad(this.idPropiedad);
 		p.setPrecio(this.precio);
+		p.setDescripcion(this.descripcion);
 		p.setDimTerreno(this.dimTerreno);
 		p.setDimConstruccion(this.dimConstruccion);
 		p.setCalle(this.calle);
@@ -87,20 +96,20 @@ public class PropiedadPojo {
 		p.setLongitud(this.longitud);
 
 		if (!Objects.isNull(this.nombreInmobiliaria)) {
-			p.setInmobiliaria(new Inmobiliaria(this.nombreInmobiliaria));
+			p.setInmobiliaria(new Inmobiliaria(this.idInmobiliaria, this.nombreInmobiliaria));
 		}
 		if (!Objects.isNull(this.nombreTipo)) {
-			p.setTipoPropiedad(new Tipo(this.nombreTipo, this.condicion, this.numBanio, this.numDormitorio,
+			p.setTipoPropiedad(new Tipo( this.idTipo, this.nombreTipo, this.condicion, this.numBanio, this.numDormitorio,
 					this.numEstacionamiento));
 		}
 		if (!Objects.isNull(this.destinacion)) {
-			p.setDestinacion(new Destinacion(this.destinacion));
+			p.setDestinacion(new Destinacion(this.idDestinacion, this.destinacion));
 		}
 
 		return p;
 	}
 
-	//Getter & Setters
+	// Getter & Setters
 	public int getIdPropiedad() {
 		return idPropiedad;
 	}
@@ -252,5 +261,38 @@ public class PropiedadPojo {
 	public void setDestinacion(String destinacion) {
 		this.destinacion = destinacion;
 	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public int getIdInmobiliaria() {
+		return idInmobiliaria;
+	}
+
+	public void setIdInmobiliaria(int idInmobiliaria) {
+		this.idInmobiliaria = idInmobiliaria;
+	}
+
+	public int getIdTipo() {
+		return idTipo;
+	}
+
+	public void setIdTipo(int idTipo) {
+		this.idTipo = idTipo;
+	}
+
+	public int getIdDestinacion() {
+		return idDestinacion;
+	}
+
+	public void setIdDestinacion(int idDestinacion) {
+		this.idDestinacion = idDestinacion;
+	}
+	
 
 }
