@@ -40,16 +40,15 @@ h2 {
 </style>
 <title>Listado de Interesados</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
 <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/Map-Clean.css">
 <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
 <head th:replace="layout/header :: head">
 </head>
 <body>
+	<div class="container">
 	<header th:replace="layout/header :: header"></header>
-	<div>
 		<br>
 		<div>
 			<br> <br> <br> <br>
@@ -62,41 +61,16 @@ h2 {
 			</nav>
 		</div>
 
-		<h2 th:if="${list.isEmpty()}">
-			No hay interesados <a href="/interesado/save/0"
+		<h2 th:if="${list.isEmpty()}"> No hay interesados <a href="/interesado/save/0"
 				class="btn btn-primary"><i class="fa fa-user-plus"></i> Agregar</a>
 		</h2>
+		
 		<div th:if="${!list.isEmpty()}">
-
 			<h2>
 				Interesados <a href="/interesado/save/0" class="btn btn-primary"><i
 					class="fa fa-user-plus"></i> Agregar</a>
 			</h2>
-			<!--  <table class="table">
-				<table border="2px">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Telefono</th>
-							<th>Correo</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="interesado : ${list}">
-							<td th:text="${interesado.nombre}"></td>
-							<td th:text="${interesado.telefono}"></td>
-							<td th:text="${interesado.correo}"></td>
-							<td><a
-								th:href="@{/interesado/save/{id}(id=${interesado.idInteresado})}">
-									Editar </a></td>
-							<td><a
-								th:href="@{/interesado/delete/{id}(id=${interesado.idInteresado})}">
-									Eliminar </a></td>
-						</tr>
-					</tbody>
-				</table>-->
 			<table id="customers">
-
 				<tr>
 					<th>Nombre</th>
 					<th>Teléfono</th>
@@ -104,28 +78,21 @@ h2 {
 					<th></th>
 					<th></th>
 				</tr>
-
+				
 				<tr th:each="interesado : ${list}">
 					<td th:text="${interesado.nombre}"></td>
 					<td th:text="${interesado.telefono}"></td>
 					<td th:text="${interesado.correo}"></td>
-					<td><a
-						th:href="@{/interesado/save/{id}(id=${interesado.idInteresado})}">
-							Editar <i class="fa fa-edit"></i>
-					</a></td>
-
-					<td><a
-						th:href="@{/interesado/delete/{id}(id=${interesado.idInteresado})}">
-							Eliminar <i class="fa fa-trash"></i>
-					</a></td>
+					<td><a th:href="@{/interesado/save/{id}(id=${interesado.idInteresado})}">Editar <i class="fa fa-edit"></i></a></td>
+					<td><a th:href="@{/interesado/delete/{id}(id=${interesado.idInteresado})}">Eliminar <i class="fa fa-trash"></i></a></td>
 				</tr>
 			</table>
 		</div>
+	<br>
+	<br>
+	<br>
+	<br>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
 	<footer th:replace="layout/footer :: footer"></footer>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
