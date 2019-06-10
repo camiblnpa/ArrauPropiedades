@@ -49,6 +49,12 @@ public class Propiedad implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Destinacion destinacion;
+	
+	private int numBanio;
+
+	private int numDormitorio;
+
+	private int numEstacionamiento;
 
 	public Propiedad() {
 	}
@@ -181,5 +187,36 @@ public class Propiedad implements Serializable {
 		this.destinacion = destinacion;
 	}
 
+	public Tipo getTipo() {
+		return tipo;
+	}
 
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getNumBanio() {
+		return numBanio;
+	}
+
+	public void setNumBanio(int numBanio) {
+		this.numBanio = numBanio;
+	}
+
+	public int getNumDormitorio() {
+		return numDormitorio;
+	}
+
+	public void setNumDormitorio(int numDormitorio) {
+		this.numDormitorio = numDormitorio;
+	}
+
+	public int getNumEstacionamiento() {
+		return numEstacionamiento;
+	}
+
+	public void setNumEstacionamiento(int numEstacionamiento) {
+		this.numEstacionamiento = numEstacionamiento;
+	}
+	
 }

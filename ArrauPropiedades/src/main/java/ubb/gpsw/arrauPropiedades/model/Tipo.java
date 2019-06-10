@@ -22,12 +22,6 @@ public class Tipo implements Serializable {
 
 	private String nombreTipo;
 
-	private int numBanio;
-
-	private int numDormitorio;
-
-	private int numEstacionamiento;
-
 	@OneToMany(mappedBy = "tipo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
@@ -35,14 +29,11 @@ public class Tipo implements Serializable {
 	}
 
 	// Constructor utilizado por PropiedadPojo
-	public Tipo(int id, String nombre, String cond, int nBanio, int nDorm, int nEstac) {
+	public Tipo(int id, String nombre, String cond) {
 		super();
 		this.idTipo = id;
 		this.nombreTipo = nombre;
 		this.condicion = cond;
-		this.numBanio = nBanio;
-		this.numDormitorio = nDorm;
-		this.numEstacionamiento = nEstac;
 	}
 
 	public int getIdTipo() {
@@ -68,29 +59,4 @@ public class Tipo implements Serializable {
 	public void setNombreTipo(String nombreTipo) {
 		this.nombreTipo = nombreTipo;
 	}
-
-	public int getNumBanio() {
-		return this.numBanio;
-	}
-
-	public void setNumBanio(int numBanio) {
-		this.numBanio = numBanio;
-	}
-
-	public int getNumDormitorio() {
-		return this.numDormitorio;
-	}
-
-	public void setNumDormitorio(int numDormitorio) {
-		this.numDormitorio = numDormitorio;
-	}
-
-	public int getNumEstacionamiento() {
-		return this.numEstacionamiento;
-	}
-
-	public void setNumEstacionamiento(int numEstacionamiento) {
-		this.numEstacionamiento = numEstacionamiento;
-	}
-
 }
