@@ -3,6 +3,11 @@
 <head th:fragment="footer">
 <meta charset="UTF-8">
 <title>Arrau Propiedades</title>
+<style>
+.pointer {
+	cursor: pointer;
+}
+</style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -18,22 +23,22 @@
 			<div class="collapse navbar-collapse" id="navcol-1">
 				<ul class="nav navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">Propiedades&nbsp;</a>
+                    <a class="dropdown-toggle nav-link pointer" data-toggle="dropdown" aria-expanded="false">Propiedades&nbsp;</a>
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
-                    	<a class="dropdown-item" role="presentation" onclick="location.href='/propiedadPojo'">Ver propiedades</a>
-                        <a class="dropdown-item" role="presentation" onclick="location.href='/propiedadPojo/save/0'">Agregar propiedad</a>
+                    	<a class="dropdown-item pointer" role="presentation" onclick="location.href='/propiedadPojo'">Ver propiedades</a>
+                        <a class="dropdown-item pointer" role="presentation" onclick="location.href='/propiedadPojo/save/0'">Agregar propiedad</a>
                    </div>
 					</li>
                     <li class="nav-item dropdown">
-                    	<a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">Inmobiliarias&nbsp;</a>
+                    	<a class="dropdown-toggle nav-link pointer" data-toggle="dropdown" aria-expanded="false">Inmobiliarias&nbsp;</a>
                     	<div class="dropdown-menu dropdown-menu-right" role="menu">
-                        	<a class="dropdown-item" role="presentation" onclick="location.href='/inmobiliaria'">Ver inmobiliaria</a>
-                            <a class="dropdown-item" role="presentation" href="/inmobiliaria/save/0">Agregar inmobiliaria</a></div>
+                        	<a class="dropdown-item pointer" role="presentation" onclick="location.href='/inmobiliaria'">Ver inmobiliaria</a>
+                            <a class="dropdown-item pointer" role="presentation" href="/inmobiliaria/save/0">Agregar inmobiliaria</a></div>
                     </li>
                     <li class="nav-item dropdown">
-                    	<a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">Secretaria</a>
+                    	<a class="dropdown-toggle nav-link pointer" data-toggle="dropdown" aria-expanded="false">Secretaria</a>
                         <div class="dropdown-menu dropdown-menu-right" role="menu">
-                        	<a class="dropdown-item" role="presentation" onclick="location.href='/index'">Cerrar sesión</a></div>
+                        	<a class="dropdown-item pointer" role="presentation" onclick="location.href='/index'">Cerrar sesión</a></div>
                     </li>
 				</ul>
 		</div>
