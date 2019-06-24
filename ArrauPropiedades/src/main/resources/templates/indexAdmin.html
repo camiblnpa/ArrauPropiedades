@@ -3,49 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <title>Arrau Propiedades</title>
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Map-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <head th:replace="layout/header :: head">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 16px 25px 0 rgba(0,0,0,0.9);
+}
+
+.btn:hover{
+	box-shadow: 0 6px 12px 0 rgba(0,0,0,0.6);
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+</style>
+<script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head th:replace="layout/header :: head">
 </head>
-<body>
-  
+<body style="background-color:#dee8f0;">
+ 
   	<header th:replace="layout/header :: header"></header>
-  	
+ 	
   	<br><br><br><br><br><br>
   	
-  	<nav aria-label="breadcrumb">
-  		<ol class="breadcrumb">
-    		<li class="breadcrumb-item active"><span>Inicio</span></li>
+  	<div class="container">
+  	<nav aria-label="breadcrumb" style="background-color:#ffffff;">
+  		<ol class="breadcrumb" style="background-color:#ffffff;">
+  			<li class="breadcrumb-item active" aria-current="page" style="background-color:#ffffff;">Inicio</li>
   		</ol>
 	</nav>
 	
-	<div class="container">
-  		<button type="button" class="btn btn-link" onclick="location.href='/interesado'">Interesado</button>
-		<button type="button" class="btn btn-link" onclick="location.href='/destinacion'">Destinacion</button>
-		<button type="button" class="btn btn-link" onclick="location.href='/tipo'">Tipo</button>
-		<button type="button" class="btn btn-link" onclick="location.href='/inmobiliaria'">Inmobiliaria</button>
-		<button type="button" class="btn btn-link" onclick="location.href='/propiedadPojo'">Propiedad</button>
-  	</div>
-  	
-  	<header class="masthead text-white text-center" style="background: url('static/assets/img/fondo-indexAdmin.jpg')no-repeat center center;background-size: cover;background-image: url(&quot;assets/img/fondo-indexAdmin.jpg&quot;);">
-    	<div class="overlay"></div>
-        <div class="container">
-        	<div class="center" style="position: absolute; top : 70%; left : 20%; width : 60%;">
-        		<button class="btn btn-primary btn-block" type="button" onclick="location.href='/propiedadPojo'">Propiedades</button> 
-            	
-         		<button class="btn btn-primary  btn-block" type="button" onclick="location.href='/inmobiliaria'">Inmobiliarias</button> 
-            </div>
-        </div>
-    </header>
+	<div class="row">
+	
+	<div class="card col-md-4" align="center" style="width: 30rem; ">
+  		<img src="https://trello-attachments.s3.amazonaws.com/5c992c6295c0e95085d91d09/5cd068fd0d9ea65952ef1fe7/ee955d431151251fc9828d74c0348f03/17e1b6794dafbfbd697d97f1f4eda97a520ae36541f0e1.30842583.jpg" width="100" class="card-img-top">
+  		<div class="card-body">
+    		<h5 class="card-title">Propiedades</h5>
+    		<p class="card-text" style="color:black">Revisar las propiedades registradas en el sistema</p>
+    		<a onclick="location.href='/propiedadPojo'" class="btn pointer" style="background-color: #00699d; color:white;">ver propiedades</a>
+  		</div>
+	</div>
+	
+	<div class="card col-md-4" align="center" style="width: 30rem;">
+  		<img src="https://trello-attachments.s3.amazonaws.com/5c992c6295c0e95085d91d09/5cd068fd0d9ea65952ef1fe7/2c0fa74af249a343c14ff415f3beb101/ivan_cotado_tu_vision_ii_optica_ponferrada_21.jpg" width="100" class="card-img-top">
+  		<div class="card-body">
+    		<h5 class="card-title">Inmobiliarias</h5>
+    		<p class="card-text" style="color:black">Revisar las inmobiliarias registradas en el sistema</p>
+    		<a onclick="location.href='/inmobiliaria'" class="btn pointer" style="background-color: #00699d; color:white;">ver inmobiliarias</a>
+  		</div>
+	</div>
+	
+	<div class="card col-md-4" align="center" style="width: 30rem;">
+  		<img src="https://trello-attachments.s3.amazonaws.com/5c992c6295c0e95085d91d09/5cd068fd0d9ea65952ef1fe7/d2ba4404359e81f3168a6a383bd9bdcb/automtizacion-reportes.jpg" width="100" class="card-img-top">
+  		<div class="card-body">
+    		<h5 class="card-title">Reportes</h5>
+    		<p class="card-text" style="color:black">Generar reportes personalizados con información obtenida del sistema</p>
+    		<a href="#" class="btn pointer" style="background-color: #00699d; color:white;">ver reportes</a>
+  		</div>
+	</div>
+	
+	</div>
+
+	</div>
     
     <br><br><br><br><br><br>
+    <footer th:replace="layout/footer :: footer"></footer>
   	
-	<footer th:replace="layout/footer :: footer"></footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/untitled.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
 </body>
 </html>

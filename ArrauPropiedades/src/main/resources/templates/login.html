@@ -3,24 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <title>Arrau Propiedades</title>
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Map-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+<script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
+<style>
+
+.login-clean {
+  background: #f1f7fc;
+  padding: 80px 0;
+}
+
+.login-clean form {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.login-clean .illustration {
+  text-align: center;
+  padding: 0 0 20px;
+  font-size: 100px;
+  color: rgb(244,71,107);
+}
+
+.login-clean form .form-control {
+  background: #f7f9fc;
+  border: none;
+  border-bottom: 1px solid #dfe7f1;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  color: inherit;
+  text-indent: 8px;
+  height: 42px;
+}
+
+.login-clean form .btn-primary {
+  background: #f4476b;
+  border: none;
+  border-radius: 4px;
+  padding: 11px;
+  box-shadow: none;
+  margin-top: 26px;
+  text-shadow: none;
+  outline: none !important;
+}
+
+.login-clean form .btn-primary:hover, .login-clean form .btn-primary:active {
+  background: #eb3b60;
+}
+
+.login-clean form .btn-primary:active {
+  transform: translateY(1px);
+}
+
+.login-clean form .forgot {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #6f7a85;
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.login-clean form .forgot:hover, .login-clean form .forgot:active {
+  opacity: 1;
+  text-decoration: none;
+}
+
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+
 <div class="login-clean">
-        <form method="post" th:action="@{/login}" th:object="${loginForm}">
-        	<div th:if="${invalidCredentials}" class="alert alert-danger" role="alert">Nombre de usuario o contraseña incorrecta</div>
+	<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+		<form method="post" th:action="@{/login}" th:object="${loginForm}">
+			<div th:if="${invalidCredentials}" class="alert alert-danger" role="alert"> Nombre de usuario o contraseña incorrecta</div>
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration">
-            	<img
-		src="https://trello-attachments.s3.amazonaws.com/5cc730691f57f32daa57deda/238x82/ded2f8a4537d8f5cb4dfd0a5f63591b4/Logo_horizontal.png">
+				<img src="https://trello-attachments.s3.amazonaws.com/5cc730691f57f32daa57deda/238x82/ded2f8a4537d8f5cb4dfd0a5f63591b4/Logo_horizontal.png">
             </div>
             <div class="form-group">
             	<input class="form-control" type="text" name="username" placeholder="nombre de usuario">
@@ -29,12 +94,16 @@
             	<input class="form-control" type="password" name="password" placeholder="contraseña">
             </div>
             <div class="form-group">
-            	<button class="btn btn-primary btn-block" type="submit" onclick="location.href='/indexAdmin'">Iniciar sesión</button>
+            	<button class="btn btn-block" style="background-color: #00699d; color:white;" type="submit" onclick="location.href='/indexAdmin'">Iniciar sesión</button>
            	</div>
         </form>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/untitled.js"></script>
+	</div>
+</div>
+
+    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 </html>

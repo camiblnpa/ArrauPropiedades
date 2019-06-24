@@ -3,11 +3,42 @@
 <head>
 <meta charset="utf-8">
 <title>Arrau propiedades</title>
- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Map-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+<style>
+.jumbotron {
+  position:relative;
+  overflow:hidden;
+}
+
+.jumbotron .container {
+  position:relative;
+  z-index:2;
+  
+  background:rgba(0,0,0,0.2);
+  padding:2rem;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:3px;
+}
+
+.jumbotron-background {
+  object-fit:cover;
+  font-family: 'object-fit: cover;';
+  position:absolute;
+  top:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  opacity:0.5;
+}
+
+img.blur {
+	-webkit-filter: blur(4px);
+	filter: blur(4px);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+
+}
+</style>
+<script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <nav class="navbar navbar-light navbar-expand fixed-top bg-white navigation-clean">
@@ -17,44 +48,52 @@
 		</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <div class="btn-group ml-auto" role="group">
-                <button class="btn btn-primary" type="button" onclick="location.href='/login'">Iniciar Sesión</button>  
-                <button class="btn btn-primary" type="button" disabled style="margin-left: 4px;">Publicar propiedad</button></div>
+                <button class="btn" type="button" onclick="location.href='/login'" style="background-color: #00699d; color:white;">Iniciar Sesión</button>  
+                <button class="btn" type="button" disabled style="margin-left: 4px; background-color: #00699d; color:white;">Publicar propiedad</button></div>
             </div>
         </div>
     </nav>
     
-<header class="masthead text-white text-center" style="background: url('static/assets/img/bg-masthead.jpg')no-repeat center center;background-size: cover;background-image: url(&quot;assets/img/fotografia-hdr-de-edificios_1366x768_3178.jpg&quot;);">    	<div class="overlay"></div>
-        <div class="container">
-        	<div class="row">
-            	<div class="col-xl-11 mx-auto">
-                	<h1 class="mb-5">Busca todo tipo de propiedades. ¡De seguro lo encontrarás en Arrau Propiedades!</h1>
-                </div>
-                <div class="col"><div class="input-group mb-3">
-  	<select class="custom-select">
-    	<option value="1">Arrendar</option>
-    	<option value="2">Comprar</option>
-    	<option value="3">Arrendar/Comprar</option>
-  	</select>
-  	
-    <select class="custom-select">
-   	 	<option value="1">Casa</option>
-	    <option value="2">Departamento</option>
-	    <option value="3">Oficina</option>
-    	<option value="4">Local comercial</option>
-    	<option value="5">Cabaña</option>
-    	<option value="6">Sitio</option>
-  	</select>
-  	
-    <div class="input-group-append">
-     <input type="text" class="form-control" size="40px"placeholder="Ingresa comuna o región">
-    </div>   
-  <div class="input-group-append">
-    <button class="btn btn-primary" type="button" disabled id="button-addon2"> <i class="fa fa-search"></i> Buscar</button>
-  </div>
-</div></div>
-            </div>
-        </div>
-    </header>
+    <br><br><br>
+    
+	<div class="jumbotron jumbotron-fluid bg-dark">
+		<div class="jumbotron-background">
+			<img src="https://trello-attachments.s3.amazonaws.com/5c992c6295c0e95085d91d09/5cd068fd0d9ea65952ef1fe7/3df4ce9fab4a7aa498a0725b407633ad/bg-masthead.jpg" class="blur ">
+		</div>
+		
+		<div class="container text-white text-center">
+			<h1 class="display-4">Busca todo tipo de propiedades</h1>
+			<h3>¡De seguro lo encontrarás en Arrau Propiedades!</h3>
+			<hr class="my-4">
+			<div class="col">
+				<div class="input-group mb-3">
+					<select class="custom-select">
+						<option value="1">Arrendar</option>
+						<option value="2">Comprar</option>
+						<option value="3">Arrendar/Comprar</option>
+					</select>
+					
+					<select class="custom-select">
+						<option value="1">Casa</option>
+						<option value="2">Departamento</option>
+						<option value="3">Oficina</option>
+						<option value="4">Local comercial</option>
+						<option value="5">Cabaña</option>
+						<option value="6">Sitio</option>
+					</select>
+					
+					<div class="input-group-append">
+						<input type="text" class="form-control" size="40px"placeholder="Ingresa comuna o región">
+					</div>
+					
+					<div class="input-group-append">
+						<button class="btn" style="background-color: #00699d; color:white;"  type="button" disabled id="button-addon2"> <i class="fa fa-search"></i> Buscar</button>
+					</div>
+					
+				</div>
+			</div>
+		</div> 
+	</div>
     
     <div class="card text-center">
 		<div class="card-body">
@@ -66,5 +105,8 @@
     
 	<footer th:replace="layout/footer :: footer"></footer>
 	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
 </body>
 </html>
