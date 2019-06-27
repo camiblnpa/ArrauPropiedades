@@ -2,6 +2,9 @@ package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -19,9 +22,11 @@ public class Destinacion implements Serializable {
 	private int idDestinacion;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date fechaRegistro;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date fechaVenta;
 
 	private String tipoDestinacion;
