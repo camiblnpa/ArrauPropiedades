@@ -1,48 +1,41 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
 import java.util.List;
 
-/**
- * The persistent class for the Destinacion database table.
- * 
- */
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
 @Entity
-@NamedQuery(name = "Destinacion.findAll", query = "SELECT d FROM Destinacion d")
+@NamedQuery(name="Destinacion.findAll", query="SELECT d FROM Destinacion d")
 public class Destinacion implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idDestinacion;
 
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
-	private Date fechaRegistro;
-
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
-	private Date fechaVenta;
-
-	private String tipoDestinacion;
-
+	private String nombreDestinacion;
+	
+	/*
+	 * Relación
+	 */
 	@OneToMany(mappedBy = "destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
 	public Destinacion() {
 	}
-
-	// Constructor utilizado por PropiedadPojo
-	public Destinacion(int id, String tipo) {
+	
+	public Destinacion(int id) {
 		super();
 		this.idDestinacion = id;
-		this.tipoDestinacion = tipo;
-		this.fechaRegistro = new Date(System.currentTimeMillis());
 	}
 
 	public int getIdDestinacion() {
@@ -53,28 +46,12 @@ public class Destinacion implements Serializable {
 		this.idDestinacion = idDestinacion;
 	}
 
-	public Date getFechaRegistro() {
-		return this.fechaRegistro;
+	public String getNombreDestinacion() {
+		return this.nombreDestinacion;
 	}
 
-	public void setFechaRegistro(Date fechaRegistro) {
-		this.fechaRegistro = fechaRegistro;
-	}
-
-	public Date getFechaVenta() {
-		return this.fechaVenta;
-	}
-
-	public void setFechaVenta(Date fechaVenta) {
-		this.fechaVenta = fechaVenta;
-	}
-
-	public String getTipoDestinacion() {
-		return this.tipoDestinacion;
-	}
-
-	public void setTipoDestinacion(String tipoDestinacion) {
-		this.tipoDestinacion = tipoDestinacion;
+	public void setNombreDestinacion(String nombreDestinacion) {
+		this.nombreDestinacion = nombreDestinacion;
 	}
 
 }

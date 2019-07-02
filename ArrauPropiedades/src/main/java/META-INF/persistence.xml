@@ -4,12 +4,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="ArrauPropiedades">
+		<class>ubb.gpsw.arrauPropiedades.model.Condicion</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Destinacion</class>
+		<class>ubb.gpsw.arrauPropiedades.model.EstadoPropiedad</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Inmobiliaria</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Interesado</class>
-		<class>ubb.gpsw.arrauPropiedades.model.InteresadoPropiedad</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Propiedad</class>
+		<class>ubb.gpsw.arrauPropiedades.model.Publicacion</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Tipo</class>
+		<class>ubb.gpsw.arrauPropiedades.model.Usuario</class>
 
 		<properties>
 			<property name="hibernate.show_sql" value="true" />

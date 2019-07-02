@@ -1,16 +1,21 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
-/**
- * The persistent class for the Interesado database table.
- * 
- */
 @Entity
 @NamedQuery(name="Interesado.findAll", query="SELECT i FROM Interesado i")
 public class Interesado implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -22,8 +27,18 @@ public class Interesado implements Serializable {
 	private String nombre;
 
 	private int telefono;
+	
+	/*
+	 * Relación
+	 */
+	@OneToMany(mappedBy = "interesado", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Propiedad> propiedades;
 
 	public Interesado() {
+	}
+	
+	public Interesado(int id) {
+		this.idInteresado = id;
 	}
 
 	public int getIdInteresado() {

@@ -3,19 +3,23 @@ package ubb.gpsw.arrauPropiedades.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
-/**
- * The persistent class for the Inmobiliaria database table.
- * 
- */
 @Entity
-@NamedQuery(name = "Inmobiliaria.findAll", query = "SELECT i FROM Inmobiliaria i")
+@NamedQuery(name="Inmobiliaria.findAll", query="SELECT i FROM Inmobiliaria i")
 public class Inmobiliaria implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idInmobiliaria;
 
 	private String calle;
@@ -26,10 +30,6 @@ public class Inmobiliaria implements Serializable {
 
 	private String correo;
 
-	private String latitud;
-
-	private String longitud;
-
 	private String nombre;
 
 	private String numDepartamento;
@@ -39,22 +39,19 @@ public class Inmobiliaria implements Serializable {
 	private String region;
 
 	private int telefono;
-
+	
+	/*
+	 * Relación
+	 */
 	@OneToMany(mappedBy = "inmobiliaria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Propiedad> propiedades;
 
 	public Inmobiliaria() {
 	}
-
-	// Constructor utilizado por PropiedadPojo
-	public Inmobiliaria(int id, String nombre) {
+	
+	public Inmobiliaria(int id) {
 		super();
 		this.idInmobiliaria = id;
-		this.nombre = nombre;
-		this.ciudad = "a";
-		this.comuna ="b";
-		this.nombre ="c";
-		this.region ="d";
 	}
 
 	public int getIdInmobiliaria() {
@@ -95,22 +92,6 @@ public class Inmobiliaria implements Serializable {
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
-	}
-
-	public String getLatitud() {
-		return this.latitud;
-	}
-
-	public void setLatitud(String latitud) {
-		this.latitud = latitud;
-	}
-
-	public String getLongitud() {
-		return this.longitud;
-	}
-
-	public void setLongitud(String longitud) {
-		this.longitud = longitud;
 	}
 
 	public String getNombre() {

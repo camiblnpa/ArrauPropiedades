@@ -1,16 +1,20 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
-/**
- * The persistent class for the Propiedad database table.
- * 
- */
 @Entity
 @NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
 public class Propiedad implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,15 +27,25 @@ public class Propiedad implements Serializable {
 
 	private String comuna;
 
+	private int condicion_idCondicion;
+
 	private String descripcion;
+
+	private int destinacion_idDestinacion;
 
 	private int dimConstruccion;
 
 	private int dimTerreno;
 
-	private String latitud;
+	private int estadoPropiedad_idEstadoPropiedad;
 
-	private String longitud;
+	private String imagen;
+
+	private int inmobiliaria_idInmobiliaria;
+
+	private int interesado_idInteresado;
+
+	private String nombrePropiedad;
 
 	private String numDepartamento;
 
@@ -39,24 +53,49 @@ public class Propiedad implements Serializable {
 
 	private int precio;
 
+	private int publicacion_idPublicacion;
+
 	private String region;
+
+	private int tipo_idTipo;
+	
+	/*
+	 * Relaciones
+	 */
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="condicion_idCondicion")
+	private Condicion condicion;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="destinacion_idDestinacion")
+	private Destinacion destinacion;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="estadoPropiedad_idEstadoPropiedad")
+	private EstadoPropiedad estadoPropiedad;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="inmobiliaria_idInmobiliaria")
 	private Inmobiliaria inmobiliaria;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Tipo tipo;
+	@JoinColumn(name="interesado_idInteresado")
+	private Interesado interesado;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Destinacion destinacion;
+	@JoinColumn(name="publicacion_idPublicacion")
+	private Publicacion publicacion;
 	
-	private int numBanio;
-
-	private int numDormitorio;
-
-	private int numEstacionamiento;
-
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="tipo_idTipo")
+	private Tipo tipo;
+	
 	public Propiedad() {
+	}
+	
+	public Propiedad(int id) {
+		super();
+		this.idPropiedad = id;
 	}
 
 	public int getIdPropiedad() {
@@ -91,12 +130,28 @@ public class Propiedad implements Serializable {
 		this.comuna = comuna;
 	}
 
+	public int getCondicion_idCondicion() {
+		return this.condicion_idCondicion;
+	}
+
+	public void setCondicion_idCondicion(int condicion_idCondicion) {
+		this.condicion_idCondicion = condicion_idCondicion;
+	}
+
 	public String getDescripcion() {
 		return this.descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public int getDestinacion_idDestinacion() {
+		return this.destinacion_idDestinacion;
+	}
+
+	public void setDestinacion_idDestinacion(int destinacion_idDestinacion) {
+		this.destinacion_idDestinacion = destinacion_idDestinacion;
 	}
 
 	public int getDimConstruccion() {
@@ -115,20 +170,44 @@ public class Propiedad implements Serializable {
 		this.dimTerreno = dimTerreno;
 	}
 
-	public String getLatitud() {
-		return this.latitud;
+	public int getEstadoPropiedad_idEstadoPropiedad() {
+		return this.estadoPropiedad_idEstadoPropiedad;
 	}
 
-	public void setLatitud(String latitud) {
-		this.latitud = latitud;
+	public void setEstadoPropiedad_idEstadoPropiedad(int estadoPropiedad_idEstadoPropiedad) {
+		this.estadoPropiedad_idEstadoPropiedad = estadoPropiedad_idEstadoPropiedad;
 	}
 
-	public String getLongitud() {
-		return this.longitud;
+	public String getImagen() {
+		return this.imagen;
 	}
 
-	public void setLongitud(String longitud) {
-		this.longitud = longitud;
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public int getInmobiliaria_idInmobiliaria() {
+		return this.inmobiliaria_idInmobiliaria;
+	}
+
+	public void setInmobiliaria_idInmobiliaria(int inmobiliaria_idInmobiliaria) {
+		this.inmobiliaria_idInmobiliaria = inmobiliaria_idInmobiliaria;
+	}
+
+	public int getInteresado_idInteresado() {
+		return this.interesado_idInteresado;
+	}
+
+	public void setInteresado_idInteresado(int interesado_idInteresado) {
+		this.interesado_idInteresado = interesado_idInteresado;
+	}
+
+	public String getNombrePropiedad() {
+		return this.nombrePropiedad;
+	}
+
+	public void setNombrePropiedad(String nombrePropiedad) {
+		this.nombrePropiedad = nombrePropiedad;
 	}
 
 	public String getNumDepartamento() {
@@ -155,6 +234,14 @@ public class Propiedad implements Serializable {
 		this.precio = precio;
 	}
 
+	public int getPublicacion_idPublicacion() {
+		return this.publicacion_idPublicacion;
+	}
+
+	public void setPublicacion_idPublicacion(int publicacion_idPublicacion) {
+		this.publicacion_idPublicacion = publicacion_idPublicacion;
+	}
+
 	public String getRegion() {
 		return this.region;
 	}
@@ -163,60 +250,12 @@ public class Propiedad implements Serializable {
 		this.region = region;
 	}
 
-	public Inmobiliaria getInmobiliaria() {
-		return inmobiliaria;
+	public int getTipo_idTipo() {
+		return this.tipo_idTipo;
 	}
 
-	public void setInmobiliaria(Inmobiliaria inmobiliaria) {
-		this.inmobiliaria = inmobiliaria;
+	public void setTipo_idTipo(int tipo_idTipo) {
+		this.tipo_idTipo = tipo_idTipo;
 	}
 
-	public Tipo getTipoPropiedad() {
-		return tipo;
-	}
-
-	public void setTipoPropiedad(Tipo tipoPropiedad) {
-		this.tipo = tipoPropiedad;
-	}
-
-	public Destinacion getDestinacion() {
-		return destinacion;
-	}
-
-	public void setDestinacion(Destinacion destinacion) {
-		this.destinacion = destinacion;
-	}
-
-	public Tipo getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
-	}
-
-	public int getNumBanio() {
-		return numBanio;
-	}
-
-	public void setNumBanio(int numBanio) {
-		this.numBanio = numBanio;
-	}
-
-	public int getNumDormitorio() {
-		return numDormitorio;
-	}
-
-	public void setNumDormitorio(int numDormitorio) {
-		this.numDormitorio = numDormitorio;
-	}
-
-	public int getNumEstacionamiento() {
-		return numEstacionamiento;
-	}
-
-	public void setNumEstacionamiento(int numEstacionamiento) {
-		this.numEstacionamiento = numEstacionamiento;
-	}
-	
 }
