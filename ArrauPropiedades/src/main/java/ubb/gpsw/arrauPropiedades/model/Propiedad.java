@@ -59,6 +59,12 @@ public class Propiedad implements Serializable {
 
 	private int tipo_idTipo;
 	
+	private int numBanio;
+	
+	private int numEstacionamiento;
+	
+	private int numDormitorio;
+	
 	/*
 	 * Relaciones
 	 */
@@ -258,4 +264,84 @@ public class Propiedad implements Serializable {
 		this.tipo_idTipo = tipo_idTipo;
 	}
 
+	public int getNumBanio() {
+		return numBanio;
+	}
+
+	public void setNumBanio(int numBanio) {
+		this.numBanio = numBanio;
+	}
+
+	public int getNumEstacionamiento() {
+		return numEstacionamiento;
+	}
+
+	public void setNumEstacionamiento(int numEstacionamiento) {
+		this.numEstacionamiento = numEstacionamiento;
+	}
+
+	public int getNumDormitorio() {
+		return numDormitorio;
+	}
+
+	public void setNumDormitorio(int numDormitorio) {
+		this.numDormitorio = numDormitorio;
+	}
+
+	public Condicion getCondicion() {
+		return condicion;
+	}
+
+	public void setCondicion(Condicion condicion) {
+		this.condicion = condicion;
+	}
+
+	public Destinacion getDestinacion() {
+		return destinacion;
+	}
+
+	public void setDestinacion(Destinacion destinacion) {
+		this.destinacion = destinacion;
+	}
+
+	public EstadoPropiedad getEstadoPropiedad() {
+		return estadoPropiedad;
+	}
+
+	public void setEstadoPropiedad(EstadoPropiedad estadoPropiedad) {
+		this.estadoPropiedad = estadoPropiedad;
+	}
+
+	public Inmobiliaria getInmobiliaria() {
+		return inmobiliaria;
+	}
+
+	public void setInmobiliaria(Inmobiliaria inmobiliaria) {
+		this.inmobiliaria = inmobiliaria;
+	}
+
+	public Interesado getInteresado() {
+		return interesado;
+	}
+
+	public void setInteresado(Interesado interesado) {
+		this.interesado = interesado;
+	}
+
+	public Publicacion getPublicacion() {
+		return publicacion;
+	}
+
+	public void setPublicacion(Publicacion publicacion) {
+		this.publicacion = publicacion;
+	}
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+	
 }
