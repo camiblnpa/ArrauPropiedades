@@ -1,5 +1,8 @@
 package ubb.gpsw.arrauPropiedades.service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -10,6 +13,9 @@ import ubb.gpsw.arrauPropiedades.repository.InteresadoRepository;
 
 @Service
 public class InteresadoServiceImpl extends RespuestaService<Interesado, Integer> implements InteresadoService {
+	
+	@PersistenceContext
+	private EntityManager em;
 	
 	@Autowired
 	private InteresadoRepository intRepo;

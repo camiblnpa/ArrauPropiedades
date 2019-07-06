@@ -12,13 +12,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
+@NamedQuery(name = "Propiedad.findAll", query = "SELECT p FROM Propiedad p")
 public class Propiedad implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPropiedad;
 
 	private String calle;
@@ -27,23 +27,14 @@ public class Propiedad implements Serializable {
 
 	private String comuna;
 
-	private int condicion_idCondicion;
 
 	private String descripcion;
-
-	private int destinacion_idDestinacion;
 
 	private int dimConstruccion;
 
 	private int dimTerreno;
 
-	private int estadoPropiedad_idEstadoPropiedad;
-
 	private String imagen;
-
-	private int inmobiliaria_idInmobiliaria;
-
-	private int interesado_idInteresado;
 
 	private String nombrePropiedad;
 
@@ -53,52 +44,63 @@ public class Propiedad implements Serializable {
 
 	private int precio;
 
-	private int publicacion_idPublicacion;
-
 	private String region;
 
-	private int tipo_idTipo;
-	
 	private int numBanio;
-	
+
 	private int numEstacionamiento;
-	
+
 	private int numDormitorio;
 	
+	/*
+	private int destinacion_idDestinacion;
+
+	private int inmobiliaria_idInmobiliaria;
+	
+	private int tipo_idTipo;
+
+	private int interesado_idInteresado;
+
+	private int condicion_idCondicion;
+
+	private int publicacion_idPublicacion;
+
+	private int estadoPropiedad_idEstadoPropiedad;
+*/
 	/*
 	 * Relaciones
 	 */
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="condicion_idCondicion")
+	@JoinColumn(name = "condicion_idCondicion")
 	private Condicion condicion;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="destinacion_idDestinacion")
+	@JoinColumn(name = "destinacion_idDestinacion")
 	private Destinacion destinacion;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="estadoPropiedad_idEstadoPropiedad")
+	@JoinColumn(name = "estadoPropiedad_idEstadoPropiedad")
 	private EstadoPropiedad estadoPropiedad;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="inmobiliaria_idInmobiliaria")
+	@JoinColumn(name = "inmobiliaria_idInmobiliaria")
 	private Inmobiliaria inmobiliaria;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="interesado_idInteresado")
+	@JoinColumn(name = "interesado_idInteresado")
 	private Interesado interesado;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="publicacion_idPublicacion")
+	@JoinColumn(name = "publicacion_idPublicacion")
 	private Publicacion publicacion;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="tipo_idTipo")
+	@JoinColumn(name = "tipo_idTipo")
 	private Tipo tipo;
-	
+
 	public Propiedad() {
 	}
-	
+
 	public Propiedad(int id) {
 		super();
 		this.idPropiedad = id;
@@ -136,13 +138,13 @@ public class Propiedad implements Serializable {
 		this.comuna = comuna;
 	}
 
-	public int getCondicion_idCondicion() {
-		return this.condicion_idCondicion;
-	}
-
-	public void setCondicion_idCondicion(int condicion_idCondicion) {
-		this.condicion_idCondicion = condicion_idCondicion;
-	}
+//	public int getCondicion_idCondicion() {
+//		return this.condicion_idCondicion;
+//	}
+//
+//	public void setCondicion_idCondicion(int condicion_idCondicion) {
+//		this.condicion_idCondicion = condicion_idCondicion;
+//	}
 
 	public String getDescripcion() {
 		return this.descripcion;
@@ -151,14 +153,14 @@ public class Propiedad implements Serializable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
-	public int getDestinacion_idDestinacion() {
-		return this.destinacion_idDestinacion;
-	}
-
-	public void setDestinacion_idDestinacion(int destinacion_idDestinacion) {
-		this.destinacion_idDestinacion = destinacion_idDestinacion;
-	}
+//
+//	public int getDestinacion_idDestinacion() {
+//		return this.destinacion_idDestinacion;
+//	}
+//
+//	public void setDestinacion_idDestinacion(int destinacion_idDestinacion) {
+//		this.destinacion_idDestinacion = destinacion_idDestinacion;
+//	}
 
 	public int getDimConstruccion() {
 		return this.dimConstruccion;
@@ -175,14 +177,14 @@ public class Propiedad implements Serializable {
 	public void setDimTerreno(int dimTerreno) {
 		this.dimTerreno = dimTerreno;
 	}
-
-	public int getEstadoPropiedad_idEstadoPropiedad() {
-		return this.estadoPropiedad_idEstadoPropiedad;
-	}
-
-	public void setEstadoPropiedad_idEstadoPropiedad(int estadoPropiedad_idEstadoPropiedad) {
-		this.estadoPropiedad_idEstadoPropiedad = estadoPropiedad_idEstadoPropiedad;
-	}
+//
+//	public int getEstadoPropiedad_idEstadoPropiedad() {
+//		return this.estadoPropiedad_idEstadoPropiedad;
+//	}
+//
+//	public void setEstadoPropiedad_idEstadoPropiedad(int estadoPropiedad_idEstadoPropiedad) {
+//		this.estadoPropiedad_idEstadoPropiedad = estadoPropiedad_idEstadoPropiedad;
+//	}
 
 	public String getImagen() {
 		return this.imagen;
@@ -191,22 +193,22 @@ public class Propiedad implements Serializable {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-
-	public int getInmobiliaria_idInmobiliaria() {
-		return this.inmobiliaria_idInmobiliaria;
-	}
-
-	public void setInmobiliaria_idInmobiliaria(int inmobiliaria_idInmobiliaria) {
-		this.inmobiliaria_idInmobiliaria = inmobiliaria_idInmobiliaria;
-	}
-
-	public int getInteresado_idInteresado() {
-		return this.interesado_idInteresado;
-	}
-
-	public void setInteresado_idInteresado(int interesado_idInteresado) {
-		this.interesado_idInteresado = interesado_idInteresado;
-	}
+//
+//	public int getInmobiliaria_idInmobiliaria() {
+//		return this.inmobiliaria_idInmobiliaria;
+//	}
+//
+//	public void setInmobiliaria_idInmobiliaria(int inmobiliaria_idInmobiliaria) {
+//		this.inmobiliaria_idInmobiliaria = inmobiliaria_idInmobiliaria;
+//	}
+//
+//	public int getInteresado_idInteresado() {
+//		return this.interesado_idInteresado;
+//	}
+//
+//	public void setInteresado_idInteresado(int interesado_idInteresado) {
+//		this.interesado_idInteresado = interesado_idInteresado;
+//	}
 
 	public String getNombrePropiedad() {
 		return this.nombrePropiedad;
@@ -240,13 +242,13 @@ public class Propiedad implements Serializable {
 		this.precio = precio;
 	}
 
-	public int getPublicacion_idPublicacion() {
-		return this.publicacion_idPublicacion;
-	}
-
-	public void setPublicacion_idPublicacion(int publicacion_idPublicacion) {
-		this.publicacion_idPublicacion = publicacion_idPublicacion;
-	}
+//	public int getPublicacion_idPublicacion() {
+//		return this.publicacion_idPublicacion;
+//	}
+//
+//	public void setPublicacion_idPublicacion(int publicacion_idPublicacion) {
+//		this.publicacion_idPublicacion = publicacion_idPublicacion;
+//	}
 
 	public String getRegion() {
 		return this.region;
@@ -255,14 +257,14 @@ public class Propiedad implements Serializable {
 	public void setRegion(String region) {
 		this.region = region;
 	}
-
-	public int getTipo_idTipo() {
-		return this.tipo_idTipo;
-	}
-
-	public void setTipo_idTipo(int tipo_idTipo) {
-		this.tipo_idTipo = tipo_idTipo;
-	}
+//
+//	public int getTipo_idTipo() {
+//		return this.tipo_idTipo;
+//	}
+//
+//	public void setTipo_idTipo(int tipo_idTipo) {
+//		this.tipo_idTipo = tipo_idTipo;
+//	}
 
 	public int getNumBanio() {
 		return numBanio;
@@ -343,5 +345,5 @@ public class Propiedad implements Serializable {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
-	
+
 }

@@ -7,22 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import ubb.gpsw.arrauPropiedades.model.Tipo;
-import ubb.gpsw.arrauPropiedades.repository.TipoRepository;
+import ubb.gpsw.arrauPropiedades.model.Publicacion;
+import ubb.gpsw.arrauPropiedades.repository.PublicacionRepository;
 import ubb.gpsw.arrauPropiedades.utilidades.RespuestaService;
 
 @Service
-public class TipoServiceImpl extends RespuestaService<Tipo,Integer> implements TipoService{
-	
+public class PublicacionServiceImpl extends RespuestaService<Publicacion, Integer> implements PublicacionService {
+
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Autowired
-	private TipoRepository tipoRepo;
+	private PublicacionRepository publiRepo;
 	
 	@Override
-	public CrudRepository<Tipo, Integer> getDao() {
-		return tipoRepo;
+	public CrudRepository<Publicacion, Integer> getDao(){
+		return publiRepo;
 	}
-
 }
