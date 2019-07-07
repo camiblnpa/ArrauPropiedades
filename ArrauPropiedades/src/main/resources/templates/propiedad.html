@@ -51,7 +51,7 @@ h2 {
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <head th:replace="layout/header :: head"></head>
-<body>
+<body style="background-color:#dee8f0;">
 
 <div class="container">
 	<header th:replace="layout/header :: header"></header>
@@ -61,28 +61,35 @@ h2 {
 		
 		<div>
 			<br> <br> <br> <br>
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a
-						onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
-					<li class="breadcrumb-item active"><span>Propiedades</span></li>
-				</ol>
-			</nav>
-		</div>
 
+  		<nav aria-label="breadcrumb" style="background-color:#ffffff;">
+  			<ol class="breadcrumb" style="background-color:#ffffff;">
+  				<li class="breadcrumb-item pointer" onclick="location.href='/indexAdmin'"  aria-current="page" style="background-color:#ffffff; color:#00699d;">Inicio</li>
+  				<li class="breadcrumb-item active" aria-current="page" style="background-color:#ffffff;">Ver propiedades</li>
+  			</ol>
+		</nav>
+		
+		</div>
+		
 		<h2 th:if="${list.isEmpty()}">
-			No hay propiedades <a href="/propiedadPojo/save/0"
-				class="btn btn-primary"><i class="fa fa-user-plus"></i> Agregar</a>
+			No hay propiedades
+			<a href="/propiedad/save/0" class="btn btn-success pointer">
+				<i class="fa fa-user-plus"></i> 
+				Agregar
+			</a>
 		</h2>
+
 		
 		<div th:if="${!list.isEmpty()}">
-
-			<h2>
-				Propiedad 
-				<a href="/propiedadPojo/save/0" class="btn btn-primary">
-					<i class="fa fa-user-plus"></i> Agregar
+			<h2 class="display-4">Propiedades</h2>
+			<div align="right">
+				<a href="/propiedad/0" class="btn pointer btn-success">
+					<i class="fa fa-plus"></i> 
+					Agregar propiedad
 				</a>
-			</h2>
+			</div>
+			<hr>
+
 
 			<table id="customers">
 

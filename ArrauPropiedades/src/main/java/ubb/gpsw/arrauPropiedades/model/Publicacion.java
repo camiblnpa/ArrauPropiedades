@@ -18,7 +18,7 @@ public class Publicacion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idPublicacion;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaPublicacion;
 
 	public Publicacion() {

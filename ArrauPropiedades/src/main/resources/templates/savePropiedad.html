@@ -2,148 +2,234 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Agregar Propiedad</title>
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-<link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/Map-Clean.css">
-<link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<title>Agregar propiedad</title>
+
+<style>
+
+	.pointer {
+		cursor: pointer;
+	}
+
+	.btn:hover{
+		box-shadow: 0 6px 12px 0 rgba(0,0,0,0.6);
+	}
+
+</style>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <head th:replace="layout/header :: head">
+<head th:replace="layout/header :: head">
 </head>
-<body>
-<div class="container">	
+<body style="background-color:#dee8f0;">
+
 <header th:replace="layout/header :: header"></header>
-	<br><br><br><br><br><br>
+ 	
+  	<br><br><br><br><br><br>
+
+<div class="container">	
+
+  		<nav aria-label="breadcrumb" style="background-color:#ffffff;">
+  			<ol class="breadcrumb" style="background-color:#ffffff;">
+  				<li class="breadcrumb-item pointer" onclick="location.href='/indexAdmin'"  aria-current="page" style="background-color:#ffffff; color:#00699d;">Inicio</li>
+  				<li class="breadcrumb-item pointer" onclick="location.href='/propiedad'" aria-current="page" style="background-color:#ffffff; color:#00699d;">Ver propiedades</li>
+				<li class="breadcrumb-item active" aria-current="page" style="background-color:#ffffff;">Agregar propiedad</li>	  				
+  			</ol>
+		</nav>
 	
-	<nav aria-label="breadcrumb">
-  		<ol class="breadcrumb">
-    		<li class="breadcrumb-item"><a onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
-			<li class="breadcrumb-item"><a onclick="location.href='/propiedadPojo'"><span>Ver propiedades/</span></a></li>
-			<li class="breadcrum-item active"><span>Agregar-Editar Propiedad</span></li>
-  		</ol>
-	</nav>
-	
-	<div>
-	<div class="form-group"></div>
-			<h2>Propiedad</h2>
+	<div style="background-color: #ffffff"> 
+	<form class="ml-5 mr-5" action="#" th:action="@{/savePropiedad}" th:object="${propiedades}" method="post">
+			
+		<div class="form-group">
+			<br><br>
+			<h4 class="display-4 text-center">Guardar una propiedad</h4>
 			<hr><br>
-		<form action="#" th:action="@{/propiedadPojo/save}"
-			th:object="${propiedad}" method="post">
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Tipo de propiedad </label>
+			<div class="col-md-6">
+				<select class="form-control" th:name="idTipo">
+					<option th:each="tipos : ${tipo}"
+							th:value="${tipos.idTipo}"
+							th:text="${tipos.nombreTipo}" >
+					</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Destinacion de la propiedad </label>
+			<div class="col-md-6">
+				<select class="form-control" th:name="idDestinacion">
+					<option th:each="destinaciones : ${destinacion}"
+							th:value="${destinaciones.idDestinacion}"
+							th:text="${destinaciones.nombreDestinacion}" >
+					</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Condición de la propiedad </label>
+			<div class="col-md-6">
+				<select class="form-control" th:name="idCondicion">
+					<option th:each="condiciones : ${condicion}"
+							th:value="${condiciones.idCondicion}"
+							th:text="${condiciones.nombreCondicion}" >
+					</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Inmobiliaria asociada </label>
+			<div class="col-md-6">
+				<select class="form-control" th:name="idInmobiliaria">
+					<option th:each="inmobiliarias : ${inmobiliaria}"
+							th:value="${inmobiliarias.idInmobiliaria}"
+							th:text="${inmobiliarias.nombre}" >
+					</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Estado de la propiedad </label>
+			<div class="col-md-6">
+				<select class="form-control" th:name="idEstadoPropiedad">
+					<option th:each="estadosPropiedades : ${estadoPropiedad}"
+							th:value="${estadosPropiedades.idEstadoPropiedad}"
+							th:text="${estadosPropiedades.nombreEstadoPropiedad}" >
+					</option>
+				</select>
+			</div>
+		</div>
+				
+		<h3>ingresar datos básicos de la propiedad</h3>
+		<hr>
+		
+		<input type="hidden" th:field="*{idPropiedad}" name="idPropiedad" id="idPropiedad">
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Nombre propiedad </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="nombrePropiedad" th:field="*{nombrePropiedad}" name="nombrePropiedad">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Precio de la propiedad </label>
+			<div class="col-md-6">
+				<input type="number" min="0" class="form-control" id="precio" th:field="*{precio}" name="precio">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Cantidad de dormitorios </label>
+			<div class="col-md-6">
+				<input type="number" min="0" class="form-control" id="numDormitorio" th:field="*{numDormitorio}" name="numDormitorio">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Cantidad de baños </label>
+			<div class="col-md-6">
+				<input type="number" min="0" class="form-control" id="numBanio" th:field="*{numBanio}" name="numBanio">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Cantidad de estacionamientos </label>
+			<div class="col-md-6">
+				<input type="number" min="0" class="form-control" id="numEstacionamiento" th:field="*{numEstacionamiento}" name="numEstacionamiento">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Dimensiones del terreno </label>
+			<div class="col-md-6">
+				<input type="number" min="0" class="form-control" id="dimTerreno" th:field="*{dimTerreno}" name="dimTerreno">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Dimensiones de la construcción </label>
+			<div class="col-md-6">
+				<input type="number" min="0" class="form-control" id="dimConstruccion" th:field="*{dimConstruccion}" name="dimConstruccion">
+			</div>
+		</div>
+				
+		<h3>ingresar datos de la ubicación de la propiedad</h3>
+		<hr>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Región </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="region" th:field="*{region}" name="region">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Comuna </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="comuna" th:field="*{comuna}" name="comuna">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Ciudad </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="ciudad" th:field="*{ciudad}" name="ciudad">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Calle </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="calle" th:field="*{calle}" name="calle">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Número </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="numero" th:field="*{numero}" name="numero">
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Número del departamento </label>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="numDepartamento" th:field="*{numDepartamento}" name="numDepartamento">
+			</div>
+		</div>
+		
+		<hr><br>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> Descripción de la propiedad </label>
+			<div class="col-md-6">
+				<textarea class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion">
+				</textarea>
+			</div>
+		</div>
+		
+		
+		
+			
+		
 
-			<input type="hidden" th:field="*{idPropiedad}" name="idPropiedad"
-				id="idPropiedad">
-
-			<div class="form=group">
-				<label for="nombre">Precio</label> <input type="text"
-					class="form-control" id="precio" th:field="*{precio}" name="precio">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Descripcion</label> <input type="text"
-					class="form-control" id="descripcion" th:field="*{descripcion}"
-					name="descripcion">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Dimension del terreno</label> <input type="text"
-					class="form-control" id="dimTerreno" th:field="*{dimTerreno}"
-					name="dimTerreno">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Area construida</label> <input type="text"
-					class="form-control" id="dimConstruccion"
-					th:field="*{dimConstruccion}" name="dimConstruccion">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Calle</label> <input type="text"
-					class="form-control" id="calle" th:field="*{calle}" name="calle">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Numero</label> <input type="text"
-					class="form-control" id="numero" th:field="*{numero}" name="numero">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Numero departamento</label> <input type="text"
-					class="form-control" id="numDepartamento"
-					th:field="*{numDepartamento}" name="numDepartamento">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Ciudad</label> <input type="text"
-					class="form-control" id="ciudad" th:field="*{ciudad}" name="ciudad">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Comuna</label> <input type="text"
-					class="form-control" id="comuna" th:field="*{comuna}" name="comuna">
-			</div>
-			<div class="form=group">
-				<label for="nombre">Region</label> <input type="text"
-					class="form-control" id="region" th:field="*{region}" name="region">
-			</div>
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Latitud</label> <input type="text" -->
-<!-- 					class="form-control" id="latitud" th:field="*{latitud}" -->
-<!-- 					name="latitud"> -->
-<!-- 			</div> -->
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Longitud</label> <input type="text" -->
-<!-- 					class="form-control" id="longitud" th:field="*{longitud}" -->
-<!-- 					name="longitud"> -->
-<!-- 			</div> -->
-<!-- 			<input type="hidden" th:field="*{idInmobiliaria}" -->
-<!-- 				name="idInmobiliaria" id="idInmobiliaria"> -->
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Inmobiliaria</label> <input type="text" -->
-<!-- 					class="form-control" id="nombreInmobiliaria" -->
-<!-- 					th:field="*{nombreInmobiliaria}" name="nombreInmobiliaria"> -->
-<!-- 			</div> -->
-<!-- 			<input type="hidden" th:field="*{idTipo}" name="idTipo" id="idTipo"> -->
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Nombre tipo</label> <input type="text" -->
-<!-- 					class="form-control" id="nombreTipo" th:field="*{nombreTipo}" -->
-<!-- 					name="nombreTipo"> -->
-<!-- 			</div> -->
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Condicion</label> <input type="text" -->
-<!-- 					class="form-control" id="condicion" th:field="*{condicion}" -->
-<!-- 					name="condicion"> -->
-<!-- 			</div> -->
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Número de baños</label> <input type="text" -->
-<!-- 					class="form-control" id="numBanio" th:field="*{numBanio}" -->
-<!-- 					name="numBanio"> -->
-<!-- 			</div> -->
-
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Número de dormitorios</label> <input type="text" -->
-<!-- 					class="form-control" id="numDormitorio" th:field="*{numDormitorio}" -->
-<!-- 					name="numDormitorio"> -->
-<!-- 			</div> -->
-
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Número de estacionamientos</label> <input -->
-<!-- 					type="text" class="form-control" id="numEstacionamiento" -->
-<!-- 					th:field="*{numEstacionamiento}" name="numEstacionamiento"> -->
-<!-- 			</div> -->
-<!-- 			<input type="hidden" th:field="*{idDestinacion}" name="idDestinacion" -->
-<!-- 				id="idDestinacion"> -->
-<!-- 			<div class="form=group"> -->
-<!-- 				<label for="nombre">Destinacion</label> <input type="text" -->
-<!-- 					class="form-control" id="destinacion" th:field="*{destinacion}" -->
-<!-- 					name="destinacion"> -->
-<!-- 			</div> -->
-			<br>
 			<button type="submit" class="btn btn-success">Guardar</button>
-			<button type="button" class="btn btn-danger" onclick="location.href='/propiedadPojo'">Cancelar</button>
+			<a href="/propiedades" class="btn btn-danger">Cancelar</a>
 			<br><br>
 		</form>
-	</div>
-	</div>
-	<footer th:replace="layout/footer :: footer"></footer>
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/untitled.js"></script>
+	</div> <!--  div del form  -->
+
+</div> <!--  div del container -->
+
+<footer th:replace="layout/footer :: footer"></footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
 </body>
 </html>

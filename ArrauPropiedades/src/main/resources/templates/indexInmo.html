@@ -62,7 +62,7 @@ h2 {
   	
   		<nav aria-label="breadcrumb" style="background-color:#ffffff;">
   			<ol class="breadcrumb" style="background-color:#ffffff;">
-  				<li class="breadcrumb-item pointer" aria-current="page" style="background-color:#ffffff; color:#00699d;">Inicio</li>
+  				<li class="breadcrumb-item pointer" onclick="location.href='/indexAdmin'"  aria-current="page" style="background-color:#ffffff; color:#00699d;">Inicio</li>
   				<li class="breadcrumb-item active" aria-current="page" style="background-color:#ffffff;">Ver inmobiliarias</li>
   			</ol>
 		</nav>
@@ -70,11 +70,11 @@ h2 {
 		
 		<h2 th:if="${list.isEmpty()}">
 			No hay inmobiliarias
-			<a href="/inmobiliaria/save/0" class="btn btn-success pointer"><i class="fa fa-user-plus"></i> Agregar inmobiliaria</a>
+			<a href="/inmobiliaria/save/0" class="btn btn-success pointer"><i class="fa fa-plus"></i> Agregar inmobiliaria</a>
 		</h2>
 
 		<div th:if="${!list.isEmpty()}">
-			<h2 class="display-4">Inmobiliaria</h2>
+			<h2 class="display-4">Inmobiliarias</h2>
 			<div align="right">
 				<a href="/inmobiliaria/save/0" class="btn pointer btn-success"><i class="fa fa-user-plus"></i> Agregar inmobiliaria</a>
 			</div>

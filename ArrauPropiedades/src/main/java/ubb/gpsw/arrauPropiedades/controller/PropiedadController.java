@@ -1,23 +1,19 @@
 package ubb.gpsw.arrauPropiedades.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import ubb.gpsw.arrauPropiedades.service.PropiedadService;
-import ubb.gpsw.arrauPropiedades.service.TipoService;
-import ubb.gpsw.arrauPropiedades.service.InmobiliariaService;
-import ubb.gpsw.arrauPropiedades.service.DestinacionService;
-import ubb.gpsw.arrauPropiedades.service.CondicionService;
+import ubb.gpsw.arrauPropiedades.service.*;
 
-import ubb.gpsw.arrauPropiedades.model.Propiedad;
+import ubb.gpsw.arrauPropiedades.model.*;
 
 @Controller
 public class PropiedadController {
@@ -37,6 +33,12 @@ public class PropiedadController {
 	@Autowired
 	private CondicionService condService;
 	
+	@Autowired
+	private EstadoPropiedadService estPropService;
+	
+	@Autowired
+	private PublicacionService publicacionService;
+	
 	//Listar todas las propiedades 
 	@RequestMapping("/propiedades")
 	public String listPropiedades(Model model) {
@@ -44,32 +46,48 @@ public class PropiedadController {
 		return "propiedad";
 	}
 	
+	//Obtener propiedad guardada
+	@GetMapping("/propiedad/{id}")
+	public String showSave(@PathVariable("id") Integer id, Model model) {
+		if(id != null && id != 0) {
+			model.addAttribute("propiedades" , propService.get(id));
+			model.addAttribute("tipo" , tipoService.getAll());
+			model.addAttribute("inmobiliaria" , inmService.getAll());
+			model.addAttribute("destinacion" , destService.getAll());
+			model.addAttribute("condicion" , condService.getAll());
+			model.addAttribute("estadoPropiedad", estPropService.getAll());
+		} else {
+			model.addAttribute("propiedades" , new Propiedad());
+			model.addAttribute("tipo" , tipoService.getAll());
+			model.addAttribute("inmobiliaria" , inmService.getAll());
+			model.addAttribute("destinacion" , destService.getAll());
+			model.addAttribute("condicion" , condService.getAll());
+			model.addAttribute("estadoPropiedad", estPropService.getAll());
+		}
+		return "savePropiedad";
+	}
 	
-	
-//	@GetMapping("/propiedadDetalle/{id}")
-//	public String getPropiedadById(Model model, @PathVariable("id") Integer id) {
-//		if(id!=0) {
-//			model.addAttribute("listDetalle", propService.findById(id));
-//		} else {
-//			System.out.println("error");
-//		}
-//		return "propiedadDetalle";
-//	}
-//	
-//	@GetMapping("/propiedadPojo/save/{id}")
-//	public String showSave(@PathVariable("id")int id, Model model) {
-//		if(id!=0) {
-//			model.addAttribute("propiedad",propService.findById(id));
-//		} else {
-//			model.addAttribute("propiedad",new PropiedadPojo());
-//		}
-//		return "savePropiedad";
-//	}
-//	
-//	@PostMapping("/propiedadPojo/save")
-//	public String save(PropiedadPojo propiedad, Model model) {
-//		propService.save(propiedad);
-//		return "redirect:/propiedadPojo";
-//	}
-	
+	//Guardar propiedad
+	@PostMapping("/savePropiedad")
+	public String save(Propiedad propiedad, BindingResult result, Model model, @RequestParam(value="idTipo") int idT,
+			@RequestParam(value="idInmobiliaria") int idInm, @RequestParam(value="idDestinacion") int idDest,
+			@RequestParam(value="idCondicion") int idCond, @RequestParam(value="idEstadoPropiedad") int idEstProp) {
+
+		Tipo tipo = tipoService.get(idT);
+		Inmobiliaria inmobiliaria = inmService.get(idInm);
+		Destinacion destinacion = destService.get(idDest);
+		Condicion condicion = condService.get(idCond);
+		EstadoPropiedad estadoPropiedad = estPropService.get(idEstProp);
+		
+		propiedad.setTipo(tipo);
+		propiedad.setInmobiliaria(inmobiliaria);
+		propiedad.setDestinacion(destinacion);
+		propiedad.setCondicion(condicion);
+		propiedad.setEstadoPropiedad(estadoPropiedad);
+		
+		propService.save(propiedad);
+		
+		return "redirect:/propiedad";
+	}
+
 }
