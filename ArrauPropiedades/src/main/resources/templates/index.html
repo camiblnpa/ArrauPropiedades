@@ -37,7 +37,39 @@ img.blur {
 
 }
 </style>
+	
+
+
 <script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
+<script type="text/javascript">
+	function comprobar() {
+		var rango = document.getElementById('rango');
+		var ñuble = document.getElementById('ñuble');
+ 		var biobio = document.getElementById('biobio');
+ 		if(rango.value==1){
+ 			ñuble.style.display='block';
+      		biobio.style.display='none';
+ 		}else{
+ 			ñuble.style.display='none';
+   			biobio.style.display='block';
+ 		}
+	}
+// 		if(rango.value == 0){
+// 			ñuble.style.display='none';
+// 			biobio.style.display='none';
+// 		}else{if(rango.value==1){
+// 			ñuble.style.display='block';
+// 			biobio.style.display='none';
+// 		}else{if(rango.value==2){
+// 			ñuble.style.display='none';
+// 			biobio.style.display='block';
+// 		}
+			
+// 		} 
+// 		}
+// 		}
+// 		}
+</script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -68,12 +100,14 @@ img.blur {
 			<div class="col">
 				<div class="input-group mb-3">
 					<select class="custom-select">
+					    <option selected>Ingrese estado</option>
 						<option value="1">Arrendar</option>
 						<option value="2">Comprar</option>
 						<option value="3">Arrendar/Comprar</option>
 					</select>
 					
 					<select class="custom-select">
+					    <option selected>Ingrese tipo </option>
 						<option value="1">Casa</option>
 						<option value="2">Departamento</option>
 						<option value="3">Oficina</option>
@@ -82,9 +116,73 @@ img.blur {
 						<option value="6">Sitio</option>
 					</select>
 					
-					<div class="input-group-append">
-						<input type="text" class="form-control" size="40px"placeholder="Ingresa comuna o región">
-					</div>
+					<select onchange="comprobar();" name="rango" id="rango" class="custom-select">
+					   <option selected>Ingrese Región</option> 
+					   <option value="1">Ñuble</option>
+					   <option value="2">Bío-Bío</option>
+					</select>
+					
+					<select id="ñuble" name="ñuble" class="custom-select">
+						    <option selected="selected">Ingrese comuna</option>
+							<option value="1">San Carlos</option>
+							<option value="11">San Fabián</option>
+							<option value="12">Coihueco</option>
+							<option value="13">Ñiquén</option>
+							<option value="14">San Nicolás</option>
+							<option value="15">Bulnes</option>
+							<option value="16">Chillán</option>
+							<option value="18">Chillán Viejo</option>
+							<option value="14s">El Carmen</option>
+							<option value="1a">Pemuco</option>
+							<option value="1d">Pinto</option>
+							<option value="1gg">Quillón</option>
+							<option value="1fgf">San Ignacio</option>
+							<option value="1sdfw">Yungay</option>
+							<option value="1qwr">Quirihue</option>
+							<option value="1uuj">Cobquecura</option>
+							<option value="1iu">Coelemu</option>
+							<option value="1tyu">Ninhue</option>
+							<option value="1swer">Portezuelo</option>
+							<option value="1765">Ránquil</option>
+							<option value="1345">Treguaco</option>
+					</select>
+					
+					<select id="biobio" name="biobio" class="custom-select">
+						    <option selected="selected">Ingrese comuna</option>
+							<option value="1554">Concepcion </option>
+                            <option value="2">Coronel</option>
+                            <option value="23">Chiguayante</option>
+                            <option value="24">Florida</option>
+                            <option value="25">Hualqui</option>
+                            <option value="26">Lota</option>
+                            <option value="27">Penco</option>
+                            <option value="28">San Pedro de La Paz</option>
+                            <option value="29">Santa Juana</option>
+                            <option value="21">Talcahuano</option>
+                            <option value="222">Tomé</option>
+                            <option value="233">Hualpén</option>
+                            <option value="244">Lebu</option>
+                            <option value="266">Arauco</option>
+                            <option value="255">Cañete</option>
+                            <option value="277">Contulmo</option>
+                            <option value="288">Curanilahue</option>
+                            <option value="299">Los ÄLamos</option>
+                            <option value="31">Tirúa</option>
+                            <option value="32">Los Ängeles</option>
+                            <option value="43">Antuco</option>
+                            <option value="54">Cabrero</option>
+                            <option value="65">Laja</option>
+                            <option value="76">Mulchén</option>
+                            <option value="78">Nacimiento</option>
+                            <option value="89">Negrete</option>
+                            <option value="90">Quilaco</option>
+                            <option value="90">Quilleco</option>
+                            <option value="345">San Rosendo</option>
+                            <option value="234">Santa Bárbara</option>
+                            <option value="546">Tucapel</option>
+                            <option value="234">Yumbel</option>
+                            <option value="124">Alto BíoBío</option>      
+					</select>
 					
 					<div class="input-group-append">
 						<button class="btn" style="background-color: #00699d; color:white;"  type="button" disabled id="button-addon2"> <i class="fa fa-search"></i> Buscar</button>
