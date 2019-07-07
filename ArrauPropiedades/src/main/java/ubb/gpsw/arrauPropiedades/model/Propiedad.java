@@ -52,21 +52,21 @@ public class Propiedad implements Serializable {
 
 	private int numDormitorio;
 	
-	/*
-	private int destinacion_idDestinacion;
 
-	private int inmobiliaria_idInmobiliaria;
-	
-	private int tipo_idTipo;
+//	private int destinacion_idDestinacion;
+//
+//	private int inmobiliaria_idInmobiliaria;
+//	
+//	private int tipo_idTipo;
+//
+//	private int interesado_idInteresado;
+//
+//	private int condicion_idCondicion;
+//
+//	private int publicacion_idPublicacion;
+//
+//	private int estadoPropiedad_idEstadoPropiedad;
 
-	private int interesado_idInteresado;
-
-	private int condicion_idCondicion;
-
-	private int publicacion_idPublicacion;
-
-	private int estadoPropiedad_idEstadoPropiedad;
-*/
 	/*
 	 * Relaciones
 	 */
@@ -153,7 +153,7 @@ public class Propiedad implements Serializable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-//
+
 //	public int getDestinacion_idDestinacion() {
 //		return this.destinacion_idDestinacion;
 //	}
@@ -177,7 +177,7 @@ public class Propiedad implements Serializable {
 	public void setDimTerreno(int dimTerreno) {
 		this.dimTerreno = dimTerreno;
 	}
-//
+
 //	public int getEstadoPropiedad_idEstadoPropiedad() {
 //		return this.estadoPropiedad_idEstadoPropiedad;
 //	}
@@ -193,7 +193,7 @@ public class Propiedad implements Serializable {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-//
+
 //	public int getInmobiliaria_idInmobiliaria() {
 //		return this.inmobiliaria_idInmobiliaria;
 //	}
@@ -205,7 +205,7 @@ public class Propiedad implements Serializable {
 //	public int getInteresado_idInteresado() {
 //		return this.interesado_idInteresado;
 //	}
-//
+
 //	public void setInteresado_idInteresado(int interesado_idInteresado) {
 //		this.interesado_idInteresado = interesado_idInteresado;
 //	}
@@ -257,7 +257,7 @@ public class Propiedad implements Serializable {
 	public void setRegion(String region) {
 		this.region = region;
 	}
-//
+
 //	public int getTipo_idTipo() {
 //		return this.tipo_idTipo;
 //	}

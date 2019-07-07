@@ -2,7 +2,44 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Lista de Propiedades</title>
+<style>
+#customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #0C3256;
+	color: white;
+}
+
+#customers a {
+	color: black;
+}
+
+h2 {
+	text-align: center;
+}
+</style>
+
+<title>Listado de Propiedades</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
 <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -13,71 +50,79 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <head th:replace="layout/header :: head">
-</head>
+<head th:replace="layout/header :: head"></head>
 <body>
 
 <div class="container">
+	<header th:replace="layout/header :: header"></header>
+	
 	<div>
-
-		<header th:replace="layout/header :: header"></header>
-		<br> <br> <br> <br> <br> <br>
-
+		<br>
+		
 		<div>
-			<a href="/propiedad/savePropiedad/0" class="btn btn-primary">Agregar</a>
+			<br> <br> <br> <br>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a
+						onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+					<li class="breadcrumb-item active"><span>Propiedades</span></li>
+				</ol>
+			</nav>
 		</div>
-		<h2>Propiedades</h2>
-		<table class="table">
-				<thead>
-					<tr>
-						<th>Precio</th>
-						<th>Dimension terreno</th>
-						<th>Dimension Área Construida</th>
-						<th>Calle</th>
-						<th>Numero</th>
-						<th>Numero Departamento</th>
-						<th>Ciudad</th>
-						<th>Comuna</th>
-						<th>Region</th>
-						<th>Latitud</th>
-						<th>Longitud</th>
-						<th>Inmobiliaria</th>
-						<th>Tipo de propiedad</th>
-						<th>Destinacion</th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="propiedad: ${list}">
-						<td th:text="${propiedad.precio}"></td>
-						<td th:text="${propiedad.dimTerreno}"></td>
-						<td th:text="${propiedad.dimConstruccion}"></td>
-						<td th:text="${propiedad.calle}"></td>
-						<td th:text="${propiedad.numero}"></td>
-						<td th:text="${propiedad.numDepartamento}"></td>
-						<td th:text="${propiedad.ciudad}"></td>
-						<td th:text="${propiedad.comuna}"></td>
-						<td th:text="${propiedad.region}"></td>
-						<td th:text="${propiedad.latitud}"></td>
-						<td th:text="${propiedad.longitud}"></td>
-						<td th:text="${propiedad.inmobiliaria}"></td>
-						<td th:text="${propiedad.tipoPropiedad}"></td>
-						<td th:text="${propiedad.destinacion}"></td>
-						<td><a
-							th:href="@{/propiedad/savePropiedad/{id}(id=${propiedad.idPropiedad})}">Editar</a>
-						</td>
-						<td><a
-							th:href="@{/propiedad/deletePropiedad/{id}(id=${propiedad.idPropiedad})}">Eliminar</a>
-						</td>
-					</tr>
-				</tbody>
+
+		<h2 th:if="${list.isEmpty()}">
+			No hay propiedades <a href="/propiedadPojo/save/0"
+				class="btn btn-primary"><i class="fa fa-user-plus"></i> Agregar</a>
+		</h2>
+		
+		<div th:if="${!list.isEmpty()}">
+
+			<h2>
+				Propiedad 
+				<a href="/propiedadPojo/save/0" class="btn btn-primary">
+					<i class="fa fa-user-plus"></i> Agregar
+				</a>
+			</h2>
+
+			<table id="customers">
+
+				<tr>
+					<th>Precio</th>
+					<th>Dimension del terreno</th>
+					<th>Dimension de la Propiedad</th>
+					<th>Ciudad</th>
+					<th></th>
+					<th></th>
+				</tr>
+
+				<tr th:each="propiedad : ${list}">
+					<td th:text="${propiedad.precio}"></td>
+					<td th:text="${propiedad.dimTerreno}"></td>
+					<td th:text="${propiedad.dimConstruccion}"></td>
+					<td th:text="${propiedad.ciudad}"></td>
+					<td>
+<!-- 						<a th:href="@{/propiedadPojo/save/{id}(id=${propiedadPojo.idPropiedad})}"> -->
+<!-- 							Editar <i class="fa fa-edit"></i> -->
+<!-- 						</a> -->
+					</td>
+					<td>
+<!-- 						<a type="button" class="btn btn-link" th:href="@{/propiedadDetalle/{id}(id=${propiedadPojo.idPropiedad})}"> -->
+<!-- 							Ver detalles -->
+<!-- 						</a> -->
+					</td>
+				</tr>
 			</table>
-			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 </div>
+	
 <footer th:replace="layout/footer :: footer"></footer>
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/untitled.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/untitled.js"></script>
 </body>
 </html>
