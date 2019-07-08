@@ -6,6 +6,14 @@
 <script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
 <style>
 
+.btn:hover{
+	box-shadow: 0 6px 12px 0 rgba(0,0,0,0.6);
+}
+
+.pointer {
+	cursor: pointer;
+}
+
 .login-clean {
   background: #f1f7fc;
   padding: 80px 0;
@@ -79,9 +87,10 @@
 </head>
 <body>
 
-<div class="login-clean">
+<div class="login-clean" style="background-image: url('https://trello-attachments.s3.amazonaws.com/5c992c6295c0e95085d91d09/5cd068fd0d9ea65952ef1fe7/3df4ce9fab4a7aa498a0725b407633ad/bg-masthead.jpg');">
 	<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-		<form method="post" th:action="@{/login}" th:object="${loginForm}">
+	<br><br><br><br><br>
+		<form method="post" th:action="@{/login}" th:object="${loginForm}" >
 			<div th:if="${invalidCredentials}" class="alert alert-danger"> Nombre de usuario o contraseña incorrecta</div>
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration">
@@ -89,19 +98,23 @@
             </div>
             <div class="form-group">
             	<label>Ingresa tu correo</label>
-            	<input class="form-control" type="text" name="username" placeholder="nombre de usuario">  
+            	<input class="form-control" type="text" name="username" placeholder="example@example.cl">  
             </div>
             <div class="form-group">
             	<label>Ingresa tu contraseña</label>
             	<input class="form-control" id="pass" type="password" 
             	name="password" placeholder="contraseña">
-            	<i class="fa fa-eye" onclick="verPass()"></i> <small>ver contraseña</small>
+            	<i class="fa fa-eye pointer" onclick="verPass()"></i> <small>ver contraseña</small>
             </div>
+            
+            <div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+            
             <div class="form-group">
             	<button class="btn btn-block" style="background-color: #00699d; color:white;" type="submit" onclick="location.href='/indexAdmin'">Iniciar sesión</button>
            	</div>
         </form>
 	</div>
+	<br><br><br><br><br>
 </div>
 
 <script>
