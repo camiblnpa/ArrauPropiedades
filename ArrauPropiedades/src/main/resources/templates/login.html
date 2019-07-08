@@ -82,16 +82,20 @@
 <div class="login-clean">
 	<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 		<form method="post" th:action="@{/login}" th:object="${loginForm}">
-			<div th:if="${invalidCredentials}" class="alert alert-danger" role="alert"> Nombre de usuario o contraseña incorrecta</div>
+			<div th:if="${invalidCredentials}" class="alert alert-danger"> Nombre de usuario o contraseña incorrecta</div>
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration">
 				<img src="https://trello-attachments.s3.amazonaws.com/5cc730691f57f32daa57deda/238x82/ded2f8a4537d8f5cb4dfd0a5f63591b4/Logo_horizontal.png">
             </div>
             <div class="form-group">
-            	<input class="form-control" type="text" name="username" placeholder="nombre de usuario">
+            	<label>Ingresa tu correo</label>
+            	<input class="form-control" type="text" name="username" placeholder="nombre de usuario">  
             </div>
             <div class="form-group">
-            	<input class="form-control" type="password" name="password" placeholder="contraseña">
+            	<label>Ingresa tu contraseña</label>
+            	<input class="form-control" id="pass" type="password" 
+            	name="password" placeholder="contraseña">
+            	<i class="fa fa-eye" onclick="verPass()"></i> <small>ver contraseña</small>
             </div>
             <div class="form-group">
             	<button class="btn btn-block" style="background-color: #00699d; color:white;" type="submit" onclick="location.href='/indexAdmin'">Iniciar sesión</button>
@@ -100,6 +104,16 @@
 	</div>
 </div>
 
+<script>
+function verPass() {
+	  var x = document.getElementById("pass");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+</script>
     
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
