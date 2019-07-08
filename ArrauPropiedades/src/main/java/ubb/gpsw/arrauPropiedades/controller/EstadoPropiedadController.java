@@ -1,6 +1,7 @@
 package ubb.gpsw.arrauPropiedades.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,16 +12,16 @@ import ubb.gpsw.arrauPropiedades.model.EstadoPropiedad;
 import ubb.gpsw.arrauPropiedades.service.EstadoPropiedadService;
 
 
-
+@Controller
 public class EstadoPropiedadController {
 
 	@Autowired
 	private EstadoPropiedadService estadoService;
 	
 	@RequestMapping("/estadoPropiedad")
-	public String indexDestinacion(Model model) {
+	public String indexEstado(Model model) {
 		model.addAttribute("list",estadoService.getAll());
-		return "indexEstadoPropiedad";
+		return "indexEstado";
 	}
 	
 	@GetMapping("/estadoPropiedad/save/{id}")
@@ -30,7 +31,7 @@ public class EstadoPropiedadController {
 		} else {
 			model.addAttribute("estadoPropiedad",new EstadoPropiedad());
 		}
-		return "savaEstadoPropiedad";
+		return "saveEstado";
 	}
 	
 	@PostMapping("/estadoPropiedad/save")

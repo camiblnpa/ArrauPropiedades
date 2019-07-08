@@ -2,7 +2,7 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Agregar Destinación</title>
+<title>Agregar Estado de Propiedad</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
 <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -28,38 +28,28 @@
 	<nav aria-label="breadcrumb">
   		<ol class="breadcrumb">
     		<li class="breadcrumb-item"><a onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
-			<li class="breadcrumb-item"><a onclick="location.href='/inmobiliaria'"><span>Ver destinacion/</span></a></li>
-			<li class="breadcrum-item active"><span>Agregar destinacion</span></li>
+			<li class="breadcrumb-item"><a onclick="location.href='/estado'"><span>Ver Estado/</span></a></li>
+			<li class="breadcrum-item active"><span>Agregar estado</span></li>
   		</ol>
 	</nav>
 	
-		<form action="#" th:action="@{/destinacion/save}" th:object="${destinacion}"
+		<form action="#" th:action="@{/estadoPropiedad/save}" th:object="${estadoPropiedad}"
 			method="post">
-			<input type="hidden" th:field="*{idDestinacion}" name="idDestinacion" id="idDestinacion">
+			<input type="hidden" th:field="*{idEstadoPropiedad}" name="idEstadopropiedad" id="idEstadoPropiedad">
 
 			<div class="form-group">
-				<label for="nombreDestinacion">Nombre de Destinación</label> <input type="text"
-					class="form-control" id="nombreDestinacion" th:field="*{nombreDestinacion}" name="nombreDestinacion">
+				<label for="nombreEstado">Nombre de Estado</label> <input type="text"
+					class="form-control" id="nombreEstadoPropiedad" th:field="*{nombreEstadoPropiedad}" name="nombreEstadoPropiedad">
 			</div>
 		
 			<button type="submit" class="btn btn-success">Guardar</button>
-			<button type="button" class="btn btn-danger" onclick="location.href='/destinacion'">Cancelar</button>
+			<button type="button" class="btn btn-danger" onclick="location.href='/estadoPropiedad'">Cancelar</button>
 			<br><br>
 		</form>
 	</div>
 	</div>
 	<footer th:replace="layout/footer :: footer"></footer>
 
-<!-- 	<script>
-		$('#fechaVenta').datepicker({
-			uiLibrary: 'bootstrap4',
-			language: 'es',
-		});
-	</script>
-	<script>
-		$('#fechaRegistro').datepicker({
-		  	uiLibrary: 'bootstrap4'
-		});
-	</script> -->
+
 </body>
 </html>

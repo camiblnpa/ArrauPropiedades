@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<style>
+#customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #0C3256;
+	color: white;
+}
+
+#customers a {
+	color: black;
+}
+
+h2 {
+	text-align: center;
+}
+</style>
+<title>Lista de Estados de las Propiedades</title>
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+<link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/Map-Clean.css">
+<link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+<head th:replace="layout/header :: head">
+</head>
+<body>
+<div class="container">
+	<header th:replace="layout/header :: header"></header>
+	<div>
+		<br>
+		<div>
+			<br> <br> <br> <br>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a
+						onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+					<li class="breadcrumb-item active"><span>Estados de las propiedades</span></li>
+				</ol>
+			</nav>
+		</div>
+		<h2 th:if="${list.isEmpty()}">
+			No hay estados de propiedades <a href="/estadoPropiedad/save/0"
+				class="btn btn-primary"><i class="fa fa-plus-circle"></i>
+				 Agregar</a>
+		</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>
+				Estado Propiedad<a href="/estadoPropiedad/save/0" class="btn btn-primary"><i
+					class="fa fa-plus-circle"></i> Agregar</a>
+			</h2>
+				<table id="customers">
+
+ 							<tr>
+							<th>Nombre de Estado</th>
+							<th></th>
+  					   	    <th></th>
+							</tr>
+ 
+  							<tr th:each="estadoPropiedad : ${list}">
+							<td th:text="${estadoPropiedad.nombreEstadoPropiedad}"></td>
+							<td><a
+								th:href="@{/estadoPropiedad/save/{id}(id=${estadoPropiedad.idEstadoPropiedad})}">
+									Editar <i class="fa fa-edit"></i></a></td>
+							<td><a
+								th:href="@{/estadoPropiedad/delete/{id}(id=${estadoPropiedad.idEstadoPropiedad})}">
+									Eliminar <i class="fa fa-trash"></i></a></td>
+						</tr> </table>
+				</div>
+				</div>
+</div>
+				<footer th:replace="layout/footer :: footer"></footer>
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+				<script src="assets/js/untitled.js"></script>
+</body>
+
+
+</html>
