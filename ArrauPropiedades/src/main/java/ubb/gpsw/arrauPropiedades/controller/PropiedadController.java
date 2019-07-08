@@ -36,8 +36,6 @@ public class PropiedadController {
 	@Autowired
 	private EstadoPropiedadService estPropService;
 	
-	@Autowired
-	private PublicacionService publicacionService;
 	
 	//Listar todas las propiedades 
 	@RequestMapping("/propiedades")
@@ -50,18 +48,18 @@ public class PropiedadController {
 	@GetMapping("/propiedad/{id}")
 	public String showSave(@PathVariable("id") Integer id, Model model) {
 		if(id != null && id != 0) {
-			model.addAttribute("propiedades" , propService.get(id));
-			model.addAttribute("tipo" , tipoService.getAll());
-			model.addAttribute("inmobiliaria" , inmService.getAll());
-			model.addAttribute("destinacion" , destService.getAll());
-			model.addAttribute("condicion" , condService.getAll());
+			model.addAttribute("propiedades", propService.get(id));
+			model.addAttribute("tipo", tipoService.getAll());
+			model.addAttribute("inmobiliaria", inmService.getAll());
+			model.addAttribute("destinacion", destService.getAll());
+			model.addAttribute("condicion", condService.getAll());
 			model.addAttribute("estadoPropiedad", estPropService.getAll());
 		} else {
-			model.addAttribute("propiedades" , new Propiedad());
-			model.addAttribute("tipo" , tipoService.getAll());
-			model.addAttribute("inmobiliaria" , inmService.getAll());
-			model.addAttribute("destinacion" , destService.getAll());
-			model.addAttribute("condicion" , condService.getAll());
+			model.addAttribute("propiedades", new Propiedad());
+			model.addAttribute("tipo", tipoService.getAll());
+			model.addAttribute("inmobiliaria", inmService.getAll());
+			model.addAttribute("destinacion", destService.getAll());
+			model.addAttribute("condicion", condService.getAll());
 			model.addAttribute("estadoPropiedad", estPropService.getAll());
 		}
 		return "savePropiedad";
@@ -87,7 +85,7 @@ public class PropiedadController {
 		
 		propService.save(propiedad);
 		
-		return "redirect:/propiedad";
+		return "redirect:/propiedades";
 	}
 
 }

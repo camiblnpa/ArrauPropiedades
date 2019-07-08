@@ -3,19 +3,16 @@ package ubb.gpsw.arrauPropiedades.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
+
+/**
+ * The persistent class for the Destinacion database table.
+ * 
+ */
 @Entity
 @NamedQuery(name="Destinacion.findAll", query="SELECT d FROM Destinacion d")
 public class Destinacion implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,18 +21,10 @@ public class Destinacion implements Serializable {
 
 	private String nombreDestinacion;
 	
-	/*
-	 * Relación
-	 */
-	@OneToMany(mappedBy = "destinacion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="destinacion", cascade = CascadeType.ALL)
 	private List<Propiedad> propiedades;
 
 	public Destinacion() {
-	}
-	
-	public Destinacion(int id) {
-		super();
-		this.idDestinacion = id;
 	}
 
 	public int getIdDestinacion() {

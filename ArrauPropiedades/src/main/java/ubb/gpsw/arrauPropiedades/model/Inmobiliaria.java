@@ -3,19 +3,16 @@ package ubb.gpsw.arrauPropiedades.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
+
+/**
+ * The persistent class for the Inmobiliaria database table.
+ * 
+ */
 @Entity
 @NamedQuery(name="Inmobiliaria.findAll", query="SELECT i FROM Inmobiliaria i")
 public class Inmobiliaria implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -40,18 +37,10 @@ public class Inmobiliaria implements Serializable {
 
 	private int telefono;
 	
-	/*
-	 * Relación
-	 */
-	@OneToMany(mappedBy = "inmobiliaria", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="inmobiliaria", cascade = CascadeType.ALL)
 	private List<Propiedad> propiedades;
 
 	public Inmobiliaria() {
-	}
-	
-	public Inmobiliaria(int id) {
-		super();
-		this.idInmobiliaria = id;
 	}
 
 	public int getIdInmobiliaria() {

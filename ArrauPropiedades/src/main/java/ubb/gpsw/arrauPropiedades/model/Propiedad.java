@@ -1,24 +1,21 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 
+/**
+ * The persistent class for the Propiedad database table.
+ * 
+ */
 @Entity
-@NamedQuery(name = "Propiedad.findAll", query = "SELECT p FROM Propiedad p")
+@NamedQuery(name="Propiedad.findAll", query="SELECT p FROM Propiedad p")
 public class Propiedad implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idPropiedad;
 
 	private String calle;
@@ -27,87 +24,60 @@ public class Propiedad implements Serializable {
 
 	private String comuna;
 
-
 	private String descripcion;
 
 	private int dimConstruccion;
 
 	private int dimTerreno;
 
-	private String imagen;
+	@Temporal(TemporalType.DATE)
+	private Date fechaPublicacion;
 
 	private String nombrePropiedad;
 
+	private int numBanio;
+
 	private String numDepartamento;
 
+	private int numDormitorio;
+
 	private String numero;
+
+	private int numEstacionamiento;
 
 	private int precio;
 
 	private String region;
-
-	private int numBanio;
-
-	private int numEstacionamiento;
-
-	private int numDormitorio;
 	
-
-//	private int destinacion_idDestinacion;
-//
-//	private int inmobiliaria_idInmobiliaria;
-//	
-//	private int tipo_idTipo;
-//
-//	private int interesado_idInteresado;
-//
-//	private int condicion_idCondicion;
-//
-//	private int publicacion_idPublicacion;
-//
-//	private int estadoPropiedad_idEstadoPropiedad;
-
-	/*
-	 * Relaciones
-	 */
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "condicion_idCondicion")
-	private Condicion condicion;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "destinacion_idDestinacion")
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="destinacion_idDestinacion")
 	private Destinacion destinacion;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "estadoPropiedad_idEstadoPropiedad")
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="estadoPropiedad_idEstadoPropiedad")
 	private EstadoPropiedad estadoPropiedad;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "inmobiliaria_idInmobiliaria")
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="inmobiliaria_idInmobiliaria")
 	private Inmobiliaria inmobiliaria;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "interesado_idInteresado")
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="interesado_idInteresado")
 	private Interesado interesado;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "publicacion_idPublicacion")
-	private Publicacion publicacion;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "tipo_idTipo")
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="tipo_idTipo")
 	private Tipo tipo;
-
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="condicion_idCondicion")
+	private Condicion condicion;
+	
 	public Propiedad() {
 	}
 
-	public Propiedad(int id) {
-		super();
-		this.idPropiedad = id;
-	}
-
 	public int getIdPropiedad() {
-		return this.idPropiedad;
+		return idPropiedad;
 	}
 
 	public void setIdPropiedad(int idPropiedad) {
@@ -115,7 +85,7 @@ public class Propiedad implements Serializable {
 	}
 
 	public String getCalle() {
-		return this.calle;
+		return calle;
 	}
 
 	public void setCalle(String calle) {
@@ -123,7 +93,7 @@ public class Propiedad implements Serializable {
 	}
 
 	public String getCiudad() {
-		return this.ciudad;
+		return ciudad;
 	}
 
 	public void setCiudad(String ciudad) {
@@ -131,39 +101,23 @@ public class Propiedad implements Serializable {
 	}
 
 	public String getComuna() {
-		return this.comuna;
+		return comuna;
 	}
 
 	public void setComuna(String comuna) {
 		this.comuna = comuna;
 	}
 
-//	public int getCondicion_idCondicion() {
-//		return this.condicion_idCondicion;
-//	}
-//
-//	public void setCondicion_idCondicion(int condicion_idCondicion) {
-//		this.condicion_idCondicion = condicion_idCondicion;
-//	}
-
 	public String getDescripcion() {
-		return this.descripcion;
+		return descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
-//	public int getDestinacion_idDestinacion() {
-//		return this.destinacion_idDestinacion;
-//	}
-//
-//	public void setDestinacion_idDestinacion(int destinacion_idDestinacion) {
-//		this.destinacion_idDestinacion = destinacion_idDestinacion;
-//	}
-
 	public int getDimConstruccion() {
-		return this.dimConstruccion;
+		return dimConstruccion;
 	}
 
 	public void setDimConstruccion(int dimConstruccion) {
@@ -171,100 +125,28 @@ public class Propiedad implements Serializable {
 	}
 
 	public int getDimTerreno() {
-		return this.dimTerreno;
+		return dimTerreno;
 	}
 
 	public void setDimTerreno(int dimTerreno) {
 		this.dimTerreno = dimTerreno;
 	}
 
-//	public int getEstadoPropiedad_idEstadoPropiedad() {
-//		return this.estadoPropiedad_idEstadoPropiedad;
-//	}
-//
-//	public void setEstadoPropiedad_idEstadoPropiedad(int estadoPropiedad_idEstadoPropiedad) {
-//		this.estadoPropiedad_idEstadoPropiedad = estadoPropiedad_idEstadoPropiedad;
-//	}
-
-	public String getImagen() {
-		return this.imagen;
+	public Date getFechaPublicacion() {
+		return fechaPublicacion;
 	}
 
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setFechaPublicacion(Date fechaPublicacion) {
+		this.fechaPublicacion = fechaPublicacion;
 	}
-
-//	public int getInmobiliaria_idInmobiliaria() {
-//		return this.inmobiliaria_idInmobiliaria;
-//	}
-//
-//	public void setInmobiliaria_idInmobiliaria(int inmobiliaria_idInmobiliaria) {
-//		this.inmobiliaria_idInmobiliaria = inmobiliaria_idInmobiliaria;
-//	}
-//
-//	public int getInteresado_idInteresado() {
-//		return this.interesado_idInteresado;
-//	}
-
-//	public void setInteresado_idInteresado(int interesado_idInteresado) {
-//		this.interesado_idInteresado = interesado_idInteresado;
-//	}
 
 	public String getNombrePropiedad() {
-		return this.nombrePropiedad;
+		return nombrePropiedad;
 	}
 
 	public void setNombrePropiedad(String nombrePropiedad) {
 		this.nombrePropiedad = nombrePropiedad;
 	}
-
-	public String getNumDepartamento() {
-		return this.numDepartamento;
-	}
-
-	public void setNumDepartamento(String numDepartamento) {
-		this.numDepartamento = numDepartamento;
-	}
-
-	public String getNumero() {
-		return this.numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	public int getPrecio() {
-		return this.precio;
-	}
-
-	public void setPrecio(int precio) {
-		this.precio = precio;
-	}
-
-//	public int getPublicacion_idPublicacion() {
-//		return this.publicacion_idPublicacion;
-//	}
-//
-//	public void setPublicacion_idPublicacion(int publicacion_idPublicacion) {
-//		this.publicacion_idPublicacion = publicacion_idPublicacion;
-//	}
-
-	public String getRegion() {
-		return this.region;
-	}
-
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
-//	public int getTipo_idTipo() {
-//		return this.tipo_idTipo;
-//	}
-//
-//	public void setTipo_idTipo(int tipo_idTipo) {
-//		this.tipo_idTipo = tipo_idTipo;
-//	}
 
 	public int getNumBanio() {
 		return numBanio;
@@ -274,12 +156,12 @@ public class Propiedad implements Serializable {
 		this.numBanio = numBanio;
 	}
 
-	public int getNumEstacionamiento() {
-		return numEstacionamiento;
+	public String getNumDepartamento() {
+		return numDepartamento;
 	}
 
-	public void setNumEstacionamiento(int numEstacionamiento) {
-		this.numEstacionamiento = numEstacionamiento;
+	public void setNumDepartamento(String numDepartamento) {
+		this.numDepartamento = numDepartamento;
 	}
 
 	public int getNumDormitorio() {
@@ -290,12 +172,36 @@ public class Propiedad implements Serializable {
 		this.numDormitorio = numDormitorio;
 	}
 
-	public Condicion getCondicion() {
-		return condicion;
+	public String getNumero() {
+		return numero;
 	}
 
-	public void setCondicion(Condicion condicion) {
-		this.condicion = condicion;
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public int getNumEstacionamiento() {
+		return numEstacionamiento;
+	}
+
+	public void setNumEstacionamiento(int numEstacionamiento) {
+		this.numEstacionamiento = numEstacionamiento;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
 	public Destinacion getDestinacion() {
@@ -330,14 +236,6 @@ public class Propiedad implements Serializable {
 		this.interesado = interesado;
 	}
 
-	public Publicacion getPublicacion() {
-		return publicacion;
-	}
-
-	public void setPublicacion(Publicacion publicacion) {
-		this.publicacion = publicacion;
-	}
-
 	public Tipo getTipo() {
 		return tipo;
 	}
@@ -346,4 +244,14 @@ public class Propiedad implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public Condicion getCondicion() {
+		return condicion;
+	}
+
+	public void setCondicion(Condicion condicion) {
+		this.condicion = condicion;
+	}
+	
+	
+	
 }

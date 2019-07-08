@@ -3,19 +3,16 @@ package ubb.gpsw.arrauPropiedades.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
+
+/**
+ * The persistent class for the EstadoPropiedad database table.
+ * 
+ */
 @Entity
 @NamedQuery(name="EstadoPropiedad.findAll", query="SELECT e FROM EstadoPropiedad e")
 public class EstadoPropiedad implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,18 +21,10 @@ public class EstadoPropiedad implements Serializable {
 
 	private String nombreEstadoPropiedad;
 	
-	/*
-	 * Relación
-	 */
-	@OneToMany(mappedBy = "estadoPropiedad", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="estadoPropiedad", cascade = CascadeType.ALL)
 	private List<Propiedad> propiedades;
 
 	public EstadoPropiedad() {
-	}
-	
-	public EstadoPropiedad(int id) {
-		super();
-		this.idEstadoPropiedad = id;
 	}
 
 	public int getIdEstadoPropiedad() {

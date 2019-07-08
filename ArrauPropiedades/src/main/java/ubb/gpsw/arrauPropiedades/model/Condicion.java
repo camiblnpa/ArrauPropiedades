@@ -3,19 +3,16 @@ package ubb.gpsw.arrauPropiedades.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
+
+/**
+ * The persistent class for the Condicion database table.
+ * 
+ */
 @Entity
 @NamedQuery(name="Condicion.findAll", query="SELECT c FROM Condicion c")
 public class Condicion implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,18 +21,10 @@ public class Condicion implements Serializable {
 
 	private String nombreCondicion;
 	
-	/*
-	 * Relación
-	 */
-	@OneToMany(mappedBy = "condicion", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="condicion", cascade = CascadeType.ALL)
 	private List<Propiedad> propiedades;
 
 	public Condicion() {
-	}
-	
-	public Condicion(int id) {
-		super();
-		this.idCondicion = id;
 	}
 
 	public int getIdCondicion() {

@@ -1,8 +1,15 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
+
+/**
+ * The persistent class for the Tipo database table.
+ * 
+ */
 @Entity
 @NamedQuery(name="Tipo.findAll", query="SELECT t FROM Tipo t")
 public class Tipo implements Serializable {
@@ -14,12 +21,10 @@ public class Tipo implements Serializable {
 
 	private String nombreTipo;
 	
-	public Tipo() {	
-	}
+	@OneToMany(mappedBy="tipo", cascade = CascadeType.ALL)
+	private List<Propiedad> propiedades;
 
-	public Tipo(int idTipo) {
-		super();
-		this.idTipo = idTipo;
+	public Tipo() {
 	}
 
 	public int getIdTipo() {
