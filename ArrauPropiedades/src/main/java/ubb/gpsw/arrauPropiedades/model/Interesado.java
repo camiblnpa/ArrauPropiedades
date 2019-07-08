@@ -1,8 +1,6 @@
 package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.*;
 
 
@@ -25,8 +23,9 @@ public class Interesado implements Serializable {
 
 	private int telefono;
 	
-	@OneToMany(mappedBy="interesado", cascade = CascadeType.ALL)
-	private List<Propiedad> propiedades;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="propiedad_idPropiedad")
+	private Propiedad propiedad;
 
 	public Interesado() {
 	}

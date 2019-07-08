@@ -10,9 +10,7 @@
 		<class>ubb.gpsw.arrauPropiedades.model.Inmobiliaria</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Interesado</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Propiedad</class>
-		<class>ubb.gpsw.arrauPropiedades.model.Publicacion</class>
 		<class>ubb.gpsw.arrauPropiedades.model.Tipo</class>
-		<class>ubb.gpsw.arrauPropiedades.model.Usuario</class>
 
 		<properties>
 			<property name="hibernate.show_sql" value="true" />

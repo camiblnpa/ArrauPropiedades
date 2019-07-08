@@ -3,6 +3,7 @@ package ubb.gpsw.arrauPropiedades.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -48,7 +49,7 @@ public class Propiedad implements Serializable {
 	private int precio;
 
 	private String region;
-	
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="destinacion_idDestinacion")
 	private Destinacion destinacion;
@@ -61,9 +62,8 @@ public class Propiedad implements Serializable {
 	@JoinColumn(name="inmobiliaria_idInmobiliaria")
 	private Inmobiliaria inmobiliaria;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="interesado_idInteresado")
-	private Interesado interesado;
+	@OneToMany(mappedBy="propiedad", cascade = CascadeType.ALL)
+	private List<Interesado> interesados;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="tipo_idTipo")
@@ -72,7 +72,7 @@ public class Propiedad implements Serializable {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="condicion_idCondicion")
 	private Condicion condicion;
-	
+
 	public Propiedad() {
 	}
 
@@ -228,12 +228,12 @@ public class Propiedad implements Serializable {
 		this.inmobiliaria = inmobiliaria;
 	}
 
-	public Interesado getInteresado() {
-		return interesado;
+	public List<Interesado> getInteresados() {
+		return interesados;
 	}
 
-	public void setInteresado(Interesado interesado) {
-		this.interesado = interesado;
+	public void setInteresados(List<Interesado> interesados) {
+		this.interesados = interesados;
 	}
 
 	public Tipo getTipo() {
@@ -251,7 +251,4 @@ public class Propiedad implements Serializable {
 	public void setCondicion(Condicion condicion) {
 		this.condicion = condicion;
 	}
-	
-	
-	
 }
