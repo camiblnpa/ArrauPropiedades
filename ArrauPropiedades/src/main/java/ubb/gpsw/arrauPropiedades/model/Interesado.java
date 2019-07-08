@@ -62,4 +62,12 @@ public class Interesado implements Serializable {
 		this.telefono = telefono;
 	}
 
+	public Propiedad getPropiedad() {
+		return propiedad;
+	}
+
+	public void setPropiedad(Propiedad propiedad) {
+		this.propiedad = propiedad;
+	}
+	
 }
