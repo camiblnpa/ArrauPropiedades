@@ -19,12 +19,10 @@ public class Usuario implements Serializable {
 
 	private String apellido;
 
-	@Column(length = 45 ,unique = true)
 	private String correo;
 
 	private String nombre;
 
-	@Column(length = 20)
 	private String password;
 
 	public Usuario() {

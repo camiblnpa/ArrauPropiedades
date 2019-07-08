@@ -12,7 +12,7 @@ import ubb.gpsw.arrauPropiedades.service.UsuarioService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController {
@@ -24,16 +24,10 @@ public class LoginController {
 	public String getLogin(Model model, HttpSession session){
 		return "login";
 	}
-
-	@RequestMapping
-	public String getUsuario(Model model) {
-		model.addAttribute("usuario", usuarioServicio.getAll() );
-		return "usuario";
-	}
 	
 	@PostMapping("/login")
 	public String login(@ModelAttribute(name="login") LoginForm login, Model model, 
-			Usuario usuario) {
+			Usuario usuario, RedirectAttributes flash) {
 		
 		Usuario admin1 = usuarioServicio.get(1);
 		Usuario admin2 = usuarioServicio.get(2);
@@ -46,7 +40,8 @@ public class LoginController {
 		} else if( admin2.getCorreo().equals(username) && admin2.getPassword().equals(password)){
 			return "indexAdmin";
 		} else {
-			return "login";
+			flash.addFlashAttribute("error","¡Datos incorrectos!");
+			return "redirect:/login";
 		}
 
 	}
