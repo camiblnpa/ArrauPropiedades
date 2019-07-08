@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 /**
@@ -26,7 +27,8 @@ public class Inmobiliaria implements Serializable {
 	private String comuna;
 
 	private String correo;
-
+	
+	@NotNull
 	private String nombre;
 
 	private String numDepartamento;

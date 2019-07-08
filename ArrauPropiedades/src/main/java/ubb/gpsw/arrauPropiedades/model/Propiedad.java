@@ -2,6 +2,9 @@ package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +25,8 @@ public class Propiedad implements Serializable {
 	private String calle;
 
 //	private String ciudad;
-
+	
+	@NotEmpty
 	private String comuna;
 
 	private String descripcion;
@@ -46,8 +50,10 @@ public class Propiedad implements Serializable {
 
 	private int numEstacionamiento;
 
+	@NotNull
 	private int precio;
 
+	@NotEmpty
 	private String region;
 
 	@ManyToOne(fetch=FetchType.LAZY)

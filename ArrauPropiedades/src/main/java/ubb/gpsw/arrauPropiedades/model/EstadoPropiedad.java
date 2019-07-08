@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 
 /**
@@ -18,7 +19,8 @@ public class EstadoPropiedad implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idEstadoPropiedad;
-
+	
+	@NotEmpty
 	private String nombreEstadoPropiedad;
 	
 	@OneToMany(mappedBy="estadoPropiedad", cascade = CascadeType.ALL)

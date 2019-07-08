@@ -2,6 +2,7 @@ package ubb.gpsw.arrauPropiedades.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 
 /**
@@ -17,10 +18,13 @@ public class Interesado implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idInteresado;
 
+	@NotEmpty
 	private String correo;
 
+	@NotEmpty
 	private String nombre;
 
+	@NotEmpty
 	private int telefono;
 	
 	@ManyToOne(fetch=FetchType.LAZY)

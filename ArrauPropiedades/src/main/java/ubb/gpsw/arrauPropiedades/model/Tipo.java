@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 
 /**
@@ -19,6 +20,7 @@ public class Tipo implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idTipo;
 
+	@NotEmpty
 	private String nombreTipo;
 	
 	@OneToMany(mappedBy="tipo", cascade = CascadeType.ALL)
