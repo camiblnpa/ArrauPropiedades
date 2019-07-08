@@ -97,7 +97,8 @@ h2 {
 					<th>Precio</th>
 					<th>Dimension del terreno</th>
 					<th>Dimension de la Propiedad</th>
-					<th>Ciudad</th>
+					<th>Región</th>
+					<th>Comuna</th>
 					<th></th>
 					<th></th>
 				</tr>
@@ -106,14 +107,15 @@ h2 {
 					<td th:text="${propiedad.precio}"></td>
 					<td th:text="${propiedad.dimTerreno}"></td>
 					<td th:text="${propiedad.dimConstruccion}"></td>
-					<td th:text="${propiedad.ciudad}"></td>
+					<td th:text="${propiedad.region}"></td>
+					<td th:text="${propiedad.comuna}"></td>
 					<td>
-<!-- 						<a th:href="@{/propiedadPojo/save/{id}(id=${propiedadPojo.idPropiedad})}"> -->
+<!-- 						<a th:href="@{/propiedad/save/{id}(id=${propiedad.idPropiedad})}"> -->
 <!-- 							Editar <i class="fa fa-edit"></i> -->
 <!-- 						</a> -->
 					</td>
 					<td>
-<!-- 						<a type="button" class="btn btn-link" th:href="@{/propiedadDetalle/{id}(id=${propiedadPojo.idPropiedad})}"> -->
+<!-- 						<a type="button" class="btn btn-link" th:href="@{/propiedadDetalle/{id}(id=${propiedad.idPropiedad})}"> -->
 <!-- 							Ver detalles -->
 <!-- 						</a> -->
 					</td>

@@ -61,7 +61,7 @@ img.blur {
 <script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body onload="esconder();">
     <nav class="navbar navbar-light navbar-expand fixed-top bg-white navigation-clean">
         <div class="container-fluid"><a class="navbar-brand" href="#">
         <img
@@ -170,7 +170,9 @@ img.blur {
                             <option value="234">Yumbel</option>
                             <option value="124">Alto BíoBío</option>      
 					</select>
-					
+					<select id="relleno" class="custom-select">
+					<option selected>Ingrese comuna</option>
+					</select>
 					<div class="input-group-append">
 						<button class="btn" style="background-color: #00699d; color:white;"  type="button" disabled id="button-addon2"> <i class="fa fa-search"></i> Buscar</button>
 					</div>
@@ -211,20 +213,29 @@ img.blur {
 	
 <!--  script del luks  -->
 <script type="text/javascript">
-	function comprobar() {
-		var rango = document.getElementById('rango');
-		var ñuble = document.getElementById('ñuble');
- 		var biobio = document.getElementById('biobio');
-
- 		if(rango.value==1){
- 			ñuble.style.display='block';
-      		biobio.style.display='none';
- 		}else{
- 			ñuble.style.display='none';
-   			biobio.style.display='block';
- 		}
-	}
-
+function comprobar() {
+	var rango = document.getElementById('rango');
+	var ñuble = document.getElementById('ñuble');
+		var biobio = document.getElementById('biobio');
+	var r=document.getElementById('relleno');
+		if(rango.value==1){
+			ñuble.style.display='block';
+  		biobio.style.display='none';
+  		r.style.display='none';
+		}else{
+			ñuble.style.display='none';
+			biobio.style.display='block';
+			r.style.display='none';
+		}
+}
+function esconder(){
+	var ñ=document.getElementById('ñuble');
+	var b=document.getElementById('biobio');
+	var r=document.getElementById('relleno');
+	ñ.style.display='none';
+	b.style.display='none';
+	r.style.display='block';
+}
 </script>
 	
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

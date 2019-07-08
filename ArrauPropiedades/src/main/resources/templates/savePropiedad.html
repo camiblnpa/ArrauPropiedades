@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <head th:replace="layout/header :: head">
 </head>
-<body style="background-color:#dee8f0;">
+<body style="background-color:#dee8f0;" onload="esconder();")>
 
 <header th:replace="layout/header :: header"></header>
  	
@@ -167,20 +167,103 @@
 				
 		<h3>ingresar datos de la ubicación de la propiedad</h3>
 		<hr>
-		
 		<div class="form-group row">
 			<label class="col-md-6 col-form-label"> Región </label>
 			<div class="col-md-6">
-				<input type="text" class="form-control" id="region" th:field="*{region}" name="region">
+<!-- 				<input type ="text" class="form-control" id="region" th:field="*{region}" name="region"> -->
+				<select onchange="comprobar();" name="region" id="region" th:field="*{region}" class="form-control" >
+				<option selected value=""></option>
+				<option value="Ñuble" >Ñuble</option>
+				<option value="Bío-Bío" >Bío-Bío</option>
+				 </select>
 			</div>
 		</div>
 		
-		<div class="form-group row">
+		
+<!-- 		<div class="form-group row"> -->
+<!-- 			<label class="col-md-6 col-form-label"> Región </label> -->
+<!-- 			<div class="col-md-6"> -->
+<!-- 				<input type="text" class="form-control" id="region" th:field="*{region}" name="region"> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		<div class="form-group row" >
 			<label class="col-md-6 col-form-label"> Comuna </label>
 			<div class="col-md-6">
-				<input type="text" class="form-control" id="comuna" th:field="*{comuna}" name="comuna">
+<!-- 				<input type="text" class="form-control" id="comuna" th:field="*{comuna}" name="comuna"> -->
+                    <select id="relleno" name="relleno" class="form-control">
+					<option selected></option>
+					</select>
+					
+                    <select th:field="*{comuna}" name="comunañ" id="comunañ" class="form-control">
+                    <option value=""></option>
+                    <option value="San Carlos">San Carlos</option>
+							<option value="San Fabián">San Fabián</option>
+							<option value="Coihueco">Coihueco</option>
+							<option value="Ñiquén">Ñiquén</option>
+							<option value="San Nicolás">San Nicolás</option>
+							<option value="Bulnes">Bulnes</option>
+							<option value="Chillán">Chillán</option>
+							<option value="Chillán Viejo">Chillán Viejo</option>
+							<option value="El Carmen">El Carmen</option>
+							<option value="Pemuco">Pemuco</option>
+							<option value="Pinto">Pinto</option>
+							<option value="Quillón">Quillón</option>
+							<option value="San Ignacio">San Ignacio</option>
+							<option value="Yungay">Yungay</option>
+							<option value="Quirihue">Quirihue</option>
+							<option value="Cobquecura">Cobquecura</option>
+							<option value="Coelemu">Coelemu</option>
+							<option value="Ninhue">Ninhue</option>
+							<option value="Portezuelo">Portezuelo</option>
+							<option value="Ránquil">Ránquil</option>
+							<option value="Treguaco">Treguaco</option>
+                    </select>
+                    
+                    <select  id="comunab" name="comunab" th:field="*{comuna}" class="form-control">
+			                <option value=""></option> 
+                            <option value="Concepcion">Concepcion</option>
+                            <option value="Coronel">Coronel</option>
+                            <option value="Chiguayante">Chiguayante</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Hualqui">Hualqui</option>
+                            <option value="Lota">Lota</option>
+                            <option value="Penco">Penco</option>
+                            <option value="San Pedro de La Paz">San Pedro de La Paz</option>
+                            <option value="Santa Juana">Santa Juana</option>
+                            <option value="Talcahuano">Talcahuano</option>
+                            <option value="Tomé">Tomé</option>
+                            <option value="Hualpén">Hualpén</option>
+                            <option value="Lebu">Lebu</option>
+                            <option value="Arauco">Arauco</option>
+                            <option value="Cañete">Cañete</option>
+                            <option value="Contulmo">Contulmo</option>
+                            <option value="Curanilahue">Curanilahue</option>
+                            <option value="Los ÁLamos">Los ÁLamos</option>
+                            <option value="Tirúa">Tirúa</option>
+                            <option value="Los Ángeles">Los Ángeles</option>
+                            <option value="Antuco">Antuco</option>
+                            <option value="Cabrero">Cabrero</option>
+                            <option value="Laja">Laja</option>
+                            <option value="Mulchén">Mulchén</option>
+                            <option value="Nacimiento">Nacimiento</option>
+                            <option value="Negrete">Negrete</option>
+                            <option value="Quilaco">Quilaco</option>
+                            <option value="Quilleco">Quilleco</option>
+                            <option value="San Rosendo">San Rosendo</option>
+                            <option value="Santa Bárbara">Santa Bárbara</option>
+                            <option value="Tucapel">Tucapel</option>
+                            <option value="Yumbel">Yumbel</option>
+                            <option value="Alto BíoBío">Alto BíoBío</option>  
+                    </select>
+                   
 			</div>
 		</div>
+<!-- 		<div class="form-group row"> -->
+<!-- 			<label class="col-md-6 col-form-label"> Comuna </label> -->
+<!-- 			<div class="col-md-6"> -->
+<!-- 				<input type="text" class="form-control" id="comuna" th:field="*{comuna}" name="comuna"> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 		
 		<div class="form-group row">
 			<label class="col-md-6 col-form-label"> Ciudad </label>
@@ -238,5 +321,31 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+<script type="text/javascript">
+function comprobar() {
+	var rango = document.getElementById('region');
+	var ñuble = document.getElementById('comunañ');
+	var biobio = document.getElementById('comunab');
+	var re=document.getElementById('relleno');
+	var r=new String(rango.value);
+		if(r=='Ñuble'){
+		ñuble.style.display='block';
+  		biobio.style.display='none';
+  		re.style.display='none';
+		}else{
+			ñuble.style.display='none';
+			biobio.style.display='block';
+			re.style.display='none';
+		}
+}
+function esconder(){
+	var ñ=document.getElementById('comunañ');
+	var b=document.getElementById('comunab');
+	var r=document.getElementById('relleno');
+	ñ.style.display='none';
+	b.style.display='none';
+	r.style.display='block';
+}
+</script>
 </body>
 </html>
