@@ -99,17 +99,13 @@ h2 {
 				<table id="customers">
 
  							<tr>
-							<th>Fecha de Venta</th>
-							<th>Fecha de Registro</th>
-							<th>Tipo de Destinacion</th>
+							<th>Nombre de Destinacion</th>
 							<th></th>
   					   	    <th></th>
 							</tr>
  
   							<tr th:each="destinacion : ${list}">
-							<td th:text="${destinacion.fechaVenta}"></td>
-							<td th:text="${destinacion.fechaRegistro}"></td>
-							<td th:text="${destinacion.tipoDestinacion}"></td>
+							<td th:text="${destinacion.nombreDestinacion}"></td>
 							<td><a
 								th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}">
 									Editar <i class="fa fa-edit"></i></a></td>
