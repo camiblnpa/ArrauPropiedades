@@ -4,6 +4,27 @@
 <meta charset="utf-8">
 <title>Arrau propiedades</title>
 <style>
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 16px 25px 0 rgba(0,0,0,0.9);
+}
+
+.btn:hover{
+	box-shadow: 0 6px 12px 0 rgba(0,0,0,0.6);
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.row{
+  padding: 40px;
+}
 .jumbotron {
   position:relative;
   overflow:hidden;
@@ -37,39 +58,7 @@ img.blur {
 
 }
 </style>
-	
-
-
 <script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
-<script type="text/javascript">
-	function comprobar() {
-		var rango = document.getElementById('rango');
-		var ñuble = document.getElementById('ñuble');
- 		var biobio = document.getElementById('biobio');
- 		if(rango.value==1){
- 			ñuble.style.display='block';
-      		biobio.style.display='none';
- 		}else{
- 			ñuble.style.display='none';
-   			biobio.style.display='block';
- 		}
-	}
-// 		if(rango.value == 0){
-// 			ñuble.style.display='none';
-// 			biobio.style.display='none';
-// 		}else{if(rango.value==1){
-// 			ñuble.style.display='block';
-// 			biobio.style.display='none';
-// 		}else{if(rango.value==2){
-// 			ñuble.style.display='none';
-// 			biobio.style.display='block';
-// 		}
-			
-// 		} 
-// 		}
-// 		}
-// 		}
-</script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -100,14 +89,12 @@ img.blur {
 			<div class="col">
 				<div class="input-group mb-3">
 					<select class="custom-select">
-					    <option selected>Ingrese estado</option>
 						<option value="1">Arrendar</option>
 						<option value="2">Comprar</option>
 						<option value="3">Arrendar/Comprar</option>
 					</select>
 					
 					<select class="custom-select">
-					    <option selected>Ingrese tipo </option>
 						<option value="1">Casa</option>
 						<option value="2">Departamento</option>
 						<option value="3">Oficina</option>
@@ -191,17 +178,54 @@ img.blur {
 				</div>
 			</div>
 		</div> 
-	</div>
-    
-    <div class="card text-center">
-		<div class="card-body">
-			<h3> Lo sentimos</h3>
-			<h4> Esta página aún no está operativa</h4>
-			<hr>
+	</div> <!--  fin jumbotron -->
+
+
+	<!--  repetir este div por cada propiedad -->
+	<div class="row">
+	
+		<div class="col-md-3">
+			<div class="card" style="width: 18rem;">
+				<!--  imagen de la card -->
+				<div class="card">
+  					<img class="card-img-top img-thumbnail rounded"  src="http://www.proyectosdecasas.es/files/images/casas-modernas-zx98.jpg" alt="Card image cap">
+ 				</div>
+ 				
+  				<div class="card-body" style="background:#022F59 ">
+  					<!--  nombre de la propiedad -->
+    				<h5 class="card-title"style="color:white ;font-size:30px; text-align:center;font-style:italic;text-break;"></h5>
+    				<!--  precio de la propiedad -->
+    				<p class="card-text"style="color:white;font-style: italic;font-size:20px; text-align:center;">$35.000.000</p>
+     				<p class="card-text"style="color:white;font-style:Times;font-size:15px; text-align:center;">ENTREGA INMEDIATA</p>
+    				<!--  botón ver más -->
+    				<a href="#" class="btn btn-outline-light d-block mx-auto" >Ver más detalles</a>
+  				</div>
+			</div>
 		</div>
-	</div>
-    
-	<footer th:replace="layout/footer :: footer"></footer>
+
+	</div> <!--  fin div de las cards -->
+	
+    <br><br><br>
+
+<footer th:replace="layout/footer :: footer"></footer>
+	
+<!--  script del luks  -->
+<script type="text/javascript">
+	function comprobar() {
+		var rango = document.getElementById('rango');
+		var ñuble = document.getElementById('ñuble');
+ 		var biobio = document.getElementById('biobio');
+
+ 		if(rango.value==1){
+ 			ñuble.style.display='block';
+      		biobio.style.display='none';
+ 		}else{
+ 			ñuble.style.display='none';
+   			biobio.style.display='block';
+ 		}
+	}
+
+</script>
 	
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
