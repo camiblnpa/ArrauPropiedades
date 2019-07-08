@@ -21,7 +21,7 @@ public class Propiedad implements Serializable {
 
 	private String calle;
 
-	private String ciudad;
+//	private String ciudad;
 
 	private String comuna;
 
@@ -92,13 +92,13 @@ public class Propiedad implements Serializable {
 		this.calle = calle;
 	}
 
-	public String getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
+//	public String getCiudad() {
+//		return ciudad;
+//	}
+//
+//	public void setCiudad(String ciudad) {
+//		this.ciudad = ciudad;
+//	}
 
 	public String getComuna() {
 		return comuna;

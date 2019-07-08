@@ -85,9 +85,11 @@ h2 {
 					<thead>
 						<tr>
 							<th>Nombre inmobiliaria</th>
-							<th>Ciudad</th>
+<!-- 							<th>Ciudad</th> -->
 							<th>Correo</th>
 							<th>Teléfono</th>
+							<th>Región</th>
+							<th>Comuna</th>
 							<th></th>
 							<th></th>
 						</tr>
@@ -95,9 +97,11 @@ h2 {
 					<tbody>
 						<tr th:each="inmobiliaria : ${list}">
 							<td th:text="${inmobiliaria.nombre}"></td>
-							<td th:text="${inmobiliaria.ciudad}"></td>
+<!-- 							<td th:text="${inmobiliaria.ciudad}"></td> -->
 							<td th:text="${inmobiliaria.correo}"></td>
 							<td th:text="${inmobiliaria.telefono}"></td>
+							<td th:text="${inmobiliaria.region}"></td>
+							<td th:text="${inmobiliaria.comuna}"></td>
 							<td><a type="button" class="btn btn-link"
 								th:href="@{/inmobiliaria/save/{id}(id=${inmobiliaria.idInmobiliaria})}">Editar</a>
 							</td>

@@ -20,8 +20,8 @@ public class Inmobiliaria implements Serializable {
 	private int idInmobiliaria;
 
 	private String calle;
-
-	private String ciudad;
+	
+//	private String ciudad;
 
 	private String comuna;
 
@@ -59,13 +59,13 @@ public class Inmobiliaria implements Serializable {
 		this.calle = calle;
 	}
 
-	public String getCiudad() {
-		return this.ciudad;
-	}
-
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
+//	public String getCiudad() {
+//		return this.ciudad;
+//	}
+//
+//	public void setCiudad(String ciudad) {
+//		this.ciudad = ciudad;
+//	}
 
 	public String getComuna() {
 		return this.comuna;

@@ -15,7 +15,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <head th:replace="layout/header :: head">
 </head>
-<body>
+<body onload="esconder();">
 
 	<div class="container">	
 	<header th:replace="layout/header :: header"></header>
@@ -43,16 +43,11 @@
 					class="form-control" id="calle" th:field="*{calle}" name="calle">
 			</div>
 			
-			<div class="form-group">
-				<label for="nombre">Ciudad</label> <input type="text"
-					class="form-control" id="ciudad" th:field="*{ciudad}" name="ciudad">
-			</div>
-			
-			<div class="form-group">
-				<label for="nombre">Comuna</label> <input type="text"
-					class="form-control" id="comuna" th:field="*{comuna}" name="comuna">
-			</div>
-			
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="nombre">Ciudad</label> <input type="text" -->
+<!-- 					class="form-control" id="ciudad" th:field="*{ciudad}" name="ciudad"> -->
+<!-- 			</div> -->
+
 			<div class="form-group">
 				<label for="nombre">Correo</label> <input type="text"
 					class="form-control" id="correo" th:field="*{correo}" name="correo">
@@ -72,7 +67,7 @@
 				<label for="nombre">Nombre</label> <input type="text"
 					class="form-control" id="nombre" th:field="*{nombre}" name="nombre">
 			</div>
-			
+		
 			<div class="form-group">
 				<label for="nombre">Numero departamento</label> <input type="number"
 					class="form-control" id="numDepartamento" th:field="*{numDepartamento}" name="numDepartamento">
@@ -83,11 +78,101 @@
 					class="form-control" id="numero" th:field="*{numero}" name="numero">
 			</div>
 			
-			<div class="form-group">
-				<label for="nombre">Región</label> <input type="text"
-					class="form-control" id="region" th:field="*{region}" name="region">
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="nombre">Región</label>  -->
+<!-- 				<input type="text" -->
+<!-- 					class="form-control" id="region" th:field="*{region}" name="region"> -->
+<!-- 			<select name="region" id="region" th:field="*{region}" class="form-control" > -->
+<!-- 				<option selected value=""></option> -->
+<!-- 				<option value="Ñuble" >Ñuble</option> -->
+<!-- 				<option value="Bío-Bío" >Bío-Bío</option> -->
+<!-- 				 </select> -->
+<!-- 			</div> -->
+	<div class="form-group">
+			<label > Región </label>
+			<div >
+<!-- 				<input type ="text" class="form-control" id="region" th:field="*{region}" name="region"> -->
+				<select onchange="comprobar();" name="region" id="region" th:field="*{region}" class="form-control" >
+				<option selected value=""></option>
+				<option value="Ñuble" >Ñuble</option>
+				<option value="Bío-Bío" >Bío-Bío</option>
+				 </select>
 			</div>
-			
+		</div>
+		
+			<div class="form-group">
+			<label> Comuna </label>
+			<div >
+<!-- 				<input type="text" class="form-control" id="comuna" th:field="*{comuna}" name="comuna"> -->
+                    <select id="relleno" name="relleno" class="form-control">
+					<option selected></option>
+					</select>
+					
+                    <select th:field="*{comuna}" name="comunañ" id="comunañ" class="form-control">
+                    <option value=""></option>
+                    <option value="San Carlos">San Carlos</option>
+							<option value="San Fabián">San Fabián</option>
+							<option value="Coihueco">Coihueco</option>
+							<option value="Ñiquén">Ñiquén</option>
+							<option value="San Nicolás">San Nicolás</option>
+							<option value="Bulnes">Bulnes</option>
+							<option value="Chillán">Chillán</option>
+							<option value="Chillán Viejo">Chillán Viejo</option>
+							<option value="El Carmen">El Carmen</option>
+							<option value="Pemuco">Pemuco</option>
+							<option value="Pinto">Pinto</option>
+							<option value="Quillón">Quillón</option>
+							<option value="San Ignacio">San Ignacio</option>
+							<option value="Yungay">Yungay</option>
+							<option value="Quirihue">Quirihue</option>
+							<option value="Cobquecura">Cobquecura</option>
+							<option value="Coelemu">Coelemu</option>
+							<option value="Ninhue">Ninhue</option>
+							<option value="Portezuelo">Portezuelo</option>
+							<option value="Ránquil">Ránquil</option>
+							<option value="Treguaco">Treguaco</option>
+                    </select>
+                    
+                    <select  id="comunab" name="comunab" th:field="*{comuna}" class="form-control">
+			                <option value=""></option> 
+                            <option value="Concepcion">Concepcion</option>
+                            <option value="Coronel">Coronel</option>
+                            <option value="Chiguayante">Chiguayante</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Hualqui">Hualqui</option>
+                            <option value="Lota">Lota</option>
+                            <option value="Penco">Penco</option>
+                            <option value="San Pedro de La Paz">San Pedro de La Paz</option>
+                            <option value="Santa Juana">Santa Juana</option>
+                            <option value="Talcahuano">Talcahuano</option>
+                            <option value="Tomé">Tomé</option>
+                            <option value="Hualpén">Hualpén</option>
+                            <option value="Lebu">Lebu</option>
+                            <option value="Arauco">Arauco</option>
+                            <option value="Cañete">Cañete</option>
+                            <option value="Contulmo">Contulmo</option>
+                            <option value="Curanilahue">Curanilahue</option>
+                            <option value="Los ÁLamos">Los ÁLamos</option>
+                            <option value="Tirúa">Tirúa</option>
+                            <option value="Los Ángeles">Los Ángeles</option>
+                            <option value="Antuco">Antuco</option>
+                            <option value="Cabrero">Cabrero</option>
+                            <option value="Laja">Laja</option>
+                            <option value="Mulchén">Mulchén</option>
+                            <option value="Nacimiento">Nacimiento</option>
+                            <option value="Negrete">Negrete</option>
+                            <option value="Quilaco">Quilaco</option>
+                            <option value="Quilleco">Quilleco</option>
+                            <option value="San Rosendo">San Rosendo</option>
+                            <option value="Santa Bárbara">Santa Bárbara</option>
+                            <option value="Tucapel">Tucapel</option>
+                            <option value="Yumbel">Yumbel</option>
+                            <option value="Alto BíoBío">Alto BíoBío</option>  
+                    </select>
+                   
+			</div>
+		</div>
+		
 			<div class="form-group">
 				<label for="nombre">Teléfono</label> <input type="text"
 					class="form-control" id="telefono" th:field="*{telefono}" name="telefono">
@@ -102,5 +187,33 @@
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/untitled.js"></script>
+<script type="text/javascript">
+function comprobar() {
+	var rango = document.getElementById('region');
+	var ñuble = document.getElementById('comunañ');
+	var biobio = document.getElementById('comunab');
+	var re=document.getElementById('relleno');
+	var r=new String(rango.value);
+		if(r=='Ñuble'){
+		ñuble.style.display='block';
+  		biobio.style.display='none';
+  		re.style.display='none';
+		}else{
+			ñuble.style.display='none';
+			biobio.style.display='block';
+			re.style.display='none';
+		}
+}
+function esconder(){
+	var ñ=document.getElementById('comunañ');
+	var b=document.getElementById('comunab');
+	var r=document.getElementById('relleno');
+	ñ.style.display='none';
+	b.style.display='none';
+	r.style.display='block';
+}
+</script>
+
+
 </body>
 </html>
