@@ -23,7 +23,7 @@ public class Inmobiliaria implements Serializable {
 	private String calle;
 	
 //	private String ciudad;
-
+    @NotNull
 	private String comuna;
 
 	private String correo;

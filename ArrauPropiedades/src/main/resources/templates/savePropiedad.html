@@ -45,9 +45,9 @@
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Tipo de propiedad </label>
+			<label class="col-md-6 col-form-label"> Tipo de propiedad* </label>
 			<div class="col-md-6">
-				<select class="form-control" th:name="idTipo">
+				<select class="form-control" th:name="idTipo" required>
 					<option th:each="tipos : ${tipo}"
 							th:value="${tipos.idTipo}"
 							th:text="${tipos.nombreTipo}" >
@@ -57,9 +57,9 @@
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Destinacion de la propiedad </label>
+			<label class="col-md-6 col-form-label"> Destinacion de la propiedad* </label>
 			<div class="col-md-6">
-				<select class="form-control" th:name="idDestinacion">
+				<select class="form-control" th:name="idDestinacion" required>
 					<option th:each="destinaciones : ${destinacion}"
 							th:value="${destinaciones.idDestinacion}"
 							th:text="${destinaciones.nombreDestinacion}" >
@@ -69,9 +69,9 @@
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Condición de la propiedad </label>
+			<label class="col-md-6 col-form-label"> Condición de la propiedad* </label>
 			<div class="col-md-6">
-				<select class="form-control" th:name="idCondicion">
+				<select class="form-control" th:name="idCondicion" required>
 					<option th:each="condiciones : ${condicion}"
 							th:value="${condiciones.idCondicion}"
 							th:text="${condiciones.nombreCondicion}" >
@@ -81,9 +81,9 @@
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Inmobiliaria asociada </label>
+			<label class="col-md-6 col-form-label"> Inmobiliaria asociada* </label>
 			<div class="col-md-6">
-				<select class="form-control" th:name="idInmobiliaria">
+				<select class="form-control" th:name="idInmobiliaria" required>
 					<option th:each="inmobiliarias : ${inmobiliaria}"
 							th:value="${inmobiliarias.idInmobiliaria}"
 							th:text="${inmobiliarias.nombre}" >
@@ -93,9 +93,9 @@
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Estado de la propiedad </label>
+			<label class="col-md-6 col-form-label"> Estado de la propiedad* </label>
 			<div class="col-md-6">
-				<select class="form-control" th:name="idEstadoPropiedad">
+				<select class="form-control" th:name="idEstadoPropiedad" required>
 					<option th:each="estadosPropiedades : ${estadoPropiedad}"
 							th:value="${estadosPropiedades.idEstadoPropiedad}"
 							th:text="${estadosPropiedades.nombreEstadoPropiedad}" >
@@ -110,37 +110,37 @@
 		<input type="hidden" th:field="*{idPropiedad}" name="idPropiedad" id="idPropiedad">
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Nombre propiedad </label>
+			<label class="col-md-6 col-form-label"> Nombre propiedad* </label>
 			<div class="col-md-6">
-				<input type="text" class="form-control" id="nombrePropiedad" th:field="*{nombrePropiedad}" name="nombrePropiedad">
+				<input type="text" class="form-control" id="nombrePropiedad" th:field="*{nombrePropiedad}" name="nombrePropiedad" required>
 			</div>
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Precio de la propiedad </label>
+			<label class="col-md-6 col-form-label"> Precio de la propiedad* </label>
 			<div class="col-md-6">
-				<input type="number" min="0" class="form-control" id="precio" th:field="*{precio}" name="precio">
+				<input type="number" min="0" class="form-control" id="precio" th:field="*{precio}" name="precio"  step="0.01" required>
 			</div>
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Fecha de publicación </label>
+			<label class="col-md-6 col-form-label"> Fecha de publicación* </label>
 			<div class="col-md-6">
-				<input type="date" class="form-control" id="fechaPublicacion" th:field="*{fechaPublicacion}" name="fechaPublicacion">
+				<input type="date" class="form-control" id="fechaPublicacion" th:field="*{fechaPublicacion}" name="fechaPublicacion" required>
 			</div>
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Cantidad de dormitorios </label>
+			<label class="col-md-6 col-form-label"> Cantidad de dormitorios* </label>
 			<div class="col-md-6">
-				<input type="number" min="0" class="form-control" id="numDormitorio" th:field="*{numDormitorio}" name="numDormitorio">
+				<input type="number" min="0" class="form-control" id="numDormitorio" th:field="*{numDormitorio}" name="numDormitorio" required>
 			</div>
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Cantidad de baños </label>
+			<label class="col-md-6 col-form-label"> Cantidad de baños* </label>
 			<div class="col-md-6">
-				<input type="number" min="0" class="form-control" id="numBanio" th:field="*{numBanio}" name="numBanio">
+				<input type="number" min="0" class="form-control" id="numBanio" th:field="*{numBanio}" name="numBanio" required>
 			</div>
 		</div>
 		
@@ -154,24 +154,24 @@
 		<div class="form-group row">
 			<label class="col-md-6 col-form-label"> Dimensiones del terreno </label>
 			<div class="col-md-6">
-				<input type="number" min="0" class="form-control" id="dimTerreno" th:field="*{dimTerreno}" name="dimTerreno">
+				<input type="number" min="0" class="form-control" id="dimTerreno" th:field="*{dimTerreno}" name="dimTerreno" placeholder="En metros cuadrados" required>
 			</div>
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Dimensiones de la construcción </label>
+			<label class="col-md-6 col-form-label"> Dimensiones de la construcción* </label>
 			<div class="col-md-6">
-				<input type="number" min="0" class="form-control" id="dimConstruccion" th:field="*{dimConstruccion}" name="dimConstruccion">
+				<input type="number" min="0" class="form-control" id="dimConstruccion" th:field="*{dimConstruccion}" name="dimConstruccion" placeholder="En metros cuadrados">
 			</div>
 		</div>
 				
 		<h3>ingresar datos de la ubicación de la propiedad</h3>
 		<hr>
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Región </label>
+			<label class="col-md-6 col-form-label"> Región* </label>
 			<div class="col-md-6">
 <!-- 				<input type ="text" class="form-control" id="region" th:field="*{region}" name="region"> -->
-				<select onchange="comprobar();" name="region" id="region" th:field="*{region}" class="form-control" >
+				<select onchange="comprobar();" name="region" id="region" th:field="*{region}" class="form-control" required>
 				<option selected value=""></option>
 				<option value="Ñuble" >Ñuble</option>
 				<option value="Bío-Bío" >Bío-Bío</option>
@@ -187,7 +187,7 @@
 <!-- 			</div> -->
 <!-- 		</div> -->
 		<div class="form-group row" >
-			<label class="col-md-6 col-form-label"> Comuna </label>
+			<label class="col-md-6 col-form-label"> Comuna* </label>
 			<div class="col-md-6">
 <!-- 				<input type="text" class="form-control" id="comuna" th:field="*{comuna}" name="comuna"> -->
                     <select id="relleno" name="relleno" class="form-control">
@@ -195,7 +195,7 @@
 					</select>
 					
                     <select th:field="*{comuna}" name="comunañ" id="comunañ" class="form-control">
-                    <option value=""></option>
+                    <option value="" selected></option>
                     <option value="San Carlos">San Carlos</option>
 							<option value="San Fabián">San Fabián</option>
 							<option value="Coihueco">Coihueco</option>
@@ -220,7 +220,7 @@
                     </select>
                     
                     <select  id="comunab" name="comunab" th:field="*{comuna}" class="form-control">
-			                <option value=""></option> 
+			                <option value="" selected enable hidden></option> 
                             <option value="Concepcion">Concepcion</option>
                             <option value="Coronel">Coronel</option>
                             <option value="Chiguayante">Chiguayante</option>
@@ -273,16 +273,16 @@
 <!-- 		</div> -->
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Calle </label>
+			<label class="col-md-6 col-form-label"> Calle* </label>
 			<div class="col-md-6">
-				<input type="text" class="form-control" id="calle" th:field="*{calle}" name="calle">
+				<input type="text" class="form-control" id="calle" th:field="*{calle}" name="calle" required>
 			</div>
 		</div>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Número </label>
+			<label class="col-md-6 col-form-label"> Número* </label>
 			<div class="col-md-6">
-				<input type="text" class="form-control" id="numero" th:field="*{numero}" name="numero">
+				<input type="text" class="form-control" id="numero" th:field="*{numero}" name="numero" required>
 			</div>
 		</div>
 		
@@ -296,15 +296,15 @@
 		<hr><br>
 		
 		<div class="form-group row">
-			<label class="col-md-6 col-form-label"> Descripción de la propiedad </label>
+			<label class="col-md-6 col-form-label"> Descripción de la propiedad</label>
 			<div class="col-md-6">
-				<textarea class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion">
+				<textarea class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion" >
 				</textarea>
 			</div>
 		</div>
 		
 		
-		
+		<span>*Obligatorio</span> <br>
 			
 		
 
@@ -346,6 +346,7 @@ function esconder(){
 	b.style.display='none';
 	r.style.display='block';
 }
+
 </script>
 </body>
 </html>
