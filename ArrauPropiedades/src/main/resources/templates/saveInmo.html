@@ -73,7 +73,7 @@
 
 				<div class="form-group row">
 					<label class="col-md-6 col-form-label"> Número
-						departamento </label>
+						oficina </label>
 					<div class="col-md-6">
 						<input type="number" min="0" class="form-control"
 							id="numDepartamento" th:field="*{numDepartamento}"
@@ -186,7 +186,7 @@
 
 				<span>*Obligatorio</span> <br><br><br>
 				
-				<button type="submit" class="btn btn-success">Guardar</button>
+				<button type="submit" class="btn btn-success" onclick="alerta();">Guardar</button>
 				<button type="button" class="btn btn-danger" onclick="location.href='/inmobiliaria'">Cancelar</button>
 				<br> <br>
 				
@@ -224,6 +224,10 @@
 				b.style.display = 'none';
 				r.style.display = 'block';
 			}
+			function alerta() {
+				  alert("Inmobiliaria registrada");
+				}
+
 </script>
 </body>
 </html>

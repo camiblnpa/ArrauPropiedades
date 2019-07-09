@@ -35,6 +35,7 @@ public class TipoController {
 	
 	@PostMapping("/tipo/save")
 	public String save(Tipo tipo, Model model) {
+		
 		tipoService.save(tipo);
 		return "redirect:/tipo";
 	}
