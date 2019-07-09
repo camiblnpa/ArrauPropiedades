@@ -26,7 +26,7 @@
   		<nav aria-label="breadcrumb" style="background-color:#ffffff;">
   			<ol class="breadcrumb" style="background-color:#ffffff;">
   				<li class="breadcrumb-item pointer" onclick="location.href='/indexAdmin'"  aria-current="page" style="background-color:#ffffff; color:#00699d;">Inicio</li>
-  				<li class="breadcrumb-item pointer" onclick="location.href='/propiedades'" aria-current="page" style="background-color:#ffffff; color:#00699d;">Ver inmobiliarias</li>
+  				<li class="breadcrumb-item pointer" onclick="location.href='/inmobiliaria'" aria-current="page" style="background-color:#ffffff; color:#00699d;">Ver inmobiliarias</li>
 				<li class="breadcrumb-item active" aria-current="page" style="background-color:#ffffff;">Agregar inmobiliaria</li>	  				
   			</ol>
 		</nav>
@@ -100,7 +100,7 @@
 							<option selected></option>
 						</select> 
 						<select th:field="*{comuna}" name="comunañ" id="comunañ"
-							class="form-control" required>
+							class="form-control">
 							<option value="" selected></option>
 							<option value="San Carlos">San Carlos</option>
 							<option value="San Fabián">San Fabián</option>
@@ -124,6 +124,7 @@
 							<option value="Ránquil">Ránquil</option>
 							<option value="Treguaco">Treguaco</option>
 						</select> 
+						
 						<select id="comunab" name="comunab" th:field="*{comuna}"
 							class="form-control" >
 							<option value="" selected></option>
