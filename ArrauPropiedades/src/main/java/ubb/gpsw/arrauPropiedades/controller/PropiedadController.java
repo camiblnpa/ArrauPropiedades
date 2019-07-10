@@ -41,10 +41,10 @@ public class PropiedadController {
 	@RequestMapping("/propiedades")
 	public String listPropiedades(Model model) {
 		model.addAttribute("list",propService.getAll());
-		return "propiedad";
+		return "propiedad"; //retorna a propiedad.html
 	}
 	
-	//Obtener propiedad guardada
+	//Editar propiedad guardada
 	@GetMapping("/propiedad/{id}")
 	public String showSave(@PathVariable("id") Integer id, Model model) {
 		if(id != null && id != 0) {
@@ -54,7 +54,7 @@ public class PropiedadController {
 			model.addAttribute("destinacion", destService.getAll());
 			model.addAttribute("condicion", condService.getAll());
 			model.addAttribute("estadoPropiedad", estPropService.getAll());
-		} else {
+		} else { 
 			model.addAttribute("propiedades", new Propiedad());
 			model.addAttribute("tipo", tipoService.getAll());
 			model.addAttribute("inmobiliaria", inmService.getAll());
@@ -62,7 +62,7 @@ public class PropiedadController {
 			model.addAttribute("condicion", condService.getAll());
 			model.addAttribute("estadoPropiedad", estPropService.getAll());
 		}
-		return "savePropiedad";
+		return "savePropiedad"; //retorna a savePropiedad.html
 	}
 	
 	//Guardar propiedad
@@ -85,7 +85,7 @@ public class PropiedadController {
 		
 		propService.save(propiedad);
 		
-		return "redirect:/propiedades";
+		return "redirect:/propiedades"; //redirecciona a indexPropiedad.html
 	}
 
 }

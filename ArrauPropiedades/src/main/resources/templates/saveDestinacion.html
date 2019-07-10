@@ -42,7 +42,7 @@
 					class="form-control" id="nombreDestinacion" th:field="*{nombreDestinacion}" name="nombreDestinacion" required>
 			</div>
 		
-			<button type="submit" class="btn btn-success">Guardar</button>
+			<button type="submit" class="btn btn-success" onclick="alerta();">Guardar</button>
 			<button type="button" class="btn btn-danger" onclick="location.href='/destinacion'">Cancelar</button>
 			<br><br>
 		</form>
@@ -61,5 +61,11 @@
 		  	uiLibrary: 'bootstrap4'
 		});
 	</script> -->
+	<script>
+function alerta() {
+	  alert("La destinación ha sido guardado satisfactoriamente");
+	}
+
+</script>
 </body>
 </html>

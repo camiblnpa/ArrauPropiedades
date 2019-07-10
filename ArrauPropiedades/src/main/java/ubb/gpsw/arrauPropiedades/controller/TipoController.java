@@ -17,12 +17,14 @@ public class TipoController {
 	@Autowired
 	private TipoService tipoService;
 	
+	//Obtiene todos los tipos guardados en la base de dados
 	@RequestMapping("/tipo")
 	public String index(Model model) {
 		model.addAttribute("list",tipoService.getAll());
 		return "indexTipo";
 	}
 	
+	//Actualizar un tipo de acuerdo con su id
 	@GetMapping("/tipo/save/{id}")
 	public String showSave(@PathVariable("id")int id, Model model) {
 		if(id!=0) {
@@ -33,6 +35,7 @@ public class TipoController {
 		return "saveTipo";
 	}
 	
+	//Guardar nuevo tipo
 	@PostMapping("/tipo/save")
 	public String save(Tipo tipo, Model model) {
 		

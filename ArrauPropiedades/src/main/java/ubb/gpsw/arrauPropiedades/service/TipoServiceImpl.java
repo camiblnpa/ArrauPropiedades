@@ -20,6 +20,7 @@ public class TipoServiceImpl extends RespuestaService<Tipo,Integer> implements T
 	@Autowired
 	private TipoRepository tipoRepo;
 	
+	//Funcion que guardar, actualiza y borra Tipo
 	@Override
 	public CrudRepository<Tipo, Integer> getDao() {
 		return tipoRepo;

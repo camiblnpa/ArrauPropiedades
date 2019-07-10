@@ -15,6 +15,7 @@ public class PropiedadServiceImpl extends RespuestaService<Propiedad, Integer> i
 	@Autowired
 	private PropiedadRepository propRepo;
 	
+	//Funcion que guardar, actualiza y borra Propiedad
 	@Override
 	public CrudRepository<Propiedad, Integer> getDao() {
 

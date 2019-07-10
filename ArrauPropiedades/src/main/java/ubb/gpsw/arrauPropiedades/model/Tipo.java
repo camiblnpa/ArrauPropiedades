@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
+//Capa modelo de Tipo con sus getters & setters
 
 /**
  * The persistent class for the Tipo database table.
