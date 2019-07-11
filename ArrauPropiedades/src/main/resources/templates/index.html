@@ -190,10 +190,11 @@ img.blur {
 			<div th:each="propiedad : ${listIndex}" class="card" style="width: 18rem;">
 				<!--  imagen de la card -->
 				<div class="card">
-  					<img class="card-img-top img-thumbnail rounded"  src="http://www.proyectosdecasas.es/files/images/casas-modernas-zx98.jpg" alt="Card image cap">
+  					<img class="card-img-top img-thumbnail rounded"  th:src="@{'/img/' + ${propiedad.ciudad}}" th:alt ="${propiedad.ciudad}" alt="Card image cap">
  				</div>
  				
   				<div class="card-body" style="background:#022F59 ">
+  				<!-- imagen -->
   					<!--  nombre de la propiedad -->
     				<h5 th:text="${propiedad.nombrePropiedad}" class="card-title"></h5>
     				<!--  precio de la propiedad -->

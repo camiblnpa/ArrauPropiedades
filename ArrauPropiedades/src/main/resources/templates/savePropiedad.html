@@ -36,7 +36,7 @@
 		</nav>
 	
 	<div style="background-color: #ffffff"> 
-	<form class="ml-5 mr-5" action="#" th:action="@{/savePropiedad}" th:object="${propiedades}" method="post">
+	<form class="ml-5 mr-5" action="#" th:action="@{/savePropiedad}" th:object="${propiedades}" method="post" enctype="multipart/form-data">
 			
 		<div class="form-group">
 			<br><br>
@@ -55,6 +55,8 @@
 				</select>
 			</div>
 		</div>
+		
+		
 		
 		<div class="form-group row">
 			<label class="col-md-6 col-form-label"> Destinacion de la propiedad* </label>
@@ -122,6 +124,15 @@
 				<input type="number" min="0" class="form-control" id="precio" th:field="*{precio}" name="precio"  step="0.01" required>
 			</div>
 		</div>
+		
+		<div class="form-group row">
+			<label class="col-md-6 col-form-label"> foto </label>
+			<div class="col-md-6">
+				<input type="file" min="0" class="form-control" id="foto"  name="foto"  step="0.01" required>
+			</div>
+		</div>
+		
+		
 		
 		<div class="form-group row">
 			<label class="col-md-6 col-form-label"> Fecha de publicación* </label>
@@ -302,14 +313,14 @@
 				</textarea>
 			</div>
 		</div>
-		
+	<!--  	
 		<div class="form-group row">
 			<label class="col-md-6 col-form-label"> Imagen* </label>
 			<div class="col-md-6">
 				<input type="file" min="0" class="form-control" id="dimConstruccion" th:field="*{dimConstruccion}" name="dimConstruccion" placeholder="En metros cuadrados">
 			</div>
 		</div>
-		
+		-->
 		<span>*Obligatorio</span> <br>
 			
 		

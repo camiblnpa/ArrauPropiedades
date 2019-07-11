@@ -1,5 +1,9 @@
 package ubb.gpsw.arrauPropiedades.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import ubb.gpsw.arrauPropiedades.service.*;
 
@@ -67,10 +72,24 @@ public class PropiedadController {
 	
 	//Guardar propiedad
 	@PostMapping("/savePropiedad")
-	public String save(Propiedad propiedad, BindingResult result, Model model, @RequestParam(value="idTipo") int idT,
+	public String save(Propiedad propiedad, BindingResult result, Model model, 
+			@RequestParam("foto") MultipartFile foto ,@RequestParam(value="idTipo") int idT,
 			@RequestParam(value="idInmobiliaria") int idInm, @RequestParam(value="idDestinacion") int idDest,
 			@RequestParam(value="idCondicion") int idCond, @RequestParam(value="idEstadoPropiedad") int idEstProp) {
-
+		
+		if(!foto.isEmpty()) {
+			Path imagen = Paths.get("src//main//resources//static/img");
+			String rootPath = imagen.toFile().getAbsolutePath();
+			try {
+			byte[] bytes = foto.getBytes();
+			Path ruta = Paths.get(rootPath + "//" + foto.getOriginalFilename());
+			Files.write(ruta, bytes);
+			propiedad.setCiudad(foto.getOriginalFilename());
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
 		Tipo tipo = tipoService.get(idT);
 		Inmobiliaria inmobiliaria = inmService.get(idInm);
 		Destinacion destinacion = destService.get(idDest);

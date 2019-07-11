@@ -99,6 +99,8 @@ h2 {
 					<th>Dimension de la Propiedad</th>
 					<th>Región</th>
 					<th>Comuna</th>
+					<th>foto</th>
+					
 					<th></th>
 					<th></th>
 				</tr>
@@ -109,6 +111,7 @@ h2 {
 					<td th:text="${propiedad.dimConstruccion}"></td>
 					<td th:text="${propiedad.region}"></td>
 					<td th:text="${propiedad.comuna}"></td>
+					<td > <img style="max-width:20%" th:src="@{'/img/' + ${propiedad.ciudad}}" th:alt ="${propiedad.ciudad}"/> </td>
 					<td>
 <!-- 						<a th:href="@{/propiedad/save/{id}(id=${propiedad.idPropiedad})}"> -->
 <!-- 							Editar <i class="fa fa-edit"></i> -->
