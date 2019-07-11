@@ -182,12 +182,12 @@ img.blur {
 		</div> 
 	</div> <!--  fin jumbotron -->
 
-
+ <h1> Aca esta el msotrador</h1>
 	<!--  repetir este div por cada propiedad -->
 	<div class="row">
 	
 		<div class="col-md-3">
-			<div class="card" style="width: 18rem;">
+			<div th:each="propiedad : ${listIndex}" class="card" style="width: 18rem;">
 				<!--  imagen de la card -->
 				<div class="card">
   					<img class="card-img-top img-thumbnail rounded"  src="http://www.proyectosdecasas.es/files/images/casas-modernas-zx98.jpg" alt="Card image cap">
@@ -195,9 +195,9 @@ img.blur {
  				
   				<div class="card-body" style="background:#022F59 ">
   					<!--  nombre de la propiedad -->
-    				<h5 class="card-title"style="color:white ;font-size:30px; text-align:center;font-style:italic;text-break;"></h5>
+    				<h5 th:text="${propiedad.nombrePropiedad}" class="card-title"></h5>
     				<!--  precio de la propiedad -->
-    				<p class="card-text"style="color:white;font-style: italic;font-size:20px; text-align:center;">$35.000.000</p>
+    				<p th:text="${propiedad.precio}" class="card-text"style="color:white;font-style: italic;font-size:20px; text-align:center;"></p>
      				<p class="card-text"style="color:white;font-style:Times;font-size:15px; text-align:center;">ENTREGA INMEDIATA</p>
     				<!--  botón ver más -->
     				<a href="#" class="btn btn-outline-light d-block mx-auto" >Ver más detalles</a>
@@ -206,6 +206,37 @@ img.blur {
 		</div>
 
 	</div> <!--  fin div de las cards -->
+	
+	<table>
+
+				<tr>
+					<th>Precio</th>
+					<th>Dimension del terreno</th>
+					<th>Dimension de la Propiedad</th>
+					<th>Región</th>
+					<th>Comuna</th>
+					<th></th>
+					<th></th>
+				</tr>
+
+				<tr th:each="propiedad : ${listIndex}">
+					<td th:text="${propiedad.precio}"></td>
+					<td th:text="${propiedad.dimTerreno}"></td>
+					<td th:text="${propiedad.dimConstruccion}"></td>
+					<td th:text="${propiedad.region}"></td>
+					<td th:text="${propiedad.comuna}"></td>
+					<td>
+<!-- 						<a th:href="@{/propiedad/save/{id}(id=${propiedad.idPropiedad})}"> -->
+<!-- 							Editar <i class="fa fa-edit"></i> -->
+<!-- 						</a> -->
+					</td>
+					<td>
+<!-- 						<a type="button" class="btn btn-link" th:href="@{/propiedadDetalle/{id}(id=${propiedad.idPropiedad})}"> -->
+<!-- 							Ver detalles -->
+<!-- 						</a> -->
+					</td>
+				</tr>
+			</table>
 	
     <br><br><br>
 
