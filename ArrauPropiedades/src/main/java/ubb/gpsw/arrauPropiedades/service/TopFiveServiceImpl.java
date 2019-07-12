@@ -77,7 +77,7 @@ public class TopFiveServiceImpl extends RespuestaService<TopFive, String> implem
 			paragraph.setSpacingAfter(10);
 			document.add(paragraph);
 
-			PdfPTable table = new PdfPTable(6); // Cuantas columnas tendrá la tabla
+			PdfPTable table = new PdfPTable(5); // Cuantas columnas tendrá la tabla
 			table.setWidthPercentage(100);
 			table.setSpacingBefore(10f);
 			table.setSpacingAfter(10);
@@ -85,7 +85,7 @@ public class TopFiveServiceImpl extends RespuestaService<TopFive, String> implem
 			Font tableHeader = FontFactory.getFont("Arial", 10, BaseColor.BLACK);
 			Font tableBody = FontFactory.getFont("Arial", 9, BaseColor.BLACK);
 
-			float[] columnWidths = { 2f, 2f, 2f, 2f, 2f, 2f }; // Definir la cantidad de veces que repite 2f de acuerdo a las columnas
+			float[] columnWidths = { 2f, 2f, 2f, 2f, 2f }; // Definir la cantidad de veces que repite 2f de acuerdo a las columnas
 			table.setWidths(columnWidths);
 
 			PdfPCell idDestinacion = new PdfPCell(new Paragraph("Interesados", tableHeader));
@@ -229,15 +229,15 @@ public class TopFiveServiceImpl extends RespuestaService<TopFive, String> implem
 			nombreDestinacion.setCellValue("Nombre Propiedad");
 			nombreDestinacion.setCellStyle(headerCellStyle);
 
-			HSSFCell region = headerRow.createCell(1);
+			HSSFCell region = headerRow.createCell(2);
 			region.setCellValue("Region Propiedad");
 			region.setCellStyle(headerCellStyle);
 			
-			HSSFCell comuna = headerRow.createCell(1);
+			HSSFCell comuna = headerRow.createCell(3);
 			comuna.setCellValue("Comuna Propiedad");
 			comuna.setCellStyle(headerCellStyle);
 			
-			HSSFCell precio = headerRow.createCell(1);
+			HSSFCell precio = headerRow.createCell(4);
 			precio.setCellValue("Precio Propiedad");
 			precio.setCellStyle(headerCellStyle);
 			int i = 1;
@@ -255,15 +255,15 @@ public class TopFiveServiceImpl extends RespuestaService<TopFive, String> implem
 				nombreDestinacionValue.setCellValue(topfive.getNombrePropiedad()); // Modificar el get
 				nombreDestinacionValue.setCellStyle(bodyCellStyle);
 
-				HSSFCell regionValue = bodyRow.createCell(1);
+				HSSFCell regionValue = bodyRow.createCell(2);
 				regionValue.setCellValue(topfive.getRegion()); // Modificar el get
 				regionValue.setCellStyle(bodyCellStyle);
 
-				HSSFCell comunaValue = bodyRow.createCell(1);
+				HSSFCell comunaValue = bodyRow.createCell(3);
 				comunaValue.setCellValue(topfive.getComuna()); // Modificar el get
 				comunaValue.setCellStyle(bodyCellStyle);
 
-				HSSFCell precioValue = bodyRow.createCell(1);
+				HSSFCell precioValue = bodyRow.createCell(4);
 				precioValue.setCellValue(topfive.getPrecio()); // Modificar el get
 				precioValue.setCellStyle(bodyCellStyle);
 

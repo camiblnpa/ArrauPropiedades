@@ -216,6 +216,16 @@ public class InmobiliariaServiceImpl extends RespuestaService<Inmobiliaria, Inte
 				numeroDepValue.setBackgroundColor(BaseColor.WHITE);
 				numeroDepValue.setExtraParagraphSpace(5f);
 				table.addCell(numeroDepValue);
+				
+				PdfPCell correoValue = new PdfPCell(
+						new Paragraph(String.valueOf(String.valueOf(inmobiliaria.getCorreo())), tableBody));
+				correoValue.setBorderColor(BaseColor.BLACK);
+				correoValue.setPaddingLeft(10);
+				correoValue.setHorizontalAlignment(Element.ALIGN_CENTER);
+				correoValue.setVerticalAlignment(Element.ALIGN_CENTER);
+				correoValue.setBackgroundColor(BaseColor.WHITE);
+				correoValue.setExtraParagraphSpace(5f);
+				table.addCell(correoValue);
 
 				PdfPCell telefonoValue = new PdfPCell(
 						new Paragraph(String.valueOf(String.valueOf(inmobiliaria.getTelefono())), tableBody));
