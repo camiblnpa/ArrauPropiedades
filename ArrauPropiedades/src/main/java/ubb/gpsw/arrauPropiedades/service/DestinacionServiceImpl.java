@@ -155,7 +155,7 @@ public class DestinacionServiceImpl extends RespuestaService<Destinacion, Intege
 			workSheet.setDefaultColumnWidth(30);
 
 			HSSFCellStyle headerCellStyle = workbook.createCellStyle();
-			headerCellStyle.setFillForegroundColor(HSSFColor.BLUE.index);
+			headerCellStyle.setFillForegroundColor(HSSFColor.LIGHT_TURQUOISE.index);
 			headerCellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 
 			HSSFRow headerRow = workSheet.createRow(0); //Crea fila y define la posicion

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import ubb.gpsw.arrauPropiedades.model.Destinacion;
 import ubb.gpsw.arrauPropiedades.model.Propiedad;
+import ubb.gpsw.arrauPropiedades.model.TopFive;
 
 @Service
 public abstract class RespuestaService<T, ID extends Serializable> implements Respuesta<T, ID> {
@@ -58,8 +59,22 @@ public abstract class RespuestaService<T, ID extends Serializable> implements Re
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public boolean pdfTopFive(List<TopFive> destinaciones, ServletContext context, HttpServletRequest request,
+			HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
-	public boolean createExcel(List<Destinacion> destinaciones, ServletContext context, HttpServletRequest request,
+
+
+	public boolean excelTopFive(List<TopFive> topFive, ServletContext context, HttpServletRequest request,
+			HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean excelPropiedades(List<Propiedad> propiedades, ServletContext context, HttpServletRequest request,
 			HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return false;

@@ -15,17 +15,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import ubb.gpsw.arrauPropiedades.model.Destinacion;
 import ubb.gpsw.arrauPropiedades.model.Propiedad;
+import ubb.gpsw.arrauPropiedades.model.TopFive;
 import ubb.gpsw.arrauPropiedades.service.DestinacionService;
 import ubb.gpsw.arrauPropiedades.service.PropiedadService;
+import ubb.gpsw.arrauPropiedades.service.TopFiveService;
 
 @Controller
 public class PdfExcelController {
-
+	// Servicio de clases que se implementan
 	@Autowired
 	private DestinacionService destService;
 
 	@Autowired
 	private PropiedadService propService;
+
+	@Autowired
+	private TopFiveService topService;
 
 	// Agregar para poder crear PDF
 	@Autowired
@@ -34,6 +39,31 @@ public class PdfExcelController {
 	/*
 	 * public String allDestinacion() { return null; }
 	 */
+
+	// API para crear topFive.pdf
+	@GetMapping(value = "/pdfTopFive")
+	public void pdfTopFive(HttpServletRequest request, HttpServletResponse response) {
+
+		List<TopFive> topFive = topService.getAll();
+		boolean isFlag = topService.pdfTopFive(topFive, context, request, response);
+		if (isFlag) {
+			// La direccion debe ser la misma definida en serviceImpl
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "topFive" + ".pdf");
+			filedownload(fullPath, response, "topFive.pdf");
+		}
+	}
+
+	// API para crear archivo Excel TopFive
+	@GetMapping(value = "/excelTopFive")
+	public void excelTopFive(HttpServletRequest request, HttpServletResponse response) {
+		List<TopFive> topFive = topService.getAll();
+		boolean isFlag = topService.excelTopFive(topFive, context, request, response);
+		if (isFlag) {
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "topFive" + ".xls");
+			filedownload(fullPath, response, "topFive.xls");
+
+		}
+	}
 
 	// API para crear propiedades.pdf
 	@GetMapping(value = "/pdfPropiedades")
@@ -52,6 +82,18 @@ public class PdfExcelController {
 																														// en
 																														// ServiceImpl
 			filedownload(fullPath, response, "propiedades.pdf");
+		}
+	}
+	
+	// API para crear archivo Excel propiedades.xls
+	@GetMapping(value = "/excelPropiedades")
+	public void excelPropiedades(HttpServletRequest request, HttpServletResponse response) {
+		List<Propiedad> propiedades = propService.getAll();
+		boolean isFlag = propService.excelPropiedades(propiedades, context, request, response);
+		if (isFlag) {
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "propiedades" + ".xls");
+			filedownload(fullPath, response, "propiedades.xls");
+
 		}
 	}
 
@@ -82,14 +124,14 @@ public class PdfExcelController {
 		List<Destinacion> destinaciones = destService.getAll();
 		boolean isFlag = destService.createExcel(destinaciones, context, request, response);
 		if (isFlag) {
-			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "destinaciones" + ".xls");  // direccion
-																														// debe
-																														// ser
-																														// la
-																														// misma
-																														// que
-																														// en
-																														// ServiceImpl
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "destinaciones" + ".xls"); // direccion
+																															// debe
+																															// ser
+																															// la
+																															// misma
+																															// que
+																															// en
+																															// ServiceImpl
 			filedownload(fullPath, response, "destinaciones.xls");
 
 		}

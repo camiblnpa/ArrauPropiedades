@@ -8,6 +8,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -40,7 +46,7 @@ public class PropiedadServiceImpl extends RespuestaService<Propiedad, Integer> i
 		return propRepo;
 	}
 
-	// Crear PDF para Destinacion
+	// Crear PDF para Propiedades
 	@Override
 	public boolean pdfPropiedades(List<Propiedad> propiedades, ServletContext context, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -350,5 +356,178 @@ public class PropiedadServiceImpl extends RespuestaService<Propiedad, Integer> i
 			return false;
 		}
 	}
+	
+
+	// Crear Excel para Propiedades
+	@Override
+	public boolean excelPropiedades(List<Propiedad> propiedades, ServletContext context, HttpServletRequest request,
+			HttpServletResponse response) {
+
+		String filePath = context.getRealPath("/resources/reports");
+		File file = new File(filePath);
+		boolean exists = new File(filePath).exists();
+		if (!exists) {
+			new File(filePath).mkdirs();
+		}
+		try {
+			FileOutputStream outputStream = new FileOutputStream(file + "/" + "propiedades" + ".xls"); // nombre del
+																											// archivo
+			HSSFWorkbook workbook = new HSSFWorkbook();
+			HSSFSheet workSheet = workbook.createSheet("Propiedades"); // creo el excel
+			workSheet.setDefaultColumnWidth(30);
+
+			HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+			headerCellStyle.setFillForegroundColor(HSSFColor.LIGHT_TURQUOISE.index);
+			headerCellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+
+			HSSFRow headerRow = workSheet.createRow(0); //Crea fila y define la posicion
+
+			HSSFCell idProp = headerRow.createCell(0); // Crea columna y define posicion de la celda
+			idProp.setCellValue("ID");
+			idProp.setCellStyle(headerCellStyle);
+
+			HSSFCell tipo = headerRow.createCell(1);
+			tipo.setCellValue("Tipo");
+			tipo.setCellStyle(headerCellStyle);
+
+			HSSFCell destinacion = headerRow.createCell(2);
+			destinacion.setCellValue("Destinación");
+			destinacion.setCellStyle(headerCellStyle);
+			
+			HSSFCell condicion = headerRow.createCell(3);
+			condicion.setCellValue("Condición");
+			condicion.setCellStyle(headerCellStyle);
+			
+			HSSFCell region = headerRow.createCell(4);
+			region.setCellValue("Region");
+			region.setCellStyle(headerCellStyle);
+			
+			HSSFCell comuna = headerRow.createCell(5);
+			comuna.setCellValue("Comuna");
+			comuna.setCellStyle(headerCellStyle);
+			
+			HSSFCell calle = headerRow.createCell(6);
+			calle.setCellValue("Calle");
+			calle.setCellStyle(headerCellStyle);
+			
+			HSSFCell numero = headerRow.createCell(7);
+			numero.setCellValue("Nª");
+			numero.setCellStyle(headerCellStyle);
+			
+			HSSFCell numBanio = headerRow.createCell(8);
+			numBanio.setCellValue("Baños");
+			numBanio.setCellStyle(headerCellStyle);
+			
+			HSSFCell numDorm = headerRow.createCell(9);
+			numDorm.setCellValue("Dormitorios");
+			numDorm.setCellStyle(headerCellStyle);
+			
+			HSSFCell numEstac = headerRow.createCell(10);
+			numEstac.setCellValue("Estacionamiento");
+			numEstac.setCellStyle(headerCellStyle);
+			
+			HSSFCell dimTerr = headerRow.createCell(11);
+			dimTerr.setCellValue("Área terreno(m²)");
+			dimTerr.setCellStyle(headerCellStyle);
+			
+			HSSFCell dimConst = headerRow.createCell(12);
+			dimConst.setCellValue("Área construida(m²)");
+			dimConst.setCellStyle(headerCellStyle);
+			
+			HSSFCell precio = headerRow.createCell(13);
+			precio.setCellValue("Precio");
+			precio.setCellStyle(headerCellStyle);
+			
+			HSSFCell fechaPublic = headerRow.createCell(14);
+			fechaPublic.setCellValue("Fecha publicación");
+			fechaPublic.setCellStyle(headerCellStyle);
+			
+			HSSFCell descr = headerRow.createCell(15);
+			descr.setCellValue("Descripción");
+			descr.setCellStyle(headerCellStyle);
+			
+			int i = 1;
+			for (Propiedad propiedad : propiedades) {
+				HSSFRow bodyRow = workSheet.createRow(i); // define la linea
+
+				HSSFCellStyle bodyCellStyle = workbook.createCellStyle();
+				bodyCellStyle.setFillForegroundColor(HSSFColor.WHITE.index);
+
+				HSSFCell idPropValue = bodyRow.createCell(0); // definir columna en createCell
+				idPropValue.setCellValue(String.valueOf(propiedad.getIdPropiedad()));
+				idPropValue.setCellStyle(bodyCellStyle);
+
+				HSSFCell tipoValue = bodyRow.createCell(1);
+				tipoValue.setCellValue(propiedad.getTipo().getNombreTipo()); // Modificar el get
+				tipoValue.setCellStyle(bodyCellStyle);
+
+				HSSFCell destinacionValue = bodyRow.createCell(2);
+				destinacionValue.setCellValue(propiedad.getDestinacion().getNombreDestinacion()); // Modificar el get
+				destinacionValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell condicionValue = bodyRow.createCell(3);
+				condicionValue.setCellValue(propiedad.getCondicion().getNombreCondicion()); // Modificar el get
+				condicionValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell regionValue = bodyRow.createCell(4);
+				regionValue.setCellValue(propiedad.getRegion()); // Modificar el get
+				regionValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell comunaValue = bodyRow.createCell(5);
+				comunaValue.setCellValue(propiedad.getComuna()); // Modificar el get
+				comunaValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell calleValue = bodyRow.createCell(6);
+				calleValue.setCellValue(propiedad.getCalle()); 
+				calleValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell numeroValue = bodyRow.createCell(7);
+				numeroValue.setCellValue(propiedad.getNumero()); 
+				numeroValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell numBanioValue = bodyRow.createCell(8);
+				numBanioValue.setCellValue(propiedad.getNumBanio()); 
+				numBanioValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell numDormValue = bodyRow.createCell(9);
+				numDormValue.setCellValue(propiedad.getNumDormitorio()); 
+				numDormValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell numEstacValue = bodyRow.createCell(10);
+				numEstacValue.setCellValue(propiedad.getNumEstacionamiento()); 
+				numEstacValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell dimTerrValue = bodyRow.createCell(11);
+				dimTerrValue.setCellValue(propiedad.getDimTerreno()); 
+				dimTerrValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell dimConstValue = bodyRow.createCell(12);
+				dimConstValue.setCellValue(propiedad.getDimConstruccion()); 
+				dimConstValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell precioValue = bodyRow.createCell(13);
+				precioValue.setCellValue(propiedad.getPrecio()); 
+				precioValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell fechaPubValue = bodyRow.createCell(14);
+				fechaPubValue.setCellValue(String.valueOf(propiedad.getFechaPublicacion())); 
+				fechaPubValue.setCellStyle(bodyCellStyle);
+				
+				HSSFCell descrValue = bodyRow.createCell(15);
+				descrValue.setCellValue(propiedad.getDescripcion()); 
+				descrValue.setCellStyle(bodyCellStyle);
+				
+				i++;
+			}
+
+			workbook.write(outputStream);
+			outputStream.flush();
+			outputStream.close();
+			return true;
+
+		} catch (Exception e) {
+			return false;
+		}
+	}	
 
 }

@@ -14,4 +14,7 @@ public interface PropiedadService extends Respuesta<Propiedad, Integer> {
 	boolean pdfPropiedades(List<Propiedad> propiedades, ServletContext context, HttpServletRequest request,
 			HttpServletResponse response);
 
+	boolean excelPropiedades(List<Propiedad> propiedades, ServletContext context, HttpServletRequest request,
+			HttpServletResponse response);
+
 }
