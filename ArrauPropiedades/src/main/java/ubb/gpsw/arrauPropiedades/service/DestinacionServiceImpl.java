@@ -2,7 +2,6 @@ package ubb.gpsw.arrauPropiedades.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -177,7 +176,7 @@ public class DestinacionServiceImpl extends RespuestaService<Destinacion, Intege
 				bodyCellStyle.setFillForegroundColor(HSSFColor.WHITE.index);
 
 				HSSFCell idDestinacionValue = bodyRow.createCell(0); // definir columna en createCell
-				idDestinacionValue.setCellValue(destinacion.getIdDestinacion());
+				idDestinacionValue.setCellValue(String.valueOf(destinacion.getIdDestinacion()));
 				idDestinacionValue.setCellStyle(bodyCellStyle);
 
 				HSSFCell nombreDestinacionValue = bodyRow.createCell(1);

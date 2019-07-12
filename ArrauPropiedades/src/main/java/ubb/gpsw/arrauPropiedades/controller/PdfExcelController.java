@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import ubb.gpsw.arrauPropiedades.model.Destinacion;
+import ubb.gpsw.arrauPropiedades.model.Propiedad;
 import ubb.gpsw.arrauPropiedades.service.DestinacionService;
+import ubb.gpsw.arrauPropiedades.service.PropiedadService;
 
 @Controller
 public class PdfExcelController {
@@ -24,15 +24,38 @@ public class PdfExcelController {
 	@Autowired
 	private DestinacionService destService;
 
+	@Autowired
+	private PropiedadService propService;
+
 	// Agregar para poder crear PDF
 	@Autowired
 	private ServletContext context;
 
-/*	public String allDestinacion() {
-		return null;
-	}*/
+	/*
+	 * public String allDestinacion() { return null; }
+	 */
 
-	// API para crear destinacion.pdf
+	// API para crear propiedades.pdf
+	@GetMapping(value = "/pdfPropiedades")
+	public void pdfPropiedades(HttpServletRequest request, HttpServletResponse response) {
+
+		List<Propiedad> propiedades = propService.getAll();
+		boolean isFlag = propService.pdfPropiedades(propiedades, context, request, response);
+		if (isFlag) {
+			// La direccion debe ser la misma definida en serviceImpl
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "propiedades" + ".pdf"); // direccion
+																														// debe
+																														// ser
+																														// la
+																														// misma
+																														// que
+																														// en
+																														// ServiceImpl
+			filedownload(fullPath, response, "propiedades.pdf");
+		}
+	}
+
+	// API para crear destinaciones.pdf
 	@GetMapping(value = "/pdfDestinacion")
 	public void pdfDestinacion(HttpServletRequest request, HttpServletResponse response) {
 
@@ -40,25 +63,39 @@ public class PdfExcelController {
 		boolean isFlag = destService.pdfDestinacion(destinaciones, context, request, response);
 		if (isFlag) {
 			// La direccion debe ser la misma definida en serviceImpl
-			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "destinaciones" + ".pdf"); //direccion debe ser la misma que en ServiceImpl
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "destinaciones" + ".pdf"); // direccion
+																															// debe
+																															// ser
+																															// la
+																															// misma
+																															// que
+																															// en
+																															// ServiceImpl
 			filedownload(fullPath, response, "destinaciones.pdf");
 		}
 
 	}
 
 	// API para crear archivo Excel
-	@GetMapping(value = "/createExcel")
+	@GetMapping(value = "/excel")
 	public void createExcel(HttpServletRequest request, HttpServletResponse response) {
 		List<Destinacion> destinaciones = destService.getAll();
 		boolean isFlag = destService.createExcel(destinaciones, context, request, response);
-		if(isFlag) {
-			String fullPath = request.getServletContext().getRealPath("/resources/reports"+"destinaciones"+".xls"); //direccion debe ser la misma que en ServiceImpl
+		if (isFlag) {
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "destinaciones" + ".xls");  // direccion
+																														// debe
+																														// ser
+																														// la
+																														// misma
+																														// que
+																														// en
+																														// ServiceImpl
 			filedownload(fullPath, response, "destinaciones.xls");
-			
+
 		}
 	}
 
-	//Descargar archivo
+	// Descargar archivo
 	private void filedownload(String fullPath, HttpServletResponse response, String fileName) {
 		File file = new File(fullPath);
 		final int BUFFER_SIZE = 4096;
@@ -67,7 +104,7 @@ public class PdfExcelController {
 				FileInputStream inputStream = new FileInputStream(file);
 				String mimeType = context.getMimeType(fullPath);
 				response.setContentType(mimeType);
-				response.setHeader("contente-disposition", "attachment; filename=" + fileName);
+				response.setHeader("content-disposition", "attachment; filename=" + fileName);
 				OutputStream outputStream = response.getOutputStream();
 				byte[] buffer = new byte[BUFFER_SIZE];
 				int bytesRead = -1;

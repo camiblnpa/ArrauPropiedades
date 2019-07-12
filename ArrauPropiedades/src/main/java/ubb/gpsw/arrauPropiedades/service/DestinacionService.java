@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ubb.gpsw.arrauPropiedades.model.Destinacion;
+import ubb.gpsw.arrauPropiedades.model.Propiedad;
 import ubb.gpsw.arrauPropiedades.utilidades.Respuesta;
 
 public interface DestinacionService extends Respuesta<Destinacion, Integer> {
@@ -16,5 +17,6 @@ public interface DestinacionService extends Respuesta<Destinacion, Integer> {
 
 	boolean createExcel(List<Destinacion> destinaciones, ServletContext context, HttpServletRequest request,
 			HttpServletResponse response);
+
 
 }
