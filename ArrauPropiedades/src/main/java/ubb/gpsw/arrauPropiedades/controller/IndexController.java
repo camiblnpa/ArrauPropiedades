@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,14 +32,17 @@ public class IndexController {
 		return "index";
 	}
 	
+	//Detalles propiedad
+	@GetMapping("/propiedadDetalle/{id}")
+	public String getPropiedadById(Model model, @PathVariable("id") Integer id) {
+		if(id!=0) {
+			model.addAttribute("listIndex", propService.get(id));
+		} else {
+			System.out.println("error");
+		}
+		return "verDetallesCatalogo";
+	}
 	
-	
-//	@PostMapping("/index")
-//	public List<Propiedad> listarPropiedades(Model model) {
-//		List<Propiedad> propiedades = propService.getAll();
-//		System.out.println("list de propiedades");
-//		System.out.println(propiedades);
-//		return propiedades;	
-//	}
+
 
 }

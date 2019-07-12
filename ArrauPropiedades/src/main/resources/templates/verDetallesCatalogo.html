@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="utf-8">
+<title>Arrau propiedades</title>
+<script src="https://kit.fontawesome.com/9e36bb240a.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-light navbar-expand fixed-top bg-white navigation-clean">
+        <div class="container-fluid"><a class="navbar-brand" href="#">
+        <img
+		src="https://trello-attachments.s3.amazonaws.com/5cc730691f57f32daa57deda/238x82/ded2f8a4537d8f5cb4dfd0a5f63591b4/Logo_horizontal.png">
+		</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <div class="btn-group ml-auto" role="group">
+                <button class="btn" type="button" onclick="location.href='/login'" style="background-color: #00699d; color:white;">Iniciar Sesión</button>  
+                <button class="btn" type="button" disabled style="margin-left: 4px; background-color: #00699d; color:white;">Publicar propiedad</button></div>
+            </div>
+        </div>
+    </nav>
+
+<br><br><br><br><br><br>
+  	
+<div class="container">
+
+		<nav aria-label="breadcrumb" style="background-color:#ffffff;">
+  			<ol class="breadcrumb" style="background-color:#ffffff;">
+  				<li class="breadcrumb-item pointer" onclick="location.href='/index'"  aria-current="page" style="background-color:#ffffff; color:#00699d;">Inicio</li>
+  				<li class="breadcrumb-item active" aria-current="page" style="background-color:#ffffff;">Ver detalles de la propiedad</li>
+  			</ol>
+		</nav>
+
+	<div class="row">
+		<h2 class="col-xs-12 display-4" style="padding:0px 20px 0px 20px;">Detalles</h2>
+	</div><!-- /row -->
+	<div th:each=" propiedad : ${listIndex} " class="row">
+	    <div class="col-xs-12 col-sm-3">
+	        <div class="list-group">
+	        
+	         <a class="list-group-item"style="color:black;font-weight:bold;">
+	         	<h6><span>Inmobiliaria</span></h6>
+             </a>
+             
+              <a class="list-group-item"style="color:black;font-weight:bold;">
+                  <h6><span>Número de baños</span></h6>
+                  <h6 th:text="${propiedad.numBanio}" ></h6>
+              </a>
+              
+                <a  class="list-group-item"style="color:black;font-weight:bold;">
+                  <h6><span>Número de habitaciones</span></h6>
+                  <h6 th:text="${propiedad.numDormitorio}" ></h6>
+                </a>
+                
+                <a  class="list-group-item"style="color:black;font-weight:bold;">
+                  <h6><span>Número de estacionamientos</span></h6>
+                  <h6 th:text="${propiedad.numEstacionamiento}" ></h6>
+                </a>
+                
+                <a class="list-group-item"style="color:black;font-weight:bold;">
+                   <h6><span>Precio de la propiedad</span></h6>
+                  <h6 th:text="${propiedad.precio}" ></h6>
+                </a>
+                
+                <a class="list-group-item"style="color:black;font-weight:bold;">
+                  <h6><span>Ubicación</span></h6>
+                  <h6 th:text="${propiedad.calle}" ></h6>
+                </a>
+                  
+            </div><!-- /list-group -->    
+            <br>
+            
+            <h1 class="card-title mb-4 mt-1">¿Te interesó?</h1>
+         	<h1 style="font-size: 20px;text-aling:center;padding:0px 10px 0px 10px">Envíanos tus datos</h1>
+	 
+	 		<form>
+    			<div class="form-group">
+    				<label>Ingresa tu Nombre</label>
+        			<input name="" class="form-control" placeholder="Nombre" >
+    			</div> <!-- form-group// -->
+    	
+   				<div class="form-group">
+    				<label>Ingresa tu Email</label>
+        			<input name="" class="form-control" placeholder="Email" >
+    			</div> <!-- form-group// -->
+    	
+      			<div class="form-group">
+    				<label>Ingresa tu Teléfono</label>
+        			<input name="" class="form-control" placeholder="Teléfono" >
+    			</div> <!-- form-group// -->
+    	
+    			<div class="form-group">
+        			<button type="submit" class="btn btn-primary btn-block"> Enviar  </button>
+    			</div> <!-- form-group// -->                                                           
+			</form>
+              
+</div><!-- /col -->
+	    <div class="col-xs-12 col-sm-9">
+	        <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                   <img style="width: 700px" th:src="@{'/img/' + ${propiedad.ciudad}}" th:alt ="${propiedad.ciudad}"/>
+                       
+         </div><!-- /col -->
+         <div class="container">
+         	<h2 class="mt-3" th:text="${propiedad.nombrePropiedad}" ></h2>
+         	<h4 class="mt-2">Descripción</h4>
+            <p th:text="${propiedad.descripcion}" class="card-text"style="color:black;"></p>
+    </div>
+	        </div><!-- /row -->
+	       
+	    </div><!-- /col -->
+	</div><!-- /row -->
+</div><!-- /container -->
+
+<br><br><br><br>
+
+<footer th:replace="layout/footer :: footer"></footer>
+	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+</body>
+</html>
