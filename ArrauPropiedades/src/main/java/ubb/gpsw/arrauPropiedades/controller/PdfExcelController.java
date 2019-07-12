@@ -14,9 +14,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import ubb.gpsw.arrauPropiedades.model.Destinacion;
+import ubb.gpsw.arrauPropiedades.model.Inmobiliaria;
 import ubb.gpsw.arrauPropiedades.model.Propiedad;
 import ubb.gpsw.arrauPropiedades.model.TopFive;
 import ubb.gpsw.arrauPropiedades.service.DestinacionService;
+import ubb.gpsw.arrauPropiedades.service.InmobiliariaService;
 import ubb.gpsw.arrauPropiedades.service.PropiedadService;
 import ubb.gpsw.arrauPropiedades.service.TopFiveService;
 
@@ -31,6 +33,9 @@ public class PdfExcelController {
 
 	@Autowired
 	private TopFiveService topService;
+
+	@Autowired
+	private InmobiliariaService inmoService;
 
 	// Agregar para poder crear PDF
 	@Autowired
@@ -53,7 +58,7 @@ public class PdfExcelController {
 		}
 	}
 
-	// API para crear archivo Excel TopFive
+	// API para crear TopFive.xls
 	@GetMapping(value = "/excelTopFive")
 	public void excelTopFive(HttpServletRequest request, HttpServletResponse response) {
 		List<TopFive> topFive = topService.getAll();
@@ -61,6 +66,31 @@ public class PdfExcelController {
 		if (isFlag) {
 			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "topFive" + ".xls");
 			filedownload(fullPath, response, "topFive.xls");
+
+		}
+	}
+
+	// API para crear Inmobiliarias.pdf
+	@GetMapping(value = "/pdfInmobiliarias")
+	public void pdfInmobiliaria(HttpServletRequest request, HttpServletResponse response) {
+
+		List<Inmobiliaria> inmobiliarias = inmoService.getAll();
+		boolean isFlag = inmoService.pdfInmobiliaria(inmobiliarias, context, request, response);
+		if (isFlag) {
+			// La direccion debe ser la misma definida en serviceImpl
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "inmobiliarias" + ".pdf");
+			filedownload(fullPath, response, "inmobiliarias.pdf");
+		}
+	}
+
+	// API para crear inmobiliarias.xls
+	@GetMapping(value = "/excelInmobiliarias")
+	public void excelInmobiliaria(HttpServletRequest request, HttpServletResponse response) {
+		List<Inmobiliaria> inmobiliarias = inmoService.getAll();
+		boolean isFlag = inmoService.excelInmobiliaria(inmobiliarias, context, request, response);
+		if (isFlag) {
+			String fullPath = request.getServletContext().getRealPath("/resources/reports/" + "inmobiliarias" + ".xls");
+			filedownload(fullPath, response, "inmobiliarias.xls");
 
 		}
 	}
@@ -84,7 +114,7 @@ public class PdfExcelController {
 			filedownload(fullPath, response, "propiedades.pdf");
 		}
 	}
-	
+
 	// API para crear archivo Excel propiedades.xls
 	@GetMapping(value = "/excelPropiedades")
 	public void excelPropiedades(HttpServletRequest request, HttpServletResponse response) {
@@ -118,8 +148,8 @@ public class PdfExcelController {
 
 	}
 
-	// API para crear archivo Excel
-	@GetMapping(value = "/excel")
+	// API para crear destinaciones.xls
+	@GetMapping(value = "/excelDestinacion")
 	public void createExcel(HttpServletRequest request, HttpServletResponse response) {
 		List<Destinacion> destinaciones = destService.getAll();
 		boolean isFlag = destService.createExcel(destinaciones, context, request, response);

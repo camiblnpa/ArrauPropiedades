@@ -411,7 +411,7 @@ public class PropiedadServiceImpl extends RespuestaService<Propiedad, Integer> i
 			calle.setCellStyle(headerCellStyle);
 			
 			HSSFCell numero = headerRow.createCell(7);
-			numero.setCellValue("Nª");
+			numero.setCellValue("Número");
 			numero.setCellStyle(headerCellStyle);
 			
 			HSSFCell numBanio = headerRow.createCell(8);

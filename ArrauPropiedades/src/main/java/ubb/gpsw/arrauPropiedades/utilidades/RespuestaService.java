@@ -13,6 +13,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import ubb.gpsw.arrauPropiedades.model.Destinacion;
+import ubb.gpsw.arrauPropiedades.model.Inmobiliaria;
 import ubb.gpsw.arrauPropiedades.model.Propiedad;
 import ubb.gpsw.arrauPropiedades.model.TopFive;
 
@@ -76,6 +77,12 @@ public abstract class RespuestaService<T, ID extends Serializable> implements Re
 
 	public boolean excelPropiedades(List<Propiedad> propiedades, ServletContext context, HttpServletRequest request,
 			HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean excelInmobiliaria(List<Inmobiliaria> inmobiliarias, ServletContext context,
+			HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return false;
 	}
