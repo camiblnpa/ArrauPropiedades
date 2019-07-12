@@ -5,8 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+
+import ubb.gpsw.arrauPropiedades.model.Destinacion;
 
 @Service
 public abstract class RespuestaService<T, ID extends Serializable> implements Respuesta<T, ID> {
@@ -39,5 +45,17 @@ public abstract class RespuestaService<T, ID extends Serializable> implements Re
 	}
 	
 	public abstract CrudRepository<T, ID> getDao();
+
+	public boolean pdfDestinacion(List<Destinacion> destinaciones, ServletContext context, HttpServletRequest request,
+			HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean createExcel(List<Destinacion> destinaciones, ServletContext context, HttpServletRequest request,
+			HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

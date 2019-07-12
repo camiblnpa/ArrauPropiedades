@@ -48,78 +48,91 @@ h2 {
 <head th:replace="layout/header :: head">
 </head>
 <body>
-<div class="container">
-	<header th:replace="layout/header :: header"></header>
-	<div>
-		<br>
+	<div class="container">
+		<header th:replace="layout/header :: header"></header>
 		<div>
-			<br> <br> <br> <br>
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a
-						onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
-					<li class="breadcrumb-item active"><span>Destinación</span></li>
-				</ol>
-			</nav>
-		</div>
-		<h2 th:if="${list.isEmpty()}">
-			No hay destinaciones <a href="/destinacion/save/0"
-				class="btn btn-primary"><i class="fa fa-plus-circle"></i>
-				 Agregar</a>
-		</h2>
-		<div th:if="${!list.isEmpty()}">
-			<h2>
-				Destinaciones<a href="/destinacion/save/0" class="btn btn-primary"><i
-					class="fa fa-plus-circle"></i> Agregar</a>
+			<br>
+			<div>
+				<br> <br> <br> <br>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a
+							onclick="location.href='/indexAdmin'"><span>Inicio</span></a></li>
+						<li class="breadcrumb-item active"><span>Destinación</span></li>
+					</ol>
+				</nav>
+			</div>
+			<h2 th:if="${list.isEmpty()}">
+				No hay destinaciones <a href="/destinacion/save/0"
+					class="btn btn-primary"><i class="fa fa-plus-circle"></i>
+					Agregar</a>
 			</h2>
-<!-- 			<table class="table"> -->
-<!-- 				<table border="2px"> -->
-<!-- 					<thead> -->
+			<div th:if="${!list.isEmpty()}">
+				<h2>
+					Destinaciones<a href="/destinacion/save/0" class="btn btn-primary"><i
+						class="fa fa-plus-circle"></i> Agregar</a> 
+				</h2>
 
-<!-- 						<tr> -->
-<!-- 							<th>Fecha de Venta</th> -->
-<!-- 							<th>Fecha de Registro</th> -->
-<!-- 							<th>Tipo de Destinacion</th> -->
-<!-- 						</tr> -->
-<!-- 					</thead> -->
-<!-- 					<tbody> -->
-<!-- 						<tr th:each="destinacion : ${list}"> -->
-<!-- 							<td th:text="${destinacion.fechaVenta}"></td> -->
-<!-- 							<td th:text="${destinacion.fechaRegistro}"></td> -->
-<!-- 							<td th:text="${destinacion.tipoDestinacion}"></td> -->
-<!-- 							<td><a -->
-<!-- 								th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}"> -->
-<!-- 									Editar </a></td> -->
-<!-- 							<td><a -->
-<!-- 								th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}"> -->
-<!-- 									Eliminar </a></td> -->
-<!-- 						</tr> -->
-<!-- 					</tbody> -->
-<!-- 				</table> -->
+				<!-- 			<table class="table"> -->
+				<!-- 				<table border="2px"> -->
+				<!-- 					<thead> -->
+
+				<!-- 						<tr> -->
+				<!-- 							<th>Fecha de Venta</th> -->
+				<!-- 							<th>Fecha de Registro</th> -->
+				<!-- 							<th>Tipo de Destinacion</th> -->
+				<!-- 						</tr> -->
+				<!-- 					</thead> -->
+				<!-- 					<tbody> -->
+				<!-- 						<tr th:each="destinacion : ${list}"> -->
+				<!-- 							<td th:text="${destinacion.fechaVenta}"></td> -->
+				<!-- 							<td th:text="${destinacion.fechaRegistro}"></td> -->
+				<!-- 							<td th:text="${destinacion.tipoDestinacion}"></td> -->
+				<!-- 							<td><a -->
+				<!-- 								th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}"> -->
+				<!-- 									Editar </a></td> -->
+				<!-- 							<td><a -->
+				<!-- 								th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}"> -->
+				<!-- 									Eliminar </a></td> -->
+				<!-- 						</tr> -->
+				<!-- 					</tbody> -->
+				<!-- 				</table> -->
 				<table id="customers">
 
- 							<tr>
-							<th>Nombre de Destinacion</th>
-							<th></th>
-  					   	    <th></th>
-							</tr>
- 
-  							<tr th:each="destinacion : ${list}">
-							<td th:text="${destinacion.nombreDestinacion}"></td>
-							<td><a
-								th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}">
-									Editar <i class="fa fa-edit"></i></a></td>
-							<td><a
-								th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}">
-									Eliminar <i class="fa fa-trash"></i></a></td>
-						</tr> </table>
-				</div>
-				</div>
-</div>
-				<footer th:replace="layout/footer :: footer"></footer>
-				<script src="assets/js/jquery.min.js"></script>
-				<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-				<script src="assets/js/untitled.js"></script>
+					<tr>
+						<th>Nombre de Destinacion</th>
+						<th></th>
+						<th></th>
+					</tr>
+
+					<tr th:each="destinacion : ${list}">
+						<td th:text="${destinacion.nombreDestinacion}"></td>
+						<td><a
+							th:href="@{/destinacion/save/{id}(id=${destinacion.idDestinacion})}">
+								Editar <i class="fa fa-edit"></i>
+						</a></td>
+						<td><a
+							th:href="@{/destinacion/delete/{id}(id=${destinacion.idDestinacion})}">
+								Eliminar <i class="fa fa-trash"></i>
+						</a>
+						
+<!-- 												<a th:href="@{'/createExcel'}" style="float: right;"><img
+						th:src="@{/" img/excel.png}" style="width: 40px;" margin-left:10px></a> <a
+						th:href="@{'/pdfDestinacion'}" style="float: right;"><img
+						th:src="@{/" img/pdf.png}" style="width: 40px;"></a> -->
+						</td>
+						
+
+						
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/footer :: footer"></footer>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/untitled.js"></script>
 </body>
 
 
